@@ -17,15 +17,6 @@
           </v-list-item-title>
         </v-list-item>
       </nuxt-link>
-      <!-- <v-btn v-if="isLoggedIn" color="primary" to="/account" x-large link>
-        Account
-      </v-btn>
-      <v-btn v-else color="primary" to="/login" x-large link>
-        Login
-      </v-btn>
-      <v-btn color="secondary" class="mt-5" to="/book" x-large link>
-        Book Now
-      </v-btn> -->
     </v-list-item-group>
   </v-list>
 </template>
@@ -38,11 +29,6 @@ export default {
       required: true
     }
   }
-  // computed: {
-  //   isLoggedIn () {
-  //     return this.$auth.loggedIn
-  //   }
-  // }
 }
 </script>
 

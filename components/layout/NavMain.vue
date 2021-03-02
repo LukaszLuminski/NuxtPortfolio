@@ -12,11 +12,6 @@
           <p class="headline white--text mb-0">
             Lukasz Luminski
           </p>
-          <!-- <img
-          :src="require('~/assets/img/logo.png')"
-          :width="mobileScreen ? '80px' : '150px'"
-          :class="mobileScreen ? 'd-block' : 'd-md-block mt-15 pt-7'"
-        > -->
         </nuxt-link>
         <v-spacer />
         <NavMenuDesktop :items="navItems" />
@@ -182,15 +177,4 @@ export default {
     }
   }
 }
-// @keyframes swing {
-//   0% {
-//     transform: rotate(-5deg);
-//   }
-//   50% {
-//     transform: rotate(10deg);
-//   }
-//   100% {
-//     transform: rotate(-5deg);
-//   }
-// }
 </style>
