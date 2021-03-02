@@ -9,7 +9,10 @@
       >
         <v-list-item class="theNavMainMobile__listItemLink">
           <v-list-item-title>
-            <li>{{ n.title }}</li>
+            <li class="pb-3">
+              {{ n.title }}
+            </li>
+            <v-divider class="mr-9" />
             <!-- <li v-html="item.title" /> -->
           </v-list-item-title>
         </v-list-item>

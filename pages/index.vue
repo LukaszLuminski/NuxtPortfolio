@@ -1,21 +1,25 @@
 <template>
   <div class="heroSection">
-    <v-parallax
-      dark
-      :src="require('~/assets/img/hero-bg.jpg')"
-      :height="windowHeight"
+    <div
+      style="height: 100vh;"
+      class="first jarallax d-flex align-center justify-center"
     >
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
-          <h1 class="display-1 font-weight-thin mb-4">
-            Lukasz Luminski
-          </h1>
-          <h4 class="subheading">
-            Frontend Web Developer
-          </h4>
-        </v-col>
-      </v-row>
-    </v-parallax>
+      <img src="./../assets/img/hero-bg.jpg" class="jarallax-img">
+      <v-container style="vertical-align: top;" class="text-center">
+        <h1 ref="heading" :class="$vuetify.breakpoint.xs ? 'display-1' : 'display-2'">
+          {{ heading }}
+        </h1>
+        <p style="min-height: 32px;" class="mt-2 headline">
+          {{ subheading }}
+        </p>
+      </v-container>
+    </div>
+
+    <p>
+      Jarallax is an open-source javascript library which makes adjusting css
+      based on interaction easy. With Jarallax it's easy to create a parallax
+      scrolling website.
+    </p>
     <div class="filler" />
   </div>
 </template>
@@ -24,35 +28,43 @@
 export default {
   data () {
     return {
-      windowHeight: window.innerHeight
+      heading: '',
+      subheading: '',
+      i: 0,
+      j: 0
     }
   },
+  mounted () {
+    this.typeWriter()
+  },
+  methods: {
+    typeWriter () {
+      const heading = 'Hello, I\'m Lukasz.'
+      const subheading = 'Vue.js Developer.'
+      if (this.i < heading.length) {
+        this.heading += heading.charAt(this.i)
+        this.i++
+      } else if (this.j < subheading.length) {
+        setTimeout(() => {
+          this.subheading += subheading.charAt(this.j)
+          this.j++
+        }, 800)
+      }
+      setTimeout(this.typeWriter, 60)
+    }
+  }
+
   // watch: {
   //   windowHeight (newHeight, oldHeight) {
   //     this.txt = `it changed to ${newHeight} from ${oldHeight}`
   //   }
   // },
 
-  mounted () {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize)
-    })
-  },
-
-  beforeDestroy () {
-    window.removeEventListener('resize', this.onResize)
-  },
-
-  methods: {
-    onResize () {
-      this.windowHeight = window.innerHeight
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
 .filler {
-  height: 100vh;
+  height: 50vh;
 }
 </style>

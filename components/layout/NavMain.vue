@@ -23,7 +23,8 @@
         <v-app-bar-nav-icon
           color="white"
           x-large
-          class="d-md-none"
+          class="d-md-none pl-5"
+          :class="drawerIsOpen ? 'd-none' : ''"
           @click="drawerIsOpen = true"
         />
       </v-container>
@@ -34,7 +35,19 @@
       class="theNavMainMobile"
       fixed
       temporary
+      right
     >
+      <div class="d-flex justify-end">
+        <v-btn
+          icon
+          color="white"
+          x-large
+          class="theNavMainMobile__btn mr-5 mt-2"
+          @click="drawerIsOpen = false"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
       <NavMenuMobile :items="navItems" />
     </v-navigation-drawer>
   </nav>
@@ -84,7 +97,7 @@ export default {
         document.body.scrollTop > 150 ||
         document.documentElement.scrollTop > 150
       ) {
-        this.bg = 'black'
+        this.bg = 'rgb(20, 20, 20)'
       } else {
         this.bg = 'transparent'
       }
@@ -106,8 +119,12 @@ export default {
 
 <style lang="scss">
 .theNavMain {
+  z-index: 100;
   &__bar {
     transition: 0.4s;
+  }
+  &__btn {
+   position: absolute;
   }
   &__brand {
     text-decoration: none;
@@ -146,24 +163,22 @@ export default {
     }
   }
   .theNavMainMobile {
-    // background-image: url('~@/assets/img/mobileNavBg.png');
-    // background-position: left;
-    // background-size: cover;
-    // background-repeat: no-repeat;
+    padding-top: 2px;
+    background: rgb(30, 30, 30);
     &__list {
       list-style-type: none;
+      padding-left: 0;
+      padding-right: 0;
     }
     &__listItemLink {
-      margin-top: 15px;
-      margin-bottom: 15px;
+      padding-left: 30px;
+      padding-top: 18px;
+      padding-bottom: 3px;
       color: $color-brown;
       li {
         text-decoration: none !important;
         font-size: 24px;
       }
-    }
-    .v-navigation-drawer__content {
-      background: transparent;
     }
   }
 }
