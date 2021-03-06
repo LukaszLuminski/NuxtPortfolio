@@ -19,11 +19,12 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/scss/jarallax.scss'
+  css: ['~/assets/scss/jarallax.scss',
+    'aos/dist/aos.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/jarallax.js', ssr: false }
+  plugins: [{ src: '~/plugins/jarallax.js', ssr: false }, { src: '~/plugins/aos.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -59,7 +60,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/scss/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

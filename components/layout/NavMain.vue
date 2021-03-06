@@ -5,20 +5,21 @@
       height="70px"
       fixed
       flat
+      :class="bg === 'transparent' ? '' : 'elevation-4'"
       :color="bg"
     >
       <v-container class="d-flex">
         <nuxt-link class="theNavMain__brand d-flex align-center" to="/">
-          <p class="headline white--text mb-0">
+          <p :class="bg === 'transparent' ? 'white--text' : 'black--text'" class="headline mb-0">
             Lukasz Luminski
           </p>
         </nuxt-link>
         <v-spacer />
-        <NavMenuDesktop :items="navItems" />
+        <NavMenuDesktop :bg="bg" :items="navItems" />
         <v-app-bar-nav-icon
-          color="white"
+          :color="bg === 'transparent' ? 'white' : 'black'"
           x-large
-          class="d-md-none pl-5"
+          class="d-md-none"
           :class="drawerIsOpen ? 'd-none' : ''"
           @click="drawerIsOpen = true"
         />
@@ -28,6 +29,7 @@
     <v-navigation-drawer
       v-model="drawerIsOpen"
       class="theNavMainMobile"
+      :class="bg === 'transparent' ? 'blue-grey darken-4' : 'white'"
       fixed
       temporary
       right
@@ -35,22 +37,23 @@
       <div class="d-flex justify-end">
         <v-btn
           icon
-          color="white"
+          :color="bg === 'transparent' ? 'white' : 'black'"
           x-large
-          class="theNavMainMobile__btn mr-5 mt-2"
+          class="theNavMainMobile__btn mr-8 mt-2"
           @click="drawerIsOpen = false"
         >
-          <v-icon>mdi-close</v-icon>
+          <v-icon>
+            mdi-close
+          </v-icon>
         </v-btn>
       </div>
-      <NavMenuMobile :items="navItems" />
+      <NavMenuMobile :bg="bg" :items="navItems" />
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
 import menu from '~/utils/menu'
-// // import { mapGetters, mapActions } from 'vuex'
 import NavMenuDesktop from '~/components/layout/NavMenuDesktop'
 import NavMenuMobile from '~/components/layout/NavMenuMobile'
 
@@ -74,12 +77,6 @@ export default {
         : (mobileWidth = false)
       return mobileWidth
     }
-    // ...mapGetters({
-    //   mainMenu: 'menus/getMainMenu'
-    // }),
-    // backgroundUrl () {
-    //   return require('~/assets/img/mainNavBg.png')
-    // }
   },
   mounted () {
     window.onscroll = () => {
@@ -89,26 +86,15 @@ export default {
   methods: {
     changeColor () {
       if (
-        document.body.scrollTop > 150 ||
-        document.documentElement.scrollTop > 150
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
       ) {
-        this.bg = 'rgb(20, 20, 20)'
+        this.bg = 'white'
       } else {
         this.bg = 'transparent'
       }
     }
   }
-  // ********************************************************************************************************
-  // async mounted () {
-  //   // Fetch main menu - workaround for lack of nuxtServerInit when page refreshes on auth/protected page
-  //   await this.fetchMainMenu()
-  // }
-  // ********************************************************************************************************
-  // methods: {
-  //   ...mapActions({
-  //     fetchMainMenu: 'menus/fetchMainMenu'
-  //   })
-  // }
 }
 </script>
 
@@ -117,9 +103,17 @@ export default {
   z-index: 100;
   &__bar {
     transition: 0.4s;
+    .v-toolbar__content {
+      margin-left: auto;
+      margin-right: auto;
+       @media (min-width: $breakpoint-lg) {
+      padding-right: 16px;
+    }
+    padding-right: 5px;
+    }
   }
   &__btn {
-   position: absolute;
+    position: absolute;
   }
   &__brand {
     text-decoration: none;
@@ -128,21 +122,19 @@ export default {
     animation: swing 2.5s infinite ease-in-out;
   }
   .v-toolbar__content {
-    @media (min-width: $breakpoint-lg) {
-      padding: 0px 90px;
-    }
+    max-width: 1140px;
+    padding: 4px 0;
   }
   ul {
     .nuxt-link-exact-active {
       li {
-        color: $color-orange;
+        color: $color-orange !important;
       }
     }
     a {
       text-decoration: none;
     }
     li {
-      color: white;
       text-transform: uppercase;
       // font-weight: 600;
       display: inline;
@@ -152,14 +144,13 @@ export default {
       -o-transition: color 200ms ease-out;
       transition: color 200ms ease-out;
       &:hover {
-        color: $color-orange;
+        color: $color-orange !important;
         cursor: pointer;
       }
     }
   }
   .theNavMainMobile {
     padding-top: 2px;
-    background: rgb(30, 30, 30);
     &__list {
       list-style-type: none;
       padding-left: 0;
@@ -169,12 +160,19 @@ export default {
       padding-left: 30px;
       padding-top: 18px;
       padding-bottom: 3px;
-      color: $color-brown;
+      color: $color-orange;
       li {
         text-decoration: none !important;
         font-size: 24px;
       }
     }
   }
+ .v-list--nav .v-list-item:not(:last-child):not(:only-child), .v-list--rounded .v-list-item:not(:last-child):not(:only-child) {
+   margin-bottom: 0;
+ }
+}
+.theme--dark.theNavMain.v-list-item--active:hover::before, .theme--dark.v-list-item--active::before {
+    opacity: 0.4;
+    border-radius: 0;
 }
 </style>

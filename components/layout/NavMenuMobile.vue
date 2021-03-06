@@ -1,6 +1,7 @@
 <template>
   <v-list nav class="theNavMainMobile__list">
     <v-list-item-group>
+      <v-divider :class="bg === 'transparent' ? 'blue-grey darken-2' : 'grey'" />
       <nuxt-link
         v-for="(n, i) in items"
         :key="i"
@@ -9,13 +10,12 @@
       >
         <v-list-item class="theNavMainMobile__listItemLink">
           <v-list-item-title>
-            <li class="pb-3">
+            <li :class="bg === 'transparent' ? 'white--text' : 'black--text'" class="pb-3">
               {{ n.title }}
             </li>
-            <v-divider class="mr-9" />
-            <!-- <li v-html="item.title" /> -->
           </v-list-item-title>
         </v-list-item>
+        <v-divider :class="bg === 'transparent' ? 'blue-grey darken-2' : 'grey'" />
       </nuxt-link>
     </v-list-item-group>
   </v-list>
@@ -26,6 +26,10 @@ export default {
   props: {
     items: {
       type: Array,
+      required: true
+    },
+    bg: {
+      type: String,
       required: true
     }
   }
