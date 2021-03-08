@@ -20,7 +20,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/scss/jarallax.scss',
-    'aos/dist/aos.css'
+    'aos/dist/aos.css', '~/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

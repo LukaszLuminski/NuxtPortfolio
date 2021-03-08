@@ -10,8 +10,11 @@
     >
       <v-container class="d-flex">
         <nuxt-link class="theNavMain__brand d-flex align-center" to="/">
-          <p :class="bg === 'transparent' ? 'white--text' : 'black--text'" class="headline mb-0">
-            Lukasz Luminski
+          <p
+            :class="bg === 'transparent' ? 'white--text' : 'black--text'"
+            class="headline mb-0"
+          >
+            lukaszLuminski
           </p>
         </nuxt-link>
         <v-spacer />
@@ -39,7 +42,7 @@
           icon
           :color="bg === 'transparent' ? 'white' : 'black'"
           x-large
-          class="theNavMainMobile__btn mr-8 mt-2"
+          class="theNavMainMobile__btn mr-3 mt-2"
           @click="drawerIsOpen = false"
         >
           <v-icon>
@@ -106,10 +109,10 @@ export default {
     .v-toolbar__content {
       margin-left: auto;
       margin-right: auto;
-       @media (min-width: $breakpoint-lg) {
-      padding-right: 16px;
-    }
-    padding-right: 5px;
+      @media (min-width: $breakpoint-lg) {
+        padding-right: 16px;
+      }
+      padding-right: 5px;
     }
   }
   &__btn {
@@ -156,6 +159,11 @@ export default {
       padding-left: 0;
       padding-right: 0;
     }
+    &__listItem.nuxt-link-exact-active.nuxt-link-active {
+      .theNavMainMobile__listItemLink {
+        background: grey;
+      }
+    }
     &__listItemLink {
       padding-left: 30px;
       padding-top: 18px;
@@ -167,12 +175,14 @@ export default {
       }
     }
   }
- .v-list--nav .v-list-item:not(:last-child):not(:only-child), .v-list--rounded .v-list-item:not(:last-child):not(:only-child) {
-   margin-bottom: 0;
- }
+  .v-list--nav .v-list-item:not(:last-child):not(:only-child),
+  .v-list--rounded .v-list-item:not(:last-child):not(:only-child) {
+    margin-bottom: 0;
+  }
 }
-.theme--dark.theNavMain.v-list-item--active:hover::before, .theme--dark.v-list-item--active::before {
-    opacity: 0.4;
-    border-radius: 0;
+.theme--dark.theNavMain.v-list-item--active:hover::before,
+.theme--dark.v-list-item--active::before {
+  opacity: 0.4;
+  border-radius: 0;
 }
 </style>
