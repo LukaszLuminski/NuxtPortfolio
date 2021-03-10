@@ -1,9 +1,5 @@
 const menu = [
   {
-    title: 'Home',
-    slug: ''
-  },
-  {
     title: 'Projects',
     slug: 'parties-and-events'
   },
