@@ -2,11 +2,12 @@
   <v-list nav class="theNavMainMobile__list">
     <v-list-item-group>
       <v-divider :class="bg === 'transparent' ? 'blue-grey darken-2' : 'grey'" />
-      <nuxt-link
+      <a
         v-for="(n, i) in items"
         :key="i"
-        :to="'/' + n.slug"
+        :href="n.slug"
         class="theNavMainMobile__listItem"
+        @click="closeDrawer"
       >
         <v-list-item class="theNavMainMobile__listItemLink">
           <v-list-item-title>
@@ -16,7 +17,7 @@
           </v-list-item-title>
         </v-list-item>
         <v-divider :class="bg === 'transparent' ? 'blue-grey darken-2' : 'grey'" />
-      </nuxt-link>
+      </a>
     </v-list-item-group>
   </v-list>
 </template>
@@ -31,6 +32,11 @@ export default {
     bg: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    closeDrawer () {
+      this.$emit('close')
     }
   }
 }

@@ -8,13 +8,13 @@
       :class="bg === 'transparent' ? '' : 'elevation-4'"
       :color="bg"
     >
-      <v-container class="d-flex">
+      <v-container class="d-flex pr-0">
         <nuxt-link class="theNavMain__brand d-flex align-center" to="/">
           <p
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
           >
-            lukaszLuminski
+            lukasz<span :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'">Luminski</span>
           </p>
         </nuxt-link>
         <v-spacer />
@@ -50,7 +50,7 @@
           </v-icon>
         </v-btn>
       </div>
-      <NavMenuMobile :bg="bg" :items="navItems" />
+      <NavMenuMobile :bg="bg" :items="navItems" @close="drawerIsOpen = false" />
     </v-navigation-drawer>
   </nav>
 </template>
@@ -104,6 +104,14 @@ export default {
 <style lang="scss">
 .theNavMain {
   z-index: 100;
+  .light-grey {
+    color: grey;
+  }
+  .light-grey {
+    color: #cccccc;
+  }.dark-grey {
+    color: grey;
+  }
   &__bar {
     transition: 0.4s;
     .v-toolbar__content {
@@ -125,11 +133,11 @@ export default {
     animation: swing 2.5s infinite ease-in-out;
   }
   .v-toolbar__content {
-    max-width: 1140px;
+    max-width: 1185px;
     padding: 4px 0;
   }
   ul {
-    .nuxt-link-exact-active {
+    .nuxt-link--active {
       li {
         color: $color-orange !important;
       }
@@ -159,11 +167,11 @@ export default {
       padding-left: 0;
       padding-right: 0;
     }
-    &__listItem.nuxt-link-exact-active.nuxt-link-active {
-      .theNavMainMobile__listItemLink {
-        background: grey;
-      }
-    }
+    // &__listItem.nuxt-link-exact-active.nuxt-link-active {
+    //   .theNavMainMobile__listItemLink {
+    //     background: grey;
+    //   }
+    // }
     &__listItemLink {
       padding-left: 30px;
       padding-top: 18px;

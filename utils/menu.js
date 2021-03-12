@@ -1,19 +1,19 @@
 const menu = [
   {
     title: 'Projects',
-    slug: 'parties-and-events'
+    slug: '#projects'
   },
   {
     title: 'Skills',
-    slug: 'food-and-drink'
+    slug: '#'
   },
   {
     title: 'About me',
-    slug: 'latest-offers'
+    slug: '#'
   },
   {
     title: 'Contact',
-    slug: 'contact'
+    slug: '#'
   }
 ]
 

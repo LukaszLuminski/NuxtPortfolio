@@ -1,6 +1,8 @@
 .projects__row {
   padding: 0.7em 0 4em;
-
+  .v-card, figure, article {
+    border-radius: 5px;
+  }
   figure {
     transition: 0.5s;
     position: relative;
@@ -12,7 +14,7 @@
     // box-shadow: 2px 1px 15px 5px rgba(0, 0, 0, 0.29);
 
     p {
-      @media (min-width: 601px) {
+      @media (min-width: 768px) {
         font-size: 16px;
       }
       font-size: 14px;
@@ -21,7 +23,7 @@
 
     h3 {
       font-weight: 400;
-      @media (min-width: 601px) {
+      @media (min-width: 768px) {
         font-size: 23px;
       }
       font-size: 16px;
@@ -66,10 +68,8 @@
 }
 
 figure.hover-effect {
-  .v-image__image.v-image__image--cover {
-    // max-width: none;
-    // max-height: none;
-    width: -webkit-calc(100% + 12px);
+  img {
+    margin-bottom: -12px;
     width: calc(100% + 12px);
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
@@ -102,7 +102,7 @@ figure.hover-effect {
   &:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
-    .v-image__image.v-image__image--cover {
+    img {
       opacity: 0.4;
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
@@ -121,20 +121,3 @@ figure.hover-effect {
     }
   }
 }
-
-// *,
-// *:after,
-// *:before {
-//   -webkit-box-sizing: border-box;
-//   box-sizing: border-box;
-// }
-
-// .clearfix:after,
-// .clearfix:before {
-//   display: table;
-//   content: "";
-// }
-
-// .clearfix:after {
-//   clear: both;
-// }

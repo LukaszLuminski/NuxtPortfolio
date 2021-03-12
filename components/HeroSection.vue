@@ -83,6 +83,7 @@
         </div>
       </v-container>
     </div>
+    <div id="projects" class="anchor" />
   </div>
 </template>
 

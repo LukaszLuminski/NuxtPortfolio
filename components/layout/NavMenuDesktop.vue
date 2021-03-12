@@ -1,10 +1,10 @@
 <template>
   <ul class="d-none d-md-flex align-center theMainMenuDesktop">
-    <nuxt-link v-for="(n, i) in items" :key="i" :to="'/' + n.slug">
+    <a v-for="(n, i) in items" :key="i" :href="n.slug">
       <li :class="bg === 'transparent' ? 'white--text' : 'black--text'">
         {{ n.title }}
       </li>
-    </nuxt-link>
+    </a>
   </ul>
 </template>
 

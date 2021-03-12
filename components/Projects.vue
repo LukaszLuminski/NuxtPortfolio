@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
     <v-container class="projects__container">
-      <h2 class="display-1 projects__title pt-10">
+      <h2 class="display-1 projects__title pt-8">
         My projects
       </h2>
       <v-divider class="mt-2 mb-6" />
@@ -22,22 +22,10 @@
             elevation="10"
             :class="touchScreen ? 'disable-hover' : 'enable-hover'"
             class="projects__card"
+            :style="!imgsReady ? 'opacity: 0' : 'opacity: 1'"
           >
             <figure class="hover-effect" @click="checkScreen(project.title)">
-              <v-img :src="require(`~/assets/img/${project.img}`)">
-                <template #placeholder>
-                  <v-row
-                    class="fill-height ma-0"
-                    align="center"
-                    justify="center"
-                  >
-                    <v-progress-circular
-                      indeterminate
-                      color="grey lighten-2"
-                    />
-                  </v-row>
-                </template>
-              </v-img>
+              <img :src="`/img/${project.img}`" @load="allLoadedImg++">
               <article class="d-flex align-center">
                 <div class="card-content mb-12">
                   <h3 class="mb-3">
@@ -47,8 +35,8 @@
                 </div>
               </article>
             </figure>
-            <div class="links d-flex align-center mt-auto py-3">
-              <a :href="project.live" target="_blank">Live</a><a v-if="project.code" :href="project.code" target="_blank">Code</a><a @click="openDialog(project.title)">More info</a>
+            <div :class="!imgsReady ? 'd-none' : 'd-flex'" class="links align-center mt-auto py-3">
+              <a :href="project.live" target="_blank" :class="touchScreen ? 'ml-auto mr-5' : 'mx-5'">Live</a><a v-if="project.code" :href="project.code" target="_blank" :class="touchScreen ? 'mx-auto' : ''">Code</a><a :class="touchScreen ? 'mr-auto' : 'd-none'" class="mx-5" @click="openDialog(project.title)">More info</a>
             </div>
           </v-card>
         </v-col>
@@ -66,7 +54,11 @@ import projects from '../utils/projects'
 export default {
   data () {
     return {
-      arrOfProjects: projects
+      arrOfProjects: projects,
+      allImg: 0,
+      allLoadedImg: 0,
+      imgsReady: false
+
     }
   },
   computed: {
@@ -75,6 +67,16 @@ export default {
       navigator.maxTouchPoints > 0 ? touchScreen = true : touchScreen = false
       return touchScreen
     }
+  },
+  watch: {
+    allLoadedImg (val) {
+      if (val === this.allImg) {
+        this.imgsReady = true
+      }
+    }
+  },
+  mounted () {
+    this.allImg = projects.length
   },
   methods: {
     openDialog (val) {
@@ -94,15 +96,11 @@ export default {
 .projects {
   min-height: 700px;
   background: #f2f2f2;
-  &__container {
-@media (min-width: 1264px) {
-    max-width: 1140px;
-
-}
-  max-width: 960px;
-  }
   &__card {
     position: relative;
+    transition: .4s;
+    border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   }
 }
 .card-content {
@@ -116,7 +114,6 @@ export default {
   background: rgba(0, 0, 0, .55);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  justify-content: space-around;
   a {
     font-size: 19px;
     text-decoration: none;

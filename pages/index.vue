@@ -1,11 +1,13 @@
 <template>
   <div>
     <HeroSection />
-    <div id="projects" class="mb-10" />
-    <Projects
-      @open-dialog="openDialog"
+    <Projects @open-dialog="openDialog" />
+    <FullScreenDialog
+      class="mt-15"
+      :show="dialog"
+      :title="title"
+      @close="dialog = false"
     />
-    <FullScreenDialog class="mt-15" :show="dialog" :title="title" @close="dialog = false" />
   </div>
 </template>
 
@@ -31,4 +33,16 @@ export default {
 </script>
 
 <style lang="scss">
+.anchor {
+  height: 45px;
+  margin-top: -45px;
+}
+.container {
+  @media (min-width: 960px) {
+    max-width: 900px;
+  }
+  @media (min-width: 1264px) {
+    max-width: 1185px;
+  }
+}
 </style>
