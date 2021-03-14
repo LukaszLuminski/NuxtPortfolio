@@ -24,7 +24,7 @@
             class="projects__card"
             :style="!imgsReady ? 'opacity: 0' : 'opacity: 1'"
           >
-            <figure class="hover-effect" @click="checkScreen(project.title)">
+            <figure class="hover-effect" @click="checkScreen(project)">
               <img :src="`/img/${project.img}`" @load="allLoadedImg++">
               <article class="d-flex align-center">
                 <div class="card-content mb-12">
@@ -36,7 +36,7 @@
               </article>
             </figure>
             <div :class="!imgsReady ? 'd-none' : 'd-flex'" class="links align-center mt-auto py-3">
-              <a :href="project.live" target="_blank" :class="touchScreen ? 'ml-auto mr-5' : 'mx-5'">Live</a><a v-if="project.code" :href="project.code" target="_blank" :class="touchScreen ? 'mx-auto' : ''">Code</a><a :class="touchScreen ? 'mr-auto' : 'd-none'" class="mx-5" @click="openDialog(project.title)">More info</a>
+              <a :href="project.live" target="_blank" :class="touchScreen ? 'ml-auto mr-5' : 'mx-5'">Live</a><a v-if="project.code" :href="project.code" target="_blank" :class="touchScreen ? 'mx-auto' : ''">Code</a><a :class="touchScreen ? 'mr-auto' : 'd-none'" class="mx-5" @click="openDialog(project)">More info</a>
             </div>
           </v-card>
         </v-col>

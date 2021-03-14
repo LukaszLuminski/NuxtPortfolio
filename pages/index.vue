@@ -5,7 +5,7 @@
     <FullScreenDialog
       class="mt-15"
       :show="dialog"
-      :title="title"
+      :project="project"
       @close="dialog = false"
     />
   </div>
@@ -20,12 +20,12 @@ export default {
   data () {
     return {
       dialog: false,
-      title: null
+      project: null
     }
   },
   methods: {
     openDialog (val) {
-      this.title = val
+      this.project = val
       this.dialog = true
     }
   }
