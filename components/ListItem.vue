@@ -1,15 +1,13 @@
 <template>
-  <div>
+  <div class="mb-0 mb-lg-4">
     <v-row>
-      <v-col class="dimgray--text d-flex">
-        {{ title }}</p>
-      </v-col>
-    </v-row>
-    <v-divider class="mt-1 mb-2" />
-    <v-row>
-      <v-col>
+      <v-col class="pt-1 pt-lg-3">
+        <p class="dimgray--text d-flex mb-0 mb-md-1">
+          {{ title }}:
+        </p>
         {{ content }}
       </v-col>
+    </v-row>
     </v-row>
   </div>
 </template>
@@ -29,3 +27,10 @@ export default {
 
 }
 </script>
+
+<style lang="scss" scoped>
+  .dimgray--text {
+    font-size: 19px;
+  }
+
+</style>
