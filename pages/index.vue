@@ -2,6 +2,8 @@
   <div>
     <HeroSection />
     <Projects @open-dialog="openDialog" />
+    <Skills />
+    <div class="filler" />
     <FullScreenDialog
       class="mt-15"
       :show="dialog"
@@ -15,8 +17,9 @@
 import FullScreenDialog from '../components/FullScreenDialog.vue'
 import HeroSection from '../components/HeroSection.vue'
 import Projects from '../components/Projects.vue'
+import Skills from '../components/Skills.vue'
 export default {
-  components: { HeroSection, Projects, FullScreenDialog },
+  components: { HeroSection, Projects, FullScreenDialog, Skills },
   data () {
     return {
       dialog: false,
@@ -44,5 +47,9 @@ export default {
   @media (min-width: 1264px) {
     max-width: 1185px;
   }
+}
+.filler {
+  height: 80vh;
+  background-color: white;
 }
 </style>

@@ -5,7 +5,7 @@ const menu = [
   },
   {
     title: 'Skills',
-    slug: '#'
+    slug: '#skills'
   },
   {
     title: 'About me',

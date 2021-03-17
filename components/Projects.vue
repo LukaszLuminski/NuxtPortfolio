@@ -1,12 +1,14 @@
 <template>
   <div class="projects">
     <v-container class="projects__container">
-      <h2 class="display-1 projects__title pt-8">
-        My projects
-      </h2>
-      <v-divider class="mt-2 mb-6" />
+      <div class="title-wrapper">
+        <h2 class="display-1 section-title pt-8">
+          My most recent, Vue.js projects
+        </h2>
+        <v-divider class="mt-2 mb-6" />
+      </div>
       <v-row
-        class="projects__row"
+        class="projects__row mb-15"
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="100"
@@ -42,10 +44,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
-  </v-col>
-  </v-row>
-  </v-container>
+    <div id="skills" class="anchor" />
   </div>
 </template>
 
@@ -91,11 +90,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.title-wrapper {
+    width: max-content;
+  }
+  .section-title {
+    color: #333333;
+    padding-right: 10px;
+  }
 .projects {
   min-height: 700px;
   background: #f2f2f2;
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
   &__card {
     position: relative;
     transition: .4s;

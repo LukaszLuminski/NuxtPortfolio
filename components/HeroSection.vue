@@ -3,7 +3,7 @@
     <div
       class="heroSection__first jarallax d-flex align-center justify-center"
     >
-      <img src="./../assets/img/hero-bg.jpg" class="jarallax-img">
+      <img src="/img/hero-bg.jpg" class="jarallax-img">
       <v-container
         :class="
           $vuetify.breakpoint.xs ? 'mt-15 mobile-width' : 'desktop-width'

@@ -20,16 +20,17 @@
       </v-toolbar>
       <v-container>
         <v-card
+          :style="imageLoaded ? 'opacity: 1;' : 'opacity: 0;'"
           class="project-description__content-card px-3 px-sm-5 mb-15"
           elevation="4"
         >
           <v-row class="mt-8 mt-sm-15 d-flex justify-center pt-0 pt-sm-3">
             <v-card class="d-sm-none image-wrapper" elevation="1">
-              <v-img :src="`/img/${project.img}`" />
+              <v-img :src="`/img/${project.img}`" @load="imageLoaded=true" />
             </v-card>
             <v-col class="col-6 d-none d-sm-block pb-0 pb-lg-3">
               <v-card elevation="3">
-                <v-img :src="`/img/${project.img}`" />
+                <v-img :src="`/img/${project.img}`" @load="imageLoaded=true" />
               </v-card>
             </v-col>
             <v-col class="col-12 col-sm-6 mt-3 mt-sm-0 pb-0 pb-lg-3">
@@ -99,6 +100,11 @@ export default {
       required: true
     }
   },
+  data () {
+    return {
+      imageLoaded: false
+    }
+  },
   methods: {
     closeDialog () {
       this.$emit('close')
@@ -114,6 +120,7 @@ export default {
   }
    &__content-card {
     background: white !important;
+    transition: .4s;
   }
   &__long-text {
     line-height: 1.7;

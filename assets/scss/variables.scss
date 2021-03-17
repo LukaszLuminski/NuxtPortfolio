@@ -16,3 +16,9 @@ $color-brown: #6F3E04;
 $color-light-tan: #ECC38F;
 $color-tan: #E9BB80;
 $color-dark-tan: #D4A76F;
+
+// Font family
+$body-font-family: Lato, sans-serif;
+$heading-font-family: Lato, serif;
+
+@import '~vuetify/src/styles/styles.sass';

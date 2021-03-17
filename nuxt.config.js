@@ -14,7 +14,11 @@ export default {
       { hid: 'description', name: 'description', content: 'Vue.js Web and Mobile Developer. Nuxt.js, Vuetify, Quasar Framework.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap'
+      }
     ]
   },
 
@@ -58,6 +62,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
+    treeShake: true,
     customVariables: ['~/assets/scss/variables.scss'],
     theme: {
       dark: false,

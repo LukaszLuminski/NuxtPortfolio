@@ -65,8 +65,8 @@ const projects = [
     live: 'https://www.euphoriasportstherapy.com',
     title: 'Euphoria Sports Therapy',
     description: 'My first website made for a client, in 2019. Designed and built by myself from a scratch, then migrated to WordPress.',
-    long_description: '<p>I\'ve designed and built this website in December 2019, for a local sports therapy clinic.</p><p>It was my first such a complex project and in the process I\'ve also learnt about SEO best practices.</p><p>Since the client wanted to possibly add more features in the future, with time I migrated the website to WordPress.</p>',
-    front_end: 'HTML5, jQuery, CSS3',
+    long_description: '<p>I\'ve designed and built this website in December 2019, for a local sports therapy clinic.</p><p>It was my first such a complex project and in the process I\'ve also learnt about SEO good practices.</p><p>Since the client wanted to possibly add more features in the future, with time I migrated the website to WordPress.</p>',
+    front_end: 'HTML5, jQuery, CSS3, Bootstrap',
     back_end: 'PHP',
     db: 'MySQL'
   }

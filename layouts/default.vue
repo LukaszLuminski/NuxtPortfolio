@@ -8,7 +8,17 @@
       <Footer />
     </v-app>
   </transition>
-  <v-overlay v-else color="white" :opacity="1" />
+  <v-app v-else>
+    <v-container class="d-flex justify-center align-center">
+      <v-progress-linear
+        indeterminate
+        absolute
+        top
+        color="primary"
+      />
+    </v-container>
+  </v-app>
+  <!-- <v-overlay v-else color="white" :opacity="1" /> -->
 </template>
 
 <script>

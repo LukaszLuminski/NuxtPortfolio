@@ -2,7 +2,8 @@
   <nav class="theNavMain">
     <v-app-bar
       class="theNavMain__bar"
-      height="70px"
+      :height="bg === 'transparent' ? '70px' : '55px'"
+      style="transition: 0.5s"
       fixed
       flat
       :class="bg === 'transparent' ? '' : 'elevation-4'"
@@ -105,18 +106,20 @@ export default {
 .theNavMain {
   z-index: 100;
   .light-grey {
-    color: grey;
-  }
-  .light-grey {
     color: #cccccc;
   }.dark-grey {
     color: grey;
   }
+  .headline, &__bar {
+    transition: .5s;
+  }
   &__bar {
-    transition: 0.4s;
     .v-toolbar__content {
+      transition: .4s;
       margin-left: auto;
       margin-right: auto;
+      max-width: 1185px;
+      // padding: 5px 0;
       @media (min-width: $breakpoint-lg) {
         padding-right: 16px;
       }
@@ -131,10 +134,6 @@ export default {
   }
   &__boatImg {
     animation: swing 2.5s infinite ease-in-out;
-  }
-  .v-toolbar__content {
-    max-width: 1185px;
-    padding: 4px 0;
   }
   ul {
     .nuxt-link--active {
