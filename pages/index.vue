@@ -29,7 +29,9 @@ export default {
   computed: {
     touchScreen () {
       let touchScreen
-      navigator.maxTouchPoints > 0 ? touchScreen = true : touchScreen = false
+      if (process.browser) {
+        navigator.maxTouchPoints > 0 ? touchScreen = true : touchScreen = false
+      }
       return touchScreen
     }
   },
