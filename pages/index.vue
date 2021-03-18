@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeroSection />
-    <Projects @open-dialog="openDialog" />
+    <HeroSection :touch-screen="touchScreen" />
+    <Projects :touch-screen="touchScreen" />
     <Skills />
     <div class="filler" />
     <FullScreenDialog
@@ -26,11 +26,18 @@ export default {
       project: null
     }
   },
-  methods: {
-    openDialog (val) {
+  computed: {
+    touchScreen () {
+      let touchScreen
+      navigator.maxTouchPoints > 0 ? touchScreen = true : touchScreen = false
+      return touchScreen
+    }
+  },
+  created () {
+    this.$root.$on('open-dialog', (val) => {
       this.project = val
       this.dialog = true
-    }
+    })
   }
 }
 </script>

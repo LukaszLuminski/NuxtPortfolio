@@ -1,17 +1,5 @@
 const projects = [
   {
-    img: 'converter.jpg',
-    alt: 'Vue.js, Vuex and Vue Router app',
-    live: 'https://l-luminski-vue-currency-converter.netlify.app/',
-    code: 'https://github.com/LukaszLuminski/Vue-Currency-Converter/',
-    title: 'Vue Currency Converter',
-    description: 'A Vue.js application, built with Vuetify, using Vuex, Vue Router and RESTful API endpoints.',
-    long_description: '<p>An app made over a weekend in February 2020, deployed to Netlify.</p><p>A simple currency converter partially inspired by the Google one. Styling time was singificantly reduced thanks to using Vuetify.</p><p>I wanted to create a simple Vue.js app, that would use Vue Router, Vuex and would consume an API.</p><p>Vue router is used to provide navigation - with transitions - between the two available pages. Vuex store object is saved to a browser\'s localStorage and is utilised to keep the history of all conversions, which records can be deleted.</p><p>The API used is Float Rates (<a href="https://www.floatrates.com/" target= \'_blank\'>https://www.floatrates.com/</a>).</p><p>There is a full data validation and error handling implemented.</p>',
-    front_end: 'Vue.js, Vuex, Vue Router, Vuetify, SCSS',
-    back_end: null,
-    db: null
-  },
-  {
     img: 'tastytreats.jpg',
     alt: 'Data validation and user authorisation app',
     live: 'https://tastytreats.herokuapp.com/',
@@ -44,18 +32,6 @@ const projects = [
     description: 'Landing page of a fictional restaurant, developed mostly with Bootstrap and jQuery.',
     long_description: '<p>A technical task, which I received while applying for my first frontend developer role. Successfully passed, it allowed me to eventually get the role.</p><p>I was supposed to design and build a landing page of a fictional restaurant, using Bootstrap. All in all it was a great exercise, extending my knowledge about this toolkit\'s potential to create beautiful and modern websites.</p>',
     front_end: 'HTML5, JavaScript ES6+, jQuery, Bootstrap, SCSS',
-    back_end: null,
-    db: null
-  },
-  {
-    img: 'portfolio.jpg',
-    alt: 'Lukasz Luminski Portfolio website',
-    live: 'https://lukaszluminski.github.io/Portfolio/',
-    code: 'https://github.com/LukaszLuminski/Portfolio/',
-    title: 'Previous Portfolio',
-    description: 'First version of this website, built in late 2019 just with HTML5, SCSS and JavaScript ES6.',
-    long_description: '<p>Initial version of this website that I\'ve designed and built from scratch in 2019.</p>',
-    front_end: 'HTML5, JavaScript ES6+, SCSS',
     back_end: null,
     db: null
   },

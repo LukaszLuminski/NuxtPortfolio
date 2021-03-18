@@ -59,6 +59,7 @@
                 class="white--text"
                 color="#aea79e"
                 block
+                :disabled="project.live ? false : true"
                 large
                 :href="project.live"
                 target="_blank"

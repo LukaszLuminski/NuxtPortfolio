@@ -1,70 +1,75 @@
 <template>
   <div class="projects">
-    <v-container class="projects__container">
-      <div class="title-wrapper">
-        <h2 class="display-1 section-title pt-8">
+    <v-container class="projects__container mb-3">
+      <div
+        class="title-wrapper"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <p class="section-title pt-8">
           My most recent, Vue.js projects
-        </h2>
+        </p>
         <v-divider class="mt-2 mb-6" />
       </div>
-      <v-row
-        class="projects__row mb-15"
+      <div
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="100"
         data-aos-once="true"
         data-aos-anchor="#projects"
       >
-        <v-col
-          v-for="(project, i) in arrOfProjects"
-          :key="i"
-          class="col-12 col-sm-6"
-        >
-          <v-card
-            elevation="10"
-            :class="touchScreen ? 'disable-hover' : 'enable-hover'"
-            class="projects__card"
-            :style="!imgsReady ? 'opacity: 0' : 'opacity: 1'"
-          >
-            <figure class="hover-effect" @click="checkScreen(project)">
-              <img :src="`/img/${project.img}`" @load="allLoadedImg++">
-              <article class="d-flex align-center">
-                <div class="card-content mb-12">
-                  <h3 class="mb-3">
-                    {{ project.title }}
-                  </h3>
-                  <p>{{ project.description }}</p>
-                </div>
-              </article>
-            </figure>
-            <div :class="!imgsReady ? 'd-none' : 'd-flex'" class="links align-center mt-auto py-3">
-              <a :href="project.live" target="_blank" :class="touchScreen ? 'ml-auto mr-5' : 'mx-5'">Live</a><a v-if="project.code" :href="project.code" target="_blank" :class="touchScreen ? 'mx-auto' : ''">Code</a><a :class="touchScreen ? 'mr-auto' : 'd-none'" class="mx-5" @click="openDialog(project)">More info</a>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
+        <Project :touch-screen="touchScreen" :arr="arrOfVueProjects" :imgs-ready="imgsReady" @add-loaded-img="allLoadedImg++" />
+      </div>
+      <div
+        class="title-wrapper"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <p class="section-subtitle pt-8">
+          Older projects, various tech stack
+        </p>
+        <v-divider class="mt-2 mb-6" />
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <Project class="mb-15" :touch-screen="touchScreen" :arr="arrOfOtherProjects" :imgs-ready="imgsReady" @add-loaded-img="allLoadedImg++" />
+      </div>
     </v-container>
     <div id="skills" class="anchor" />
   </div>
 </template>
 
 <script>
-import projects from '../utils/projects'
+import otherProjects from '../utils/other-projects'
+import vueProjects from '../utils/vue-projects'
+import Project from './Project.vue'
 export default {
+  components: { Project },
+  props: {
+    touchScreen: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
-      arrOfProjects: projects,
+      arrOfOtherProjects: otherProjects,
+      arrOfVueProjects: vueProjects,
       allImg: 0,
       allLoadedImg: 0,
       imgsReady: false
 
-    }
-  },
-  computed: {
-    touchScreen () {
-      let touchScreen
-      navigator.maxTouchPoints > 0 ? touchScreen = true : touchScreen = false
-      return touchScreen
     }
   },
   watch: {
@@ -75,22 +80,33 @@ export default {
     }
   },
   mounted () {
-    this.allImg = projects.length
-  },
-  methods: {
-    openDialog (val) {
-      this.$emit('open-dialog', val)
-    },
-    checkScreen (val) {
-      if (!this.touchScreen) {
-        this.openDialog(val)
-      }
-    }
+    this.allImg = vueProjects.length + otherProjects.length
   }
 }
 </script>
 
 <style lang="scss">
+.section-title, .section-subtitle {
+  margin-bottom: 0 !important;
+}
+.section-title {
+  @media (min-width: 325px) {
+  font-size: 1.5rem;
+  }
+  @media (min-width: 768px) {
+  font-size: 2.1rem;
+  }
+  font-size: 1.3rem;
+}
+.section-subtitle {
+  @media (min-width: 325px) {
+  font-size: 1.35rem;
+  }
+  @media (min-width: 768px) {
+  font-size: 1.8rem;
+  }
+  font-size: 1.2rem;
+}
 .title-wrapper {
     width: max-content;
   }
@@ -101,7 +117,10 @@ export default {
 .projects {
   min-height: 700px;
   background: #f2f2f2;
-  clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+  @media (min-width: 768px) {
+clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+  }
+  clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
   &__card {
     position: relative;
     transition: .4s;
