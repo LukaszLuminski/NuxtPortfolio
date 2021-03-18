@@ -7,7 +7,12 @@
         </h2>
         <v-divider class="mt-2 mb-6" />
       </div>
-
+      <p class="headline">
+        Work in progress...
+      </p>
+      <p>
+        Check my previous portfolio website at <a href="https://lukaszluminski.github.io/Portfolio/">https://lukaszluminski.github.io/Portfolio/</a>.
+      </p>
       <v-row
         class="skills__row mb-8"
         data-aos="fade-up"

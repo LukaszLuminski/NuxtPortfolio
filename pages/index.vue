@@ -3,7 +3,6 @@
     <HeroSection :touch-screen="touchScreen" />
     <Projects :touch-screen="touchScreen" />
     <Skills />
-    <div class="filler" />
     <FullScreenDialog
       class="mt-15"
       :show="dialog"
@@ -56,9 +55,5 @@ export default {
   @media (min-width: 1264px) {
     max-width: 1185px;
   }
-}
-.filler {
-  height: 80vh;
-  background-color: white;
 }
 </style>

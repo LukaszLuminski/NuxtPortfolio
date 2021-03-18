@@ -11,22 +11,22 @@
   <v-app v-else>
     <v-container class="progress-container d-flex justify-center align-center">
       <v-row
-        class="fill-height"
         align-content="center"
         justify="center"
       >
         <v-col
-          class="subtitle-1 text-center"
+          class="subtitle-1 text-center pt-0"
           cols="12"
         >
           Loading
         </v-col>
-        <v-col cols="6">
+        <v-col cols="6" class="mb-15 pb-15">
           <v-progress-linear
-            color="primary"
+            class="progress"
             indeterminate
             rounded
             height="6"
+            color="brown lighten-3"
           />
         </v-col>
       </v-row>

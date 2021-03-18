@@ -23,59 +23,59 @@
         class="cursor"
       ><input type="text" class="rq-form-element"><i /></span>
     </p>
-    <div
-      v-if="animateSocials"
-      data-aos="flip-up"
-      data-aos-duration="4000"
-    >
-      <v-btn
-        x-large
-        icon
-        color="white"
-        class="mx-8 my-10"
-        href="https://github.com/LukaszLuminski"
-        target="_blank"
-      >
-        <v-icon>mdi-github</v-icon>
-      </v-btn>
-      <v-btn
-        v-if="animateSocials"
+    <div v-if="animateSocials">
+      <div
         data-aos="flip-up"
         data-aos-duration="4000"
-        x-large
-        icon
-        color="white"
-        class="mx-8 my-10"
-        href="https://www.linkedin.com/in/lukasz-luminski"
-        target="_blank"
       >
-        <v-icon>mdi-linkedin</v-icon>
-      </v-btn>
-    </div>
-    <div
-      v-if="animateSocials"
-      class="heroSection__cta-btns mx-auto"
-      data-aos="fade-up"
-      data-aos-delay="500"
-      data-aos-duration="4000"
-    >
-      <v-btn
-        block
-        x-large
-        color="rgba(255, 255, 255, .7)"
-        class="heroSection__cta-btn mt-9 black--text"
-        href="#projects"
+        <v-btn
+          x-large
+          icon
+          color="white"
+          class="mx-8 my-10"
+          href="https://github.com/LukaszLuminski"
+          target="_blank"
+        >
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
+        <v-btn
+          v-if="animateSocials"
+          data-aos="flip-up"
+          data-aos-duration="4000"
+          x-large
+          icon
+          color="white"
+          class="mx-8 my-10"
+          href="https://www.linkedin.com/in/lukasz-luminski"
+          target="_blank"
+        >
+          <v-icon>mdi-linkedin</v-icon>
+        </v-btn>
+      </div>
+      <div
+        class="heroSection__cta-btns mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="800"
+        data-aos-duration="4000"
       >
-        See my projects
-      </v-btn>
-      <v-btn
-        block
-        x-large
-        color="rgba(205, 205, 205, .6)"
-        class="heroSection__cta-btn mt-5 black--text"
-      >
-        Read more about me
-      </v-btn>
+        <v-btn
+          block
+          x-large
+          color="rgba(255, 255, 255, .7)"
+          class="heroSection__cta-btn mt-9 black--text"
+          href="#projects"
+        >
+          See my projects
+        </v-btn>
+        <v-btn
+          block
+          x-large
+          color="rgba(205, 205, 205, .6)"
+          class="heroSection__cta-btn mt-5 black--text"
+        >
+          Read more about me
+        </v-btn>
+      </div>
     </div>
   </v-container>
 </template>
