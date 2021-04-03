@@ -1,5 +1,6 @@
 <template>
   <v-dialog
+    :key="key"
     :value="show"
     fullscreen
     hide-overlay
@@ -22,7 +23,7 @@
           </v-btn>
         </v-toolbar-items>
       </v-toolbar>
-      <v-container>
+      <v-container ref="container">
         <v-card
           :style="imageLoaded ? 'opacity: 1;' : 'opacity: 0;'"
           class="project-description__content-card px-3 px-sm-6 mb-15"
@@ -119,12 +120,16 @@ export default {
   },
   data () {
     return {
-      imageLoaded: false
+      imageLoaded: false,
+      key: 0
     }
   },
   methods: {
     closeDialog () {
       this.$emit('close')
+      setTimeout(() => {
+        this.key++
+      }, 500)
     }
   }
 }
