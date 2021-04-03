@@ -6,8 +6,12 @@
     transition="dialog-bottom-transition"
     class="project-description"
   >
-    <v-card v-if="project" class="project-description__main-card">
-      <v-toolbar class="project-description__toolbar" dark color="#948c84">
+    <v-card v-if="project" class="project-description__main-card rounded-0">
+      <v-toolbar
+        class="project-description__toolbar"
+        dark
+        color="#948c84"
+      >
         <v-toolbar-title>
           {{ project.title }}
         </v-toolbar-title>
@@ -18,19 +22,22 @@
           </v-btn>
         </v-toolbar-items>
       </v-toolbar>
-      <v-container class="pt-15">
+      <v-container>
         <v-card
           :style="imageLoaded ? 'opacity: 1;' : 'opacity: 0;'"
           class="project-description__content-card px-3 px-sm-6 mb-15"
           elevation="4"
         >
-          <v-row class="mt-8 mt-sm-15 d-flex justify-center pt-0 pt-sm-3">
+          <v-row ref="row" class="mt-10 mt-sm-15 d-flex justify-center pt-0 pt-sm-3">
             <v-card class="d-sm-none image-wrapper" elevation="1">
-              <v-img :src="`/img/${project.img}`" @load="imageLoaded=true" />
+              <v-img :src="`/img/${project.img}`" @load="imageLoaded = true" />
             </v-card>
             <v-col class="col-6 d-none d-sm-block pb-0 pb-lg-3">
               <v-card elevation="3">
-                <v-img :src="`/img/${project.img}`" @load="imageLoaded=true" />
+                <v-img
+                  :src="`/img/${project.img}`"
+                  @load="imageLoaded = true"
+                />
               </v-card>
             </v-col>
             <v-col class="col-12 col-sm-6 mt-3 mt-sm-0 pb-0 pb-lg-3">
@@ -39,8 +46,14 @@
               </p>
               <v-divider class="mt-1 mb-5 mb-lg-11" />
               <ListItem title="Front-end" :content="project.front_end" />
-              <ListItem title="Back-end" :content="project.back_end ? project.back_end : 'n/a'" />
-              <ListItem title="Database" :content="project.db ? project.db : 'n/a'" />
+              <ListItem
+                title="Back-end"
+                :content="project.back_end ? project.back_end : 'n/a'"
+              />
+              <ListItem
+                title="Database"
+                :content="project.db ? project.db : 'n/a'"
+              />
             </v-col>
           </v-row>
           <v-row>
@@ -49,7 +62,10 @@
                 Description
               </p>
               <v-divider class="mt-1 mb-4" />
-              <p class="project-description__long-text" v-html="project.long_description" />
+              <p
+                class="project-description__long-text"
+                v-html="project.long_description"
+              />
             </v-col>
           </v-row>
           <v-divider class="mt-0 mb-5" />
@@ -115,9 +131,13 @@ export default {
 </script>
 
 <style lang="scss">
+.v-dialog {
+  border-radius: 0 !important;
+}
 .project-description__toolbar.v-sheet.theme--dark.v-toolbar {
-  position: fixed !important;
+  position: sticky !important;
   z-index: 100;
+  top: 0;
   left: 0;
   right: 0;
 }
@@ -125,9 +145,9 @@ export default {
   &__main-card {
     background: #f2f2f2 !important;
   }
-   &__content-card {
+  &__content-card {
     background: white !important;
-    transition: .4s;
+    transition: 0.4s;
   }
   &__long-text {
     line-height: 1.7;
@@ -148,8 +168,8 @@ export default {
   color: #706d70;
 }
 .v-sheet.image-wrapper.v-card {
-    border-radius: 0;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 </style>
