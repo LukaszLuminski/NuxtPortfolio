@@ -51,8 +51,6 @@
 </template>
 
 <script>
-import otherProjects from '../utils/other-projects'
-import vueProjects from '../utils/vue-projects'
 import Project from './Project.vue'
 export default {
   components: { Project },
@@ -64,8 +62,8 @@ export default {
   },
   data () {
     return {
-      arrOfOtherProjects: otherProjects,
-      arrOfVueProjects: vueProjects,
+      arrOfOtherProjects: null,
+      arrOfVueProjects: null,
       allImg: 0,
       allLoadedImg: 0,
       imgsReady: false
@@ -79,8 +77,10 @@ export default {
       }
     }
   },
-  mounted () {
-    this.allImg = vueProjects.length + otherProjects.length
+  created () {
+    this.arrOfOtherProjects = this.$store.state.otherProjects.items
+    this.arrOfVueProjects = this.$store.state.vueProjects.items
+    this.allImg = this.arrOfVueProjects.length + this.arrOfOtherProjects.length
   }
 }
 </script>

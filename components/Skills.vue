@@ -21,11 +21,11 @@
         data-aos-once="true"
         data-aos-anchor="#projects"
       >
-        <!-- <v-col
-          v-for="(project, i) in arrOfProjects"
+        <v-col
+          v-for="(item, i) in arrOfProjects"
           :key="i"
           class="col-12 col-sm-6"
-        /> -->
+        />
       </v-row>
     </v-container>
   </div>

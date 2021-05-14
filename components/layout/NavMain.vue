@@ -57,7 +57,6 @@
 </template>
 
 <script>
-import menu from '~/utils/menu'
 import NavMenuDesktop from '~/components/layout/NavMenuDesktop'
 import NavMenuMobile from '~/components/layout/NavMenuMobile'
 
@@ -69,8 +68,8 @@ export default {
   data: () => {
     return {
       drawerIsOpen: false,
-      navItems: menu,
-      bg: 'transparent'
+      bg: 'transparent',
+      navItems: null
     }
   },
   computed: {
@@ -81,6 +80,9 @@ export default {
         : (mobileWidth = false)
       return mobileWidth
     }
+  },
+  created () {
+    this.navItems = this.$store.state.menu.items
   },
   mounted () {
     window.onscroll = () => {
