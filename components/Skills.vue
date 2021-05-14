@@ -13,7 +13,7 @@
       <p>
         Check my previous portfolio website at <a href="https://lukaszluminski.github.io/Portfolio/">https://lukaszluminski.github.io/Portfolio/</a>.
       </p>
-      <v-row
+      <!-- <v-row
         class="skills__row mb-8"
         data-aos="fade-up"
         data-aos-duration="1000"
@@ -26,7 +26,7 @@
           :key="i"
           class="col-12 col-sm-6"
         />
-      </v-row>
+      </v-row> -->
     </v-container>
   </div>
 </template>
