@@ -140,7 +140,7 @@ export default {
   ul {
     .nuxt-link--active {
       li {
-        color: $color-orange !important;
+        color: $color-brown !important;
       }
     }
     a {
@@ -156,7 +156,7 @@ export default {
       -o-transition: color 200ms ease-out;
       transition: color 200ms ease-out;
       &:hover {
-        color: $color-orange !important;
+        color: $color-brown !important;
         cursor: pointer;
       }
     }
@@ -177,7 +177,7 @@ export default {
       padding-left: 30px;
       padding-top: 18px;
       padding-bottom: 3px;
-      color: $color-orange;
+      color: $color-brown;
       li {
         text-decoration: none !important;
         font-size: 24px;

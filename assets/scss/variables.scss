@@ -6,19 +6,12 @@ $breakpoint-xl: 1904px;
 
 // Colors
 $color-white: #f3f3f3;
-$color-black: #242424;
-$color-grey: #EDEDED;
-$color-blue: #00ACCA;
-$color-light-blue: #3ACEE8;
-$color-orange: #9f9993;
-$color-light-orange: #FCCD49;
-$color-brown: #6F3E04;
-$color-light-tan: #ECC38F;
-$color-tan: #E9BB80;
-$color-dark-tan: #D4A76F;
+$color-light-grey: #f2f2f2;
+$color-dark-grey: #333333;
+$color-brown: #9f9993;
 
 // Font family
-$body-font-family: Lato, sans-serif;
+$body-font-family: 'Open Sans', sans-serif;
 $heading-font-family: Lato, sans-serif;
 
 @import '~vuetify/src/styles/styles.sass';

@@ -1,42 +1,78 @@
 <template>
   <div class="skills">
     <v-container class="skills__container">
-      <div class="title-wrapper">
-        <h2 class="display-1 section-title pt-8">
+      <div
+        class="title-wrapper"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-anchor="#skills"
+      >
+        <p class="section-title pt-8">
           My skills
-        </h2>
-        <v-divider class="mt-2 mb-6" />
+        </p>
+        <v-divider class="mt-2 mb-12" />
       </div>
-      <p class="headline">
-        Work in progress...
-      </p>
-      <p>
-        Check my previous portfolio website at <a href="https://lukaszluminski.github.io/Portfolio/">https://lukaszluminski.github.io/Portfolio/</a>.
-      </p>
-      <!-- <v-row
+      <v-row
         class="skills__row mb-8"
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="100"
         data-aos-once="true"
-        data-aos-anchor="#projects"
+        data-aos-anchor="#skills"
       >
         <v-col
-          v-for="(item, i) in arrOfProjects"
+          v-for="(skill, i) in skills"
           :key="i"
-          class="col-12 col-sm-6"
-        />
-      </v-row> -->
+          class="col-4 col-sm-2 text-center"
+        >
+          <div class="skills__img mx-auto" :style="`background-image: url('${skill.img}')`" />
+          <p class="skills__title mt-3">
+            {{ skill.title }}
+          </p>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      skills: null
+    }
+  },
+  created () {
+    this.skills = this.$store.state.skills.items
+  }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .skills {
+    &__container {
+      @media (min-width: $breakpoint-md) {
+        padding-left: 20%;
+      }
+      @media (min-width: $breakpoint-sm) {
+        margin-bottom: 0;
+      }
+      margin-bottom: -25px;
+    }
+    &__row {
+      margin-right: -31px;
+        margin-left: -31px;
+    }
+    &__title {
+      font-size: 17px;
+    }
+    &__img {
+      height: 54px;
+      width: 54px;
+      background-position: center;
+      background-size: contain;
+    }
+  }
 </style>

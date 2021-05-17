@@ -10,7 +10,7 @@ export const state = () => ({
     },
     {
       title: 'About me',
-      slug: '#'
+      slug: '#about'
     },
     {
       title: 'Contact',

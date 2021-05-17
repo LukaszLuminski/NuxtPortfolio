@@ -159,15 +159,15 @@ export default {
   opacity: 0;
 }
 .font-size-desktop {
-  font-size: 25.5px;
+  font-size: 25.2px;
 }
 .font-size-mobile {
   font-size: 18px;
 }
 .desktop-width {
-  max-width: 388px;
+  max-width: 400px;
 }
 .mobile-width {
-  max-width: 292px;
+  max-width: 295px;
 }
 </style>

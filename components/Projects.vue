@@ -10,7 +10,8 @@
         data-aos-anchor="#projects"
       >
         <p class="section-title pt-8">
-          My most recent, Vue.js projects
+          My most recent, Vue.js
+          <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
         </p>
         <v-divider class="mt-2 mb-6" />
       </div>
@@ -21,7 +22,12 @@
         data-aos-once="true"
         data-aos-anchor="#projects"
       >
-        <Project :touch-screen="touchScreen" :arr="arrOfVueProjects" :imgs-ready="imgsReady" @add-loaded-img="allLoadedImg++" />
+        <Project
+          :touch-screen="touchScreen"
+          :arr="arrOfVueProjects"
+          :imgs-ready="imgsReady"
+          @add-loaded-img="allLoadedImg++"
+        />
       </div>
       <div
         class="title-wrapper"
@@ -32,7 +38,8 @@
         data-aos-anchor="#projects"
       >
         <p class="section-subtitle pt-8">
-          Older projects, various tech stack
+          Older projects, various
+          <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">tech stack
         </p>
         <v-divider class="mt-2 mb-6" />
       </div>
@@ -43,7 +50,13 @@
         data-aos-once="true"
         data-aos-anchor="#projects"
       >
-        <Project class="mb-15" :touch-screen="touchScreen" :arr="arrOfOtherProjects" :imgs-ready="imgsReady" @add-loaded-img="allLoadedImg++" />
+        <Project
+          class="mb-15"
+          :touch-screen="touchScreen"
+          :arr="arrOfOtherProjects"
+          :imgs-ready="imgsReady"
+          @add-loaded-img="allLoadedImg++"
+        />
       </div>
     </v-container>
     <div id="skills" class="anchor" />
@@ -67,7 +80,6 @@ export default {
       allImg: 0,
       allLoadedImg: 0,
       imgsReady: false
-
     }
   },
   watch: {
@@ -86,46 +98,46 @@ export default {
 </script>
 
 <style lang="scss">
-.section-title, .section-subtitle {
+.section-title,
+.section-subtitle {
   margin-bottom: 0 !important;
 }
 .section-title {
   @media (min-width: 325px) {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
   }
   @media (min-width: 768px) {
-  font-size: 2.1rem;
+    font-size: 2.1rem;
   }
   font-size: 1.3rem;
 }
 .section-subtitle {
   @media (min-width: 325px) {
-  font-size: 1.35rem;
+    font-size: 1.35rem;
   }
   @media (min-width: 768px) {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
   }
   font-size: 1.2rem;
 }
 .title-wrapper {
-    width: max-content;
-  }
-  .section-title {
-    color: #333333;
-    padding-right: 10px;
-  }
+  width: max-content;
+}
+.section-title {
+  color: $color-dark-grey;
+  padding-right: 10px;
+}
 .projects {
-  min-height: 700px;
-  background: #f2f2f2;
+  background: $color-light-grey;
   @media (min-width: 768px) {
-clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
   }
   clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
   &__card {
     position: relative;
-    transition: .4s;
+    transition: 0.4s;
     border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 }
 .card-content {
@@ -136,7 +148,7 @@ clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, .55);
+  background: rgba(0, 0, 0, 0.55);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   a {
@@ -146,10 +158,9 @@ clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
   }
 }
 .v-application .elevation-10.projects__card {
-  transition: .4s;
+  transition: 0.4s;
   &:hover {
     box-shadow: none !important;
   }
-
 }
 </style>

@@ -25,7 +25,7 @@ export const state = () => ({
       title: 'Vuetify'
     },
     {
-      img: '/img/node.png',
+      img: '/img/nodejs.png',
       title: 'Node.js'
     },
     {

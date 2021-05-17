@@ -3,6 +3,19 @@
     <HeroSection :touch-screen="touchScreen" />
     <Projects :touch-screen="touchScreen" />
     <Skills />
+    <AboutMe />
+    <v-row class="px-6 mt-8">
+      <p class="headline">
+        Work in progress...
+      </p>
+      <p>
+        Check my previous portfolio website at
+        <a
+          href="https://lukaszluminski.github.io/Portfolio/"
+        >https://lukaszluminski.github.io/Portfolio/</a>.
+      </p>
+    </v-row>
+
     <FullScreenDialog
       class="mt-15"
       :show="dialog"
@@ -13,12 +26,13 @@
 </template>
 
 <script>
-import FullScreenDialog from '../components/FullScreenDialog.vue'
-import HeroSection from '../components/HeroSection.vue'
-import Projects from '../components/Projects.vue'
-import Skills from '../components/Skills.vue'
+import FullScreenDialog from '~/components/FullScreenDialog.vue'
+import HeroSection from '~/components/HeroSection.vue'
+import Projects from '~/components/Projects.vue'
+import Skills from '~/components/Skills.vue'
+import AboutMe from '~/components/AboutMe.vue'
 export default {
-  components: { HeroSection, Projects, FullScreenDialog, Skills },
+  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe },
   data () {
     return {
       dialog: false,
@@ -29,7 +43,9 @@ export default {
     touchScreen () {
       let touchScreen
       if (process.browser) {
-        navigator.maxTouchPoints > 0 ? touchScreen = true : touchScreen = false
+        navigator.maxTouchPoints > 0
+          ? (touchScreen = true)
+          : (touchScreen = false)
       }
       return touchScreen
     }
