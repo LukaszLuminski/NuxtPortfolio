@@ -12,7 +12,7 @@
         <p class="section-title pt-8">
           My skills
         </p>
-        <v-divider class="mt-2 mb-12" />
+        <v-divider class="mb-12" />
       </div>
       <v-row
         class="skills__row mb-8"
@@ -34,6 +34,7 @@
         </v-col>
       </v-row>
     </v-container>
+    <div id="about" class="anchor" />
   </div>
 </template>
 
@@ -59,18 +60,26 @@ export default {
       @media (min-width: $breakpoint-sm) {
         margin-bottom: 0;
       }
-      margin-bottom: -25px;
+      margin-bottom: -70px;
     }
     &__row {
-      margin-right: -31px;
-        margin-left: -31px;
+      @media (min-width: $breakpoint-sm) {
+       margin-right: -29px;
+        margin-left: -29px;
+      }
+      margin-right: 0;
+        margin-left: 0;
     }
     &__title {
       font-size: 17px;
     }
     &__img {
-      height: 54px;
-      width: 54px;
+      @media (min-width: $breakpoint-sm) {
+        height: 50px;
+      width: 50px;
+      }
+      height: 47px;
+      width: 47px;
       background-position: center;
       background-size: contain;
     }

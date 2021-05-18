@@ -72,6 +72,7 @@
           x-large
           color="rgba(205, 205, 205, .6)"
           class="heroSection__cta-btn mt-5 black--text"
+          href="#about"
         >
           Read more about me
         </v-btn>

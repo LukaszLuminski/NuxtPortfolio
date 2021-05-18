@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about py-2 py-sm-5">
     <v-container class="about__container pb-5">
       <div
         class="title-wrapper"
@@ -14,10 +14,18 @@
         </p>
         <v-divider class="mt-2 mb-8" />
       </div>
-      <v-card class="float-left mt-1 mr-4 mb-2" elevation="10" width="165px">
-        <v-img :src="info.img" alt="" />
-      </v-card>
-      <div class="mb-15" v-html="info.description" />
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+        data-aos-once="true"
+        data-aos-anchor="#about"
+      >
+        <v-card class="float-left mt-1 mr-4 mb-2" elevation="10" :width="$vuetify.breakpoint.xs ? '150px' : '165px'">
+          <v-img :src="info.img" alt="" />
+        </v-card>
+        <div class="mb-15" v-html="info.description" />
+      </div>
     </v-container>
   </div>
 </template>
