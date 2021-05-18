@@ -166,6 +166,6 @@ export default {
   }
 }
 .projects-wrap {
-     filter: drop-shadow(-1px 3px 4px rgba(47, 47, 47, 0.5));
+     filter: drop-shadow(-1px 3px 4px rgba(47, 47, 47, 0.3));
   }
 </style>

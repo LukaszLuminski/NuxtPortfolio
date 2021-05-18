@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact pt-15">
     <v-container class="contact__container">
       <div
         class="title-wrapper"
@@ -12,7 +12,7 @@
         <p class="section-title pt-8 white--text">
           Contact
         </p>
-        <v-divider class="mb-12 white" />
+        <v-divider class="mb-12 contact__divider" />
       </div>
       <v-row class="contact__row mb-8">
         <v-col>
@@ -136,7 +136,10 @@ export default {
     clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
   }
     background: linear-gradient(to bottom, #a59b8d, #522c14);
-    -webkit-clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
+    &__divider {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+    }
 }
 </style>
