@@ -48,8 +48,16 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/recaptcha'
   ],
+
+  recaptcha: {
+    language: 'v2',
+    siteKey: 'AIzaSyAoLHBhNGX10peOQ26H1EttM8hfRCM87u4', // Site key for requests
+    version: 2, // Version
+    size: 'invisible'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

@@ -1,65 +1,67 @@
 <template>
-  <div class="projects">
-    <v-container class="projects__container mb-3">
-      <div
-        class="title-wrapper"
-        data-aos="fade-in"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
-      >
-        <p class="section-title pt-8">
-          My most recent, Vue.js
-          <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
-        </p>
-        <v-divider class="mt-2 mb-6" />
-      </div>
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
-      >
-        <Project
-          :touch-screen="touchScreen"
-          :arr="arrOfVueProjects"
-          :imgs-ready="imgsReady"
-          @add-loaded-img="allLoadedImg++"
-        />
-      </div>
-      <div
-        class="title-wrapper"
-        data-aos="fade-in"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
-      >
-        <p class="section-subtitle pt-8">
-          Older projects, various
-          <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">tech stack
-        </p>
-        <v-divider class="mt-2 mb-6" />
-      </div>
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
-      >
-        <Project
-          class="mb-15"
-          :touch-screen="touchScreen"
-          :arr="arrOfOtherProjects"
-          :imgs-ready="imgsReady"
-          @add-loaded-img="allLoadedImg++"
-        />
-      </div>
-    </v-container>
-    <div id="skills" class="anchor" />
+  <div class="projects-wrap">
+    <div class="projects">
+      <v-container class="projects__container mb-3">
+        <div
+          class="title-wrapper"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+          data-aos-once="true"
+          data-aos-anchor="#projects"
+        >
+          <p class="section-title pt-8">
+            My most recent, Vue.js
+            <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
+          </p>
+          <v-divider class="mt-2 mb-6" />
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="100"
+          data-aos-once="true"
+          data-aos-anchor="#projects"
+        >
+          <Project
+            :touch-screen="touchScreen"
+            :arr="arrOfVueProjects"
+            :imgs-ready="imgsReady"
+            @add-loaded-img="allLoadedImg++"
+          />
+        </div>
+        <div
+          class="title-wrapper"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+          data-aos-once="true"
+          data-aos-anchor="#projects"
+        >
+          <p class="section-subtitle pt-8">
+            Older projects, various
+            <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">tech stack
+          </p>
+          <v-divider class="mt-2 mb-6" />
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="100"
+          data-aos-once="true"
+          data-aos-anchor="#projects"
+        >
+          <Project
+            class="mb-15"
+            :touch-screen="touchScreen"
+            :arr="arrOfOtherProjects"
+            :imgs-ready="imgsReady"
+            @add-loaded-img="allLoadedImg++"
+          />
+        </div>
+      </v-container>
+      <div id="skills" class="anchor" />
+    </div>
   </div>
 </template>
 
@@ -163,4 +165,7 @@ export default {
     box-shadow: none !important;
   }
 }
+.projects-wrap {
+     filter: drop-shadow(-1px 3px 4px rgba(47, 47, 47, 0.5));
+  }
 </style>

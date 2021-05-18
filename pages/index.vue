@@ -4,6 +4,7 @@
     <Projects :touch-screen="touchScreen" />
     <Skills />
     <AboutMe />
+    <Contact />
     <v-row class="px-6 mt-8">
       <p class="headline">
         Work in progress...
@@ -31,8 +32,9 @@ import HeroSection from '~/components/HeroSection.vue'
 import Projects from '~/components/Projects.vue'
 import Skills from '~/components/Skills.vue'
 import AboutMe from '~/components/AboutMe.vue'
+import Contact from '~/components/Contact.vue'
 export default {
-  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe },
+  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact },
   data () {
     return {
       dialog: false,
@@ -71,5 +73,8 @@ export default {
   @media (min-width: 1264px) {
     max-width: 1185px;
   }
+}
+.rc-anchor.rc-anchor-normal.rc-anchor-light {
+  z-index: 1000;
 }
 </style>
