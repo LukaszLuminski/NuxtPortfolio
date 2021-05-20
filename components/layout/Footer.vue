@@ -6,6 +6,10 @@
     class="theFooter text-center"
     :style="{ backgroundImage: `url(${backgroundUrl})` }"
   > -->
+    <div class="black--text">
+      LinkedIn icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+
     <v-container fluid>
       <!-- <v-row>
         <v-col class="col-6 col-md-3">

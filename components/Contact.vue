@@ -12,10 +12,13 @@
         <p class="section-title pt-8 white--text">
           Contact
         </p>
-        <v-divider class="mb-12 contact__divider" />
+        <v-divider class="mb-8 contact__divider" />
       </div>
       <v-row class="contact__row mb-8">
         <v-col class="pr-md-10 col-12 col-md-6">
+          <p class="title mb-6">
+            Email me directly, using the form provided...
+          </p>
           <v-form ref="form" lazy-validation @submit.prevent="validate">
             <recaptcha />
             <v-row>
@@ -73,8 +76,35 @@
               </v-col>
             </v-row>
           </v-form>
-        </v-col><v-divider vertical class="contact__divider__vertical" /><v-col class="pl-md-10 col-12 col-md-5">
-          <h2>Details</h2>
+        </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
+          class="pl-md-10 col-12 col-md-5"
+        >
+          <p class="title mb-6">
+            ...or contact me via one of the profiles below.
+          </p>
+          <div class="mb-3">
+            <a
+              class="d-flex align-center"
+              href="https://github.com/LukaszLuminski"
+              target="_blank"
+              @mouseover="$refs.linkedinBtn.isActive = true"
+              @mouseout="$refs.linkedinBtn.isActive = false"
+            ><v-btn
+              ref="linkedinBtn"
+              class="mr-4 contact__logo-btn"
+              icon
+              dark
+            ><v-icon dark class="contact__logo">
+              mdi-linkedin
+            </v-icon></v-btn>linkedin.com/in/lukasz-luminski/</a>
+          </div>
+          <div class="d-flex align-center">
+            <a
+              class="d-flex align-center"
+              href=""
+              target="_blank"
+            ><v-icon dark class="contact__logo"> mdi-github </v-icon>github.com/LukaszLuminski</a>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -136,6 +166,7 @@ export default {
 
 <style lang="scss">
 .contact {
+  color: white;
   margin-top: -45px;
   @media (min-width: 768px) {
     -webkit-clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
@@ -144,6 +175,10 @@ export default {
   background: linear-gradient(to bottom, #a59b8d, #522c14);
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
+  a {
+    text-decoration: none !important;
+    color: white !important;
+  }
   &__divider {
     &__vertical {
       background-color: rgba(255, 255, 255, 0.4) !important;
@@ -159,15 +194,22 @@ export default {
   &__btn {
     background-color: #666666 !important;
   }
+  &__logo {
+    font-size: 90px !important;
+    height: auto;
+  }
 }
-.v-application  .contact__text-field .error--text {
+.v-application .contact__text-field .error--text {
   color: #ffc966 !important;
-    caret-color: #ffc966 !important;
+  caret-color: #ffc966 !important;
 }
-.v-text-field fieldset, .v-text-field .v-input__control, .v-text-field .v-input__slot {
-    border-radius: 3px !important;
+.v-text-field fieldset,
+.v-text-field .v-input__control,
+.v-text-field .v-input__slot {
+  border-radius: 3px !important;
 }
-// .v-text-field--outlined.v-input--is-focused fieldset, .v-text-field--outlined.v-input--has-state fieldset {
-//       border: 2px solid orange !important;
-// }
+.v-btn--icon.contact__logo-btn.v-size--default {
+  height: 65px !important;
+  width: 65px !important;
+}
 </style>
