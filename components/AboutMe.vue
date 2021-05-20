@@ -1,5 +1,5 @@
 <template>
-  <div class="about py-2 py-sm-5">
+  <div class="about pt-2 pt-sm-9 pb-12">
     <v-container class="about__container pb-5">
       <div
         class="title-wrapper"
@@ -31,6 +31,8 @@
         <div class="mb-13" v-html="info.description" />
       </div>
     </v-container>
+    <div class="about__bg about__bg__top" />
+    <div class="about__bg about__bg__bottom" />
   </div>
 </template>
 
@@ -49,15 +51,31 @@ export default {
 
 <style lang="scss">
 .about {
-  @media (min-width: 768px) {
-    clip-path: polygon(0 0, 100% 8%, 100% 94%, 0% 100%);
-  }
-  clip-path: polygon(0 0, 100% 4%, 100% 96%, 0% 100%);
+  position: relative;
   background-color: $color-light-grey;
   min-height: 600px;
   &__container {
     @media (min-width: $breakpoint-md) {
       padding-right: 20%;
+    }
+  }
+  &__bg {
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    left: 0;
+    right: 0;
+    height: 90px;
+
+    &__top {
+      background-image: url("/img/shadow-bottom.png");
+      top: -15px;
+    }
+    &__bottom {
+      background-image: url("/img/contact-shadow.png");
+      bottom: 0;
     }
   }
 }

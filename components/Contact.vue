@@ -1,5 +1,5 @@
 <template>
-  <div class="contact pt-15">
+  <div class="contact pt-7">
     <v-container class="contact__container">
       <div
         class="title-wrapper"
@@ -79,31 +79,40 @@
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
           class="pl-md-10 col-12 col-md-5"
         >
-          <p class="title mb-6">
+          <p class="title mb-15 pb-6">
             ...or contact me via one of the profiles below.
           </p>
-          <div class="mb-3">
+          <div class="contact__single-logo">
             <a
               class="d-flex align-center"
-              href="https://github.com/LukaszLuminski"
+              href="https:/linkedin.com/in/lukasz-luminski/"
               target="_blank"
               @mouseover="$refs.linkedinBtn.isActive = true"
               @mouseout="$refs.linkedinBtn.isActive = false"
             ><v-btn
               ref="linkedinBtn"
-              class="mr-4 contact__logo-btn"
+              class="mr-4 contact__logo-linkedin-btn"
               icon
               dark
             ><v-icon dark class="contact__logo">
               mdi-linkedin
-            </v-icon></v-btn>linkedin.com/in/lukasz-luminski/</a>
+            </v-icon></v-btn><span
+              class="hover hover-1"
+            >linkedin.com/in/lukasz-luminski/</span></a>
           </div>
-          <div class="d-flex align-center">
+          <div class="contact__single-logo">
             <a
               class="d-flex align-center"
-              href=""
+              href="https://github.com/LukaszLuminski"
               target="_blank"
-            ><v-icon dark class="contact__logo"> mdi-github </v-icon>github.com/LukaszLuminski</a>
+              @mouseover="$refs.githubBtn.isActive = true"
+              @mouseout="$refs.githubBtn.isActive = false"
+            ><v-btn
+              ref="githubBtn"
+              class="mr-4 contact__logo-github-btn"
+              icon
+              dark
+            ><v-icon dark class="contact__logo"> mdi-github </v-icon></v-btn><span class="hover hover-1">github.com/LukaszLuminski</span></a>
           </div>
         </v-col>
       </v-row>
@@ -165,6 +174,7 @@ export default {
 </script>
 
 <style lang="scss">
+$animate: all 0.2s ease-in-out;
 .contact {
   color: white;
   margin-top: -45px;
@@ -172,7 +182,7 @@ export default {
     -webkit-clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
   }
-  background: linear-gradient(to bottom, #a59b8d, #522c14);
+  background: linear-gradient(to bottom, #9d9284, #522c14);
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   a {
@@ -195,10 +205,55 @@ export default {
     background-color: #666666 !important;
   }
   &__logo {
-    font-size: 90px !important;
+    font-size: 70px !important;
     height: auto;
   }
+  &__single-logo {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0 0 33px;
+    .hover {
+      font-size: 18px;
+      white-space: nowrap;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      transition: $animate;
+      position: relative;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        width: 0px;
+        height: 2px;
+        margin: 5px 0 0;
+        transition: $animate;
+        transition-duration: 0.3s;
+        opacity: 0;
+        background-color: darken(white, 5%);
+      }
+      &.hover-1 {
+        &:before,
+        &:after {
+          left: 0;
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .hover {
+        &:before,
+        &:after {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
+
 .v-application .contact__text-field .error--text {
   color: #ffc966 !important;
   caret-color: #ffc966 !important;
@@ -208,8 +263,13 @@ export default {
 .v-text-field .v-input__slot {
   border-radius: 3px !important;
 }
-.v-btn--icon.contact__logo-btn.v-size--default {
-  height: 65px !important;
-  width: 65px !important;
+.v-btn--icon.contact__logo-linkedin-btn.v-size--default {
+  height: 45px !important;
+  width: 45px !important;
+}
+.v-btn--icon.contact__logo-github-btn.v-size--default {
+  height: 57px !important;
+  width: 57px !important;
+  margin-left: -6px;
 }
 </style>

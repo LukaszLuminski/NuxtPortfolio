@@ -2,7 +2,7 @@
   <nav class="theNavMain">
     <v-app-bar
       class="theNavMain__bar"
-      :height="bg === 'transparent' ? '70px' : '55px'"
+      :height="bg === 'transparent' ? '90px' : '70px'"
       style="transition: 0.5s"
       fixed
       flat

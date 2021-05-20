@@ -1,7 +1,7 @@
 <template>
   <v-container
     :class="
-      $vuetify.breakpoint.xs ? 'mt-15 mobile-width' : 'desktop-width'
+      $vuetify.breakpoint.xs ? 'mt-15 mobile-width' : 'mt-9 desktop-width'
     "
     class="text-center heroSection__container white--text"
   >

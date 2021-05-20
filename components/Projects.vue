@@ -1,5 +1,5 @@
 <template>
-  <div class="projects pb-4">
+  <div class="projects pb-8">
     <v-container class="projects__container mb-3">
       <div
         class="title-wrapper"

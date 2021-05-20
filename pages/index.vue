@@ -5,17 +5,19 @@
     <Skills />
     <AboutMe />
     <Contact />
-    <v-row class="px-6 mt-8">
-      <p class="headline">
-        Work in progress...
-      </p>
-      <p>
-        Check my previous portfolio website at
-        <a
-          href="https://lukaszluminski.github.io/Portfolio/"
-        >https://lukaszluminski.github.io/Portfolio/</a>.
-      </p>
-    </v-row>
+    <div class="px-6 mt-11">
+      <v-container>
+        <p class="headline">
+          Work in progress...
+        </p>
+        <p>
+          Check my previous portfolio website at
+          <a
+            href="https://lukaszluminski.github.io/Portfolio/"
+          >https://lukaszluminski.github.io/Portfolio/</a>.
+        </p>
+      </v-container>
+    </div>
 
     <FullScreenDialog
       class="mt-15"
