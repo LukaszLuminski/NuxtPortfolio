@@ -9,7 +9,7 @@
         data-aos-once="true"
         data-aos-anchor="#skills"
       >
-        <p class="section-title pt-8">
+        <p class="section-title pt-2 pt-md-5">
           My skills
         </p>
         <v-divider class="mb-12" />

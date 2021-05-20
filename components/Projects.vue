@@ -1,67 +1,66 @@
 <template>
-  <div class="projects-wrap">
-    <div class="projects">
-      <v-container class="projects__container mb-3">
-        <div
-          class="title-wrapper"
-          data-aos="fade-in"
-          data-aos-duration="1000"
-          data-aos-delay="500"
-          data-aos-once="true"
-          data-aos-anchor="#projects"
-        >
-          <p class="section-title pt-8">
-            My most recent, Vue.js
-            <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
-          </p>
-          <v-divider class="mt-2 mb-6" />
-        </div>
-        <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="100"
-          data-aos-once="true"
-          data-aos-anchor="#projects"
-        >
-          <Project
-            :touch-screen="touchScreen"
-            :arr="arrOfVueProjects"
-            :imgs-ready="imgsReady"
-            @add-loaded-img="allLoadedImg++"
-          />
-        </div>
-        <div
-          class="title-wrapper"
-          data-aos="fade-in"
-          data-aos-duration="1000"
-          data-aos-delay="500"
-          data-aos-once="true"
-          data-aos-anchor="#projects"
-        >
-          <p class="section-subtitle pt-8">
-            Older projects, various
-            <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">tech stack
-          </p>
-          <v-divider class="mt-2 mb-6" />
-        </div>
-        <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="100"
-          data-aos-once="true"
-          data-aos-anchor="#projects"
-        >
-          <Project
-            class="mb-15"
-            :touch-screen="touchScreen"
-            :arr="arrOfOtherProjects"
-            :imgs-ready="imgsReady"
-            @add-loaded-img="allLoadedImg++"
-          />
-        </div>
-      </v-container>
-      <div id="skills" class="anchor" />
-    </div>
+  <div class="projects pb-4">
+    <v-container class="projects__container mb-3">
+      <div
+        class="title-wrapper"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <p class="section-title pt-8">
+          My most recent, Vue.js
+          <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
+        </p>
+        <v-divider class="mt-2 mb-6" />
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <Project
+          :touch-screen="touchScreen"
+          :arr="arrOfVueProjects"
+          :imgs-ready="imgsReady"
+          @add-loaded-img="allLoadedImg++"
+        />
+      </div>
+      <div
+        class="title-wrapper"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <p class="section-subtitle pt-8">
+          Older projects, various
+          <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">tech stack
+        </p>
+        <v-divider class="mt-2 mb-6" />
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+        data-aos-once="true"
+        data-aos-anchor="#projects"
+      >
+        <Project
+          class="mb-15"
+          :touch-screen="touchScreen"
+          :arr="arrOfOtherProjects"
+          :imgs-ready="imgsReady"
+          @add-loaded-img="allLoadedImg++"
+        />
+      </div>
+    </v-container>
+    <div id="skills" class="anchor" />
+    <div class="projects__bg" />
   </div>
 </template>
 
@@ -130,11 +129,23 @@ export default {
   padding-right: 10px;
 }
 .projects {
-  background: $color-light-grey;
-  @media (min-width: 768px) {
-    clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+  position: relative;
+  &__bg {
+    position: absolute;
+    height: 90px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('/img/shadow-top.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
-  clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
+  background: $color-light-grey;
+  // @media (min-width: 768px) {
+  //   clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+  // }
+  // clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
   &__card {
     position: relative;
     transition: 0.4s;
@@ -165,7 +176,4 @@ export default {
     box-shadow: none !important;
   }
 }
-.projects-wrap {
-     filter: drop-shadow(-1px 3px 4px rgba(47, 47, 47, 0.3));
-  }
 </style>
