@@ -1,5 +1,5 @@
 <template>
-  <div class="about pt-2 pt-sm-9 pb-12">
+  <div class="about pt-9 pb-12">
     <v-container class="about__container pb-5">
       <div
         class="title-wrapper"

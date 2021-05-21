@@ -9,15 +9,19 @@
         data-aos-once="true"
         data-aos-anchor="#contact"
       >
-        <p class="section-title pt-8 white--text">
+        <p class="section-title pt-4 white--text">
           Contact
         </p>
         <v-divider class="mb-8 contact__divider" />
       </div>
       <v-row class="contact__row mb-8">
         <v-col class="pr-md-10 col-12 col-md-6">
-          <p class="title mb-6">
+          <p class="contact__col-title d-none d-md-block mb-6">
             Email me directly, using the form provided...
+          </p>
+          <p class="contact__col-title d-block d-md-none mb-6">
+            Email me directly, using the form provided or contact me via one of
+            the profiles below.
           </p>
           <v-form ref="form" lazy-validation @submit.prevent="validate">
             <recaptcha />
@@ -77,9 +81,9 @@
             </v-row>
           </v-form>
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
-          class="pl-md-10 col-12 col-md-5"
+          class="mt-13 mt-md-0 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
-          <p class="title mb-15 pb-6">
+          <p class="contact__col-title d-none d-md-block mb-15 pb-6">
             ...or contact me via one of the profiles below.
           </p>
           <div class="contact__single-logo">
@@ -178,11 +182,7 @@ $animate: all 0.2s ease-in-out;
 .contact {
   color: white;
   margin-top: -45px;
-  @media (min-width: 768px) {
-    -webkit-clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
-  }
-  background: linear-gradient(to bottom, #9d9284, #522c14);
+  background: linear-gradient(to bottom, #9e9283, #522c14);
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   a {
@@ -214,7 +214,10 @@ $animate: all 0.2s ease-in-out;
     align-items: center;
     margin: 0 0 33px;
     .hover {
+      @media (min-width: $breakpoint-md) {
       font-size: 18px;
+    }
+    font-size: 16px;
       white-space: nowrap;
       text-align: center;
       margin: 0 auto;
@@ -251,6 +254,13 @@ $animate: all 0.2s ease-in-out;
         }
       }
     }
+  }
+  &__col-title {
+    @media (min-width: $breakpoint-md) {
+      white-space: nowrap;
+      font-size: 19px;
+    }
+    font-size: 17px;
   }
 }
 
