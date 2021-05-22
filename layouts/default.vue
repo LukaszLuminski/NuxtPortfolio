@@ -1,13 +1,11 @@
 <template>
-  <transition v-if="isLoaded" name="home">
-    <v-app>
-      <NavMain />
-      <v-main>
-        <nuxt />
-      </v-main>
-      <Footer />
-    </v-app>
-  </transition>
+  <v-app v-if="isLoaded">
+    <NavMain />
+    <v-main>
+      <nuxt />
+    </v-main>
+    <Footer />
+  </v-app>
   <v-app v-else>
     <v-container class="progress-container d-flex justify-center align-center">
       <v-row
@@ -32,7 +30,6 @@
       </v-row>
     </v-container>
   </v-app>
-  <!-- <v-overlay v-else color="white" :opacity="1" /> -->
 </template>
 
 <script>
@@ -40,7 +37,6 @@ import Footer from '../components/layout/Footer.vue'
 import NavMain from '~/components/layout/NavMain.vue'
 export default {
   components: { NavMain, Footer },
-  transition: 'home',
   data: () => ({
     isLoaded: false
   }),
@@ -51,14 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-enter-active,
-.home-leave-active {
-  transition: opacity .7s;
-}
-.home-enter,
-.home-leave-active {
-  opacity: 0;
-}
 .progress-container {
   height: 100vh;
 }

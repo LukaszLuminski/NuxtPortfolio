@@ -10,7 +10,7 @@
       :color="bg"
     >
       <v-container class="d-flex pr-0">
-        <nuxt-link class="theNavMain__brand d-flex align-center" to="/">
+        <nuxt-link :class="!homepageReady ? 'hidden' : ''" class="theNavMain__brand d-flex align-center transition" to="/">
           <p
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
@@ -69,7 +69,8 @@ export default {
     return {
       drawerIsOpen: false,
       bg: 'transparent',
-      navItems: null
+      navItems: null,
+      homepageReady: false
     }
   },
   computed: {
@@ -83,6 +84,7 @@ export default {
   },
   created () {
     this.navItems = this.$store.state.menu.items
+    this.$nuxt.$on('homepage-ready', () => { this.homepageReady = true })
   },
   mounted () {
     window.onscroll = () => {

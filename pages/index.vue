@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
     <HeroSection :touch-screen="touchScreen" />
     <Projects :touch-screen="touchScreen" />
     <Skills />
     <AboutMe />
     <Contact />
-    <div class="px-6 mt-11">
+    <!-- <div class="px-6 mt-11">
       <v-container>
         <p class="headline">
           Work in progress...
@@ -17,7 +17,7 @@
           >https://lukaszluminski.github.io/Portfolio/</a>.
         </p>
       </v-container>
-    </div>
+    </div> -->
 
     <FullScreenDialog
       class="mt-15"
@@ -37,10 +37,12 @@ import AboutMe from '~/components/AboutMe.vue'
 import Contact from '~/components/Contact.vue'
 export default {
   components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact },
+  transitions: 'route',
   data () {
     return {
       dialog: false,
-      project: null
+      project: null,
+      isLoaded: false
     }
   },
   computed: {
@@ -58,6 +60,14 @@ export default {
     this.$root.$on('open-dialog', (val) => {
       this.project = val
       this.dialog = true
+    })
+  },
+  mounted () {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.isLoaded = true
+        this.$nuxt.$emit('homepage-ready')
+      }, 500)
     })
   }
 }
