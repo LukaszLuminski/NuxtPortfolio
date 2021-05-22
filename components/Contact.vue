@@ -12,17 +12,10 @@
         <p class="section-title pt-4 white--text">
           Contact
         </p>
-        <v-divider class="mb-8 contact__divider" />
+        <v-divider class="mb-15 contact__divider" />
       </div>
-      <v-row class="contact__row mb-8">
+      <v-row class="contact__row mb-2 mb-md-8">
         <v-col class="pr-md-10 col-12 col-md-6">
-          <p class="contact__col-title d-none d-md-block mb-6">
-            Email me directly, using the form provided...
-          </p>
-          <p class="contact__col-title d-block d-md-none mb-6">
-            Email me directly, using the form provided or contact me via one of
-            the profiles below.
-          </p>
           <v-form ref="form" lazy-validation @submit.prevent="validate">
             <recaptcha />
             <v-row>
@@ -81,11 +74,8 @@
             </v-row>
           </v-form>
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
-          class="mt-13 mt-md-0 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
+          class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
-          <p class="contact__col-title d-none d-md-block mb-15 pb-6">
-            ...or contact me via one of the profiles below.
-          </p>
           <div class="contact__single-logo">
             <a
               class="d-flex align-center"
@@ -215,9 +205,9 @@ $animate: all 0.2s ease-in-out;
     margin: 0 0 33px;
     .hover {
       @media (min-width: $breakpoint-md) {
-      font-size: 18px;
-    }
-    font-size: 16px;
+        font-size: 18px;
+      }
+      font-size: 16px;
       white-space: nowrap;
       text-align: center;
       margin: 0 auto;

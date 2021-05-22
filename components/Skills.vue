@@ -3,9 +3,8 @@
     <v-container class="skills__container">
       <div
         class="title-wrapper"
-        data-aos="fade-in"
-        data-aos-duration="1000"
-        data-aos-delay="500"
+        data-aos="fade-right"
+        data-aos-duration="1100"
         data-aos-once="true"
         data-aos-anchor="#skills"
       >
