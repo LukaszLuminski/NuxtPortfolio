@@ -1,6 +1,6 @@
 <template>
   <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
-    <HeroSection :is-ios="isIos" :touch-screen="touchScreen" />
+    <HeroSection v-if="isLoaded" :is-ios="isIos" :touch-screen="touchScreen" />
     <Projects :is-ios="isIos" />
     <Skills />
     <AboutMe />
