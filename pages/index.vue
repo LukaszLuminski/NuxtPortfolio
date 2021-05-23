@@ -1,6 +1,6 @@
 <template>
   <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
-    <HeroSection :is-ios="isIos" />
+    <HeroSection :is-ios="isIos" :touch-screen="touchScreen" />
     <Projects :is-ios="isIos" />
     <Skills />
     <AboutMe />
@@ -44,6 +44,17 @@ export default {
       project: null,
       isLoaded: false,
       isIos: null
+    }
+  },
+  computed: {
+    touchScreen () {
+      let touchScreen
+      if (process.browser) {
+        navigator.maxTouchPoints > 0
+          ? (touchScreen = true)
+          : (touchScreen = false)
+      }
+      return touchScreen
     }
   },
   created () {

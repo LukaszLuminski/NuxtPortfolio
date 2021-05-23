@@ -1,10 +1,10 @@
 <template>
   <div class="heroSection">
     <div
-      :class="isIos ? 'img-wrapper' : 'jarallax'"
+      :class="isIos || touchScreen ? 'img-wrapper' : 'jarallax'"
       class="heroSection__first jarallax d-flex align-center justify-center"
     >
-      <img src="/img/hero-bg.jpg" :class="isIos ? 'fixed-img' : 'jarallax-img'">
+      <img src="/img/hero-bg.jpg" :class="isIos || touchScreen ? 'fixed-img' : 'jarallax-img'">
       <HeroContent :heading="heading" :subheading="subheading" :cursor="cursor" :animate-socials="animateSocials" />
     </div>
     <div id="projects" class="anchor" />
@@ -17,6 +17,10 @@ export default {
   components: { HeroContent },
   props: {
     isIos: {
+      type: Boolean,
+      required: true
+    },
+    touchScreen: {
       type: Boolean,
       required: true
     }
