@@ -251,6 +251,9 @@ $animate: all 0.2s ease-in-out;
   }
 }
 
+.v-text-field--rounded > .v-input__control > .v-input__slot {
+    padding: 0 15px !important;
+}
 .v-application .contact__text-field .error--text {
   color: #ffc966 !important;
   caret-color: #ffc966 !important;
@@ -268,5 +271,13 @@ $animate: all 0.2s ease-in-out;
   height: 58px !important;
   width: 58px !important;
   margin-left: -6px;
+}
+.grecaptcha-badge {
+  position: absolute !important;
+  z-index: 999;
+  @media (min-width: $breakpoint-md) {
+    bottom: 55px !important;
+  }
+  bottom: 247px !important;
 }
 </style>

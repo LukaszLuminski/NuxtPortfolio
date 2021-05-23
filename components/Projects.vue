@@ -22,7 +22,7 @@
         data-aos-anchor="#projects"
       >
         <Project
-          :touch-screen="touchScreen"
+          :is-ios="isIos"
           :arr="arrOfVueProjects"
           :imgs-ready="imgsReady"
           @add-loaded-img="allLoadedImg++"
@@ -51,7 +51,7 @@
       >
         <Project
           class="mb-15"
-          :touch-screen="touchScreen"
+          :is-ios="isIos"
           :arr="arrOfOtherProjects"
           :imgs-ready="imgsReady"
           @add-loaded-img="allLoadedImg++"
@@ -68,7 +68,7 @@ import Project from './Project.vue'
 export default {
   components: { Project },
   props: {
-    touchScreen: {
+    isIos: {
       type: Boolean,
       required: true
     }

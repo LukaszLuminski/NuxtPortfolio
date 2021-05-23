@@ -9,11 +9,11 @@
     >
       <v-card
         elevation="10"
-        :class="touchScreen ? 'disable-hover' : 'enable-hover'"
+        :class="isIos ? 'disable-hover' : 'enable-hover'"
         class="projects__card"
         :style="!imgsReady ? 'opacity: 0' : 'opacity: 1'"
       >
-        <figure class="hover-effect" @click="checkScreen(project)">
+        <figure class="hover-effect">
           <img :src="`/img/${project.img}`" @load="incrementLoadedImgs">
           <article class="d-flex align-center">
             <div class="card-content mb-12">
@@ -25,7 +25,7 @@
           </article>
         </figure>
         <div :class="!imgsReady ? 'd-none' : 'd-flex'" class="links align-center mt-auto py-3 px-7">
-          <a v-if="project.live" :href="project.live" target="_blank" :class="touchScreen ? 'ml-auto mr-5' : 'mr-5'">Live</a><a v-if="project.code" :href="project.code" target="_blank" :class="touchScreen ? 'mx-auto' : ''">Code</a><a :class="touchScreen ? 'mr-auto' : 'd-none'" class="mx-5" @click="openDialog(project)">More info</a>
+          <a v-if="project.live" :href="project.live" target="_blank" class="ml-auto mr-5">Live</a><a v-if="project.code" :href="project.code" target="_blank" class="mx-auto">Code</a><a class="mr-auto mx-5" @click="openDialog(project)">More info</a>
         </div>
       </v-card>
     </v-col>
@@ -35,7 +35,7 @@
 <script>
 export default {
   props: {
-    touchScreen: {
+    isIos: {
       type: Boolean,
       required: true
     },
@@ -51,11 +51,6 @@ export default {
   methods: {
     openDialog (val) {
       this.$root.$emit('open-dialog', val)
-    },
-    checkScreen (val) {
-      if (!this.touchScreen) {
-        this.openDialog(val)
-      }
     },
     incrementLoadedImgs () {
       this.$emit('add-loaded-img')

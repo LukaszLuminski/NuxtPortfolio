@@ -1,7 +1,7 @@
 <template>
   <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
-    <HeroSection :touch-screen="touchScreen" />
-    <Projects :touch-screen="touchScreen" />
+    <HeroSection :is-ios="isIos" />
+    <Projects :is-ios="isIos" />
     <Skills />
     <AboutMe />
     <Contact />
@@ -42,18 +42,8 @@ export default {
     return {
       dialog: false,
       project: null,
-      isLoaded: false
-    }
-  },
-  computed: {
-    touchScreen () {
-      let touchScreen
-      if (process.browser) {
-        navigator.maxTouchPoints > 0
-          ? (touchScreen = true)
-          : (touchScreen = false)
-      }
-      return touchScreen
+      isLoaded: false,
+      isIos: null
     }
   },
   created () {
@@ -61,6 +51,21 @@ export default {
       this.project = val
       this.dialog = true
     })
+    const checkIfIOS = () => {
+      const iosQuirkPresent = () => {
+        const audio = new Audio()
+
+        audio.volume = 0.5
+        return audio.volume === 1 // volume cannot be changed from "1" on iOS 12 and below
+      }
+
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+      const isAppleDevice = navigator.userAgent.includes('Macintosh')
+      const isisIos = navigator.maxTouchPoints >= 1 // true for iOS 13 (and hopefully beyond)
+
+      return isIOS || (isAppleDevice && (isisIos || iosQuirkPresent()))
+    }
+    this.isIos = checkIfIOS()
   },
   mounted () {
     this.$nextTick(() => {
