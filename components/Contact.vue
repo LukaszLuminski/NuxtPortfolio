@@ -172,7 +172,7 @@ $animate: all 0.2s ease-in-out;
 .contact {
   color: white;
   margin-top: -45px;
-  background: linear-gradient(to bottom, #9e9283, #522c14);
+  background: linear-gradient(to bottom, lighten(#9c9081, 2.2%), #522c14);
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   a {
@@ -264,12 +264,12 @@ $animate: all 0.2s ease-in-out;
   border-radius: 3px !important;
 }
 .v-btn--icon.contact__logo-linkedin-btn.v-size--default {
-  height: 45px !important;
-  width: 45px !important;
+  height: 50px !important;
+  width: 50px !important;
 }
 .v-btn--icon.contact__logo-github-btn.v-size--default {
-  height: 57px !important;
-  width: 57px !important;
+  height: 58px !important;
+  width: 58px !important;
   margin-left: -6px;
 }
 </style>

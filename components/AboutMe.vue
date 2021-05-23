@@ -35,7 +35,11 @@
           class="about__img-loading transition"
           indeterminate
           color="grey"
-          :style="$vuetify.breakpoint.xs ? 'top: 82px; left: 64px' : 'top: 91px; left: 71px'"
+          :style="
+            $vuetify.breakpoint.xs
+              ? 'top: 82px; left: 64px'
+              : 'top: 91px; left: 71px'
+          "
         />
         <div class="mb-13" v-html="info.description" />
       </div>
@@ -62,7 +66,35 @@ export default {
 
 <style lang="scss">
 .about {
-  &, &__card {
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    z-index: -1;
+    @media (min-width: $breakpoint-md) {
+      background: url("/img/bio-small.png");
+     background-size: 46% !important;
+    background-position: 141% 48% !important
+    }
+    @media (min-width: $breakpoint-lg) {
+      background-size: 25% !important;
+      background-position: 96% 47% !important;
+      background: url("/img/bio.png");
+    }
+    @media (min-width: $breakpoint-md) {
+      display: initial;
+      background-repeat: no-repeat;
+    }
+    display: none;
+  }
+  &,
+  &__card {
     background-color: $color-light-grey !important;
   }
   &__card-wrapper {
