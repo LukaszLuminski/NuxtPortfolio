@@ -74,6 +74,10 @@ export default {
 </script>
 
 <style lang="scss">
+body, html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 .anchor {
   height: 45px;
   margin-top: -45px;

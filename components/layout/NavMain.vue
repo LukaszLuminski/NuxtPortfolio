@@ -118,6 +118,7 @@ export default {
     transition: .5s;
   }
   &__bar {
+    max-width: 100vw;
     .v-toolbar__content {
       transition: .4s;
       margin-left: auto;

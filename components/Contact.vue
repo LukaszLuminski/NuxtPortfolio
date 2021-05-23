@@ -3,18 +3,15 @@
     <v-container class="contact__container">
       <div
         class="title-wrapper"
-        data-aos="fade-in"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-once="true"
-        data-aos-anchor="#contact"
       >
         <p class="section-title pt-4 white--text">
           Contact
         </p>
         <v-divider class="mb-15 contact__divider" />
       </div>
-      <v-row class="contact__row mb-2 mb-md-8">
+      <v-row
+        class="contact__row mb-2 mb-md-8"
+      >
         <v-col class="pr-md-10 col-12 col-md-6">
           <v-form ref="form" lazy-validation @submit.prevent="validate">
             <recaptcha />

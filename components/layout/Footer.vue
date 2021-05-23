@@ -1,40 +1,71 @@
 <template>
-  <v-footer dark class="theFooter text-center" height="90px">
-    <v-row class="theFooter__copyright">
-      <v-col>
-        <p class="mb-2">
-          &#169; {{ new Date().getFullYear() }}. All rights reserved. Made with
-          <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
-          Luminski
-        </p>
-        <p class="mb-2 subtitle">
-          Background icons from <a href="http://getdrawings.com/biography-icon">Biography Icon</a>
-        </p>
-      </v-col>
-    </v-row>
+  <v-footer dark class="theFooter text-center">
+    <v-container>
+      <v-row :class="$vuetify.breakpoint.xs? 'flex-column-reverse' : ''" class="theFooter__copyright">
+        <v-col :class="$vuetify.breakpoint.xs? 'col-12 justify-center pa-0' : 'col-9'" class="theFooter__column d-flex align-center">
+          <p class="mb-2">
+            &#169; {{ new Date().getFullYear() }}. All rights reserved. <br class="d-block d-sm-none">Made with
+            <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
+            Luminski<span class="d-none d-md-inline mb-1">
+              . Background icons from
+              <a href="http://getdrawings.com/biography-icon">Biography Icon</a>.
+            </span>
+          </p>
+        </v-col>
+        <v-col :class="$vuetify.breakpoint.xs? 'col-12 justify-center pa-0' : 'col-3 justify-end'" class="d-flex">
+          <div class="theFooter__back-to-top mb-1">
+            <v-btn class="theFooter__back-to-top__btn" text x-large @click="goToTop">
+              <v-icon large class="theFooter__back-to-top__icon mr-1" dark>
+                mdi-arrow-up-bold-circle
+              </v-icon>Back to top
+            </v-btn>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-footer>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    goToTop () {
+      window.scrollTo(0, 0)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 .theFooter {
+  p,
+  button {
+    color: lightgray;
+  }
+  a {
+    color: white !important;
+  }
   margin-top: -3px;
   &__copyright {
     font-size: 13px;
     a {
-      color: white;
-      transition: .2s;
+      transition: 0.2s;
       &:hover {
-        color: lightgray;
+        color: grey;
       }
       text-decoration: none !important;
     }
     &__icon {
-      font-size: 17px;
+      font-size: 14px;
       color: red;
+    }
+  }
+  &__column {
+    position: relative;
+  }
+  &__back-to-top {
+    &__btn {
+      text-transform: none !important;
     }
   }
 }

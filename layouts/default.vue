@@ -37,6 +37,7 @@ import Footer from '../components/layout/Footer.vue'
 import NavMain from '~/components/layout/NavMain.vue'
 export default {
   components: { NavMain, Footer },
+  transitions: 'route',
   data: () => ({
     isLoaded: false
   }),
