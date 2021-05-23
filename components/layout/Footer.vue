@@ -28,7 +28,7 @@ export default {}
       color: white;
       transition: .2s;
       &:hover {
-        color: grey;
+        color: lightgray;
       }
       text-decoration: none !important;
     }
