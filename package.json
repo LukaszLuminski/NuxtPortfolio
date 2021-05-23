@@ -21,7 +21,8 @@
     "jarallax": "^1.12.5",
     "netlify-lambda": "^2.0.7",
     "nuxt": "^2.14.12",
-    "object-fit-images": "^3.2.4"
+    "object-fit-images": "^3.2.4",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

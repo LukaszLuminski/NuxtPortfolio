@@ -20,12 +20,6 @@ export default {
         // href: 'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap'
         href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet'
       }
-    ],
-    script: [
-      {
-        defer: true,
-        src: 'https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js'
-      }
     ]
   },
 
