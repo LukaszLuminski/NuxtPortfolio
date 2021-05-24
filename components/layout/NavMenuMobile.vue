@@ -34,12 +34,10 @@ export default {
     }
   },
   methods: {
-    methods: {
-      goTo (link) {
-        this.closeDrawer()
-        const element = document.getElementById(link.replace('#', ''))
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+    goTo (link) {
+      this.closeDrawer()
+      const element = document.getElementById(link.replace('#', ''))
+      element.scrollIntoView({ behavior: 'smooth' })
     },
     closeDrawer () {
       this.$emit('close')

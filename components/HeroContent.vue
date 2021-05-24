@@ -63,7 +63,7 @@
           x-large
           color="rgba(255, 255, 255, .7)"
           class="heroSection__cta-btn mt-9 black--text"
-          href="#projects"
+          @click="goTo('projects')"
         >
           See my projects
         </v-btn>
@@ -72,7 +72,7 @@
           x-large
           color="rgba(205, 205, 205, .6)"
           class="heroSection__cta-btn mt-5 black--text"
-          href="#about"
+          @click="goTo('about')"
         >
           Read more about me
         </v-btn>
@@ -99,6 +99,12 @@ export default {
     animateSocials: {
       type: Boolean,
       required: true
+    }
+  },
+  methods: {
+    goTo (link) {
+      const element = document.getElementById(link)
+      element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 }
