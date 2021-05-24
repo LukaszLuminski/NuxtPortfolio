@@ -76,7 +76,7 @@
           <div class="contact__single-logo">
             <a
               class="d-flex align-center"
-              href="https:/linkedin.com/in/lukasz-luminski/"
+              href="https://linkedin.com/in/lukasz-luminski/"
               target="_blank"
               @mouseover="$refs.linkedinBtn.isActive = true"
               @mouseout="$refs.linkedinBtn.isActive = false"
