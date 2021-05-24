@@ -37,7 +37,11 @@ export default {
     }
   },
   mounted () {
-    this.typeWriter()
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.typeWriter()
+      }, 800)
+    })
   },
   methods: {
     typeWriter () {
