@@ -200,6 +200,7 @@ $animate: all 0.2s ease-in-out;
     flex-flow: row nowrap;
     align-items: center;
     margin: 0 0 33px;
+    width: fit-content;
     .hover {
       @media (min-width: $breakpoint-md) {
         font-size: 18px;
