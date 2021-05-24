@@ -44,7 +44,10 @@ export default {
       dialog: false,
       project: null,
       isLoaded: false,
-      isIos: null
+      isIos: null,
+      projects: false,
+      skills: false,
+      about: false
     }
   },
   computed: {
@@ -86,7 +89,7 @@ export default {
       setTimeout(() => {
         this.isLoaded = true
         this.$nuxt.$emit('homepage-ready')
-      }, 500)
+      }, 1000)
     })
   }
 }

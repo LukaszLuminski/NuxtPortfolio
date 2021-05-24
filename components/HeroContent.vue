@@ -26,7 +26,6 @@
     <div v-if="animateSocials">
       <div
         data-aos="flip-up"
-        data-aos-duration="4000"
       >
         <v-btn
           x-large
@@ -39,9 +38,6 @@
           <v-icon>mdi-github</v-icon>
         </v-btn>
         <v-btn
-          v-if="animateSocials"
-          data-aos="flip-up"
-          data-aos-duration="4000"
           x-large
           icon
           color="white"
@@ -56,7 +52,6 @@
         class="heroSection__cta-btns mx-auto"
         data-aos="fade-up"
         data-aos-delay="800"
-        data-aos-duration="4000"
       >
         <v-btn
           block

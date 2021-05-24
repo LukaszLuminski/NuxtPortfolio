@@ -1,11 +1,12 @@
 <template>
   <div class="about pt-9 pb-12">
-    <v-container class="about__container pb-5">
+    <v-container id="aboutAnimate" class="about__container pb-5">
       <div
         class="title-wrapper"
         data-aos="fade-right"
         data-aos-duration="1100"
-        data-aos-once="true"
+        data-aos-offset="400"
+        data-aos-anchor-placement="top-center"
         data-aos-anchor="#about"
       >
         <p class="section-title pt-8">
@@ -18,7 +19,8 @@
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="100"
-        data-aos-once="true"
+        data-aos-offset="400"
+        data-aos-anchor-placement="top-center"
         data-aos-anchor="#about"
       >
         <v-card
@@ -29,17 +31,6 @@
         >
           <div class="about__img" :style="`background-image: url('${info.img}')`" />
         </v-card>
-        <!-- <v-progress-circular
-          :class="imgLoaded ? 'hidden' : ''"
-          class="about__img-loading transition"
-          indeterminate
-          color="grey"
-          :style="
-            $vuetify.breakpoint.xs
-              ? 'top: 82px; left: 64px'
-              : 'top: 91px; left: 71px'
-          "
-        /> -->
         <div class="mb-13" v-html="info.description" />
       </div>
     </v-container>
@@ -106,9 +97,6 @@ export default {
     height: 100%;
     width: 100%;
   }
-  // &__img-loading {
-  //   position: absolute;
-  // }
   position: relative;
   min-height: 600px;
   &__container {

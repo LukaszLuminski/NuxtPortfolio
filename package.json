@@ -18,10 +18,12 @@
     "@nuxtjs/recaptcha": "^1.0.4",
     "aos": "^3.0.0-beta.6",
     "core-js": "^3.8.3",
+    "intersection-observer": "^0.12.0",
     "jarallax": "^1.12.5",
     "netlify-lambda": "^2.0.7",
     "nuxt": "^2.14.12",
     "object-fit-images": "^3.2.4",
+    "scrollama": "^2.2.2",
     "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {

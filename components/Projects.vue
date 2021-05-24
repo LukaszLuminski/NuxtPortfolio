@@ -1,12 +1,13 @@
 <template>
   <div class="projects pb-8">
-    <v-container class="projects__container mb-3">
+    <v-container id="projectAnimate" class="projects__container mb-3">
       <div
         class="title-wrapper"
         data-aos="fade-right"
+        data-aos-offset="600"
         data-aos-duration="1100"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
+        data-aos-anchor="#projectAnimate"
+        data-aos-anchor-placement="top-center"
       >
         <p class="section-title pt-8">
           My most recent, Vue.js
@@ -16,10 +17,11 @@
       </div>
       <div
         data-aos="fade-up"
+        data-aos-offset="600"
         data-aos-duration="1000"
         data-aos-delay="100"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
+        data-aos-anchor="#projectAnimate"
+        data-aos-anchor-placement="top-center"
       >
         <Project
           :is-ios="isIos"
@@ -31,10 +33,11 @@
       <div
         class="title-wrapper"
         data-aos="fade-in"
+        data-aos-offset="600"
         data-aos-duration="1000"
         data-aos-delay="500"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
+        data-aos-anchor="#projectAnimate"
+        data-aos-anchor-placement="top-center"
       >
         <p class="section-subtitle pt-8">
           Older projects, various
@@ -46,8 +49,9 @@
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="100"
-        data-aos-once="true"
-        data-aos-anchor="#projects"
+        data-aos-offset="600"
+        data-aos-anchor="#projectAnimate"
+        data-aos-anchor-placement="top-center"
       >
         <Project
           class="mb-15"
@@ -79,7 +83,8 @@ export default {
       arrOfVueProjects: null,
       allImg: 0,
       allLoadedImg: 0,
-      imgsReady: false
+      imgsReady: false,
+      visible: false
     }
   },
   watch: {

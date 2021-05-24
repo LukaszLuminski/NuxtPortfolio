@@ -5,7 +5,7 @@
         class="title-wrapper"
         data-aos="fade-right"
         data-aos-duration="1100"
-        data-aos-once="true"
+        data-aos-offset="600"
         data-aos-anchor="#skills"
       >
         <p class="section-title pt-2 pt-md-5">
@@ -18,7 +18,7 @@
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="100"
-        data-aos-once="true"
+        data-aos-offset="600"
         data-aos-anchor="#skills"
       >
         <v-col
