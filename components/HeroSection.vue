@@ -40,7 +40,7 @@ export default {
     this.$nextTick(() => {
       setTimeout(() => {
         this.typeWriter()
-      }, 800)
+      }, 1000)
     })
   },
   methods: {

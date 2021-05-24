@@ -21,7 +21,7 @@
         <div
           :class="!imgsReady ? 'd-none' : 'd-flex'"
           class="links align-center mt-auto py-3 px-7"
-          :style="!isIos ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px' : ''"
+          :style="!isIos ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px' : 'border-bottom-left-radius: 0; border-bottom-right-radius: 0'"
         >
           <a
             v-if="project.live"
