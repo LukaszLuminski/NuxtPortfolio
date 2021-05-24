@@ -5,9 +5,8 @@
       <a
         v-for="(n, i) in items"
         :key="i"
-        :href="n.slug"
         class="theNavMainMobile__listItem"
-        @click="closeDrawer"
+        @click="goTo(n.slug)"
       >
         <v-list-item class="theNavMainMobile__listItemLink">
           <v-list-item-title>
@@ -35,6 +34,13 @@ export default {
     }
   },
   methods: {
+    methods: {
+      goTo (link) {
+        this.closeDrawer()
+        const element = document.getElementById(link.replace('#', ''))
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
     closeDrawer () {
       this.$emit('close')
     }

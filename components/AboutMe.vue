@@ -23,14 +23,13 @@
       >
         <v-card
           class="about__card float-left mt-1 mr-4 mb-2 transition"
-          :class="!imgLoaded ? 'hidden' : ''"
           elevation="10"
           :height="$vuetify.breakpoint.xs ? '180px' : '198px'"
           :width="$vuetify.breakpoint.xs ? '150px' : '165px'"
         >
-          <v-img :src="info.img" alt="" @load="imgLoaded = true" />
+          <div class="about__img" :style="`background-image: url('${info.img}')`" />
         </v-card>
-        <v-progress-circular
+        <!-- <v-progress-circular
           :class="imgLoaded ? 'hidden' : ''"
           class="about__img-loading transition"
           indeterminate
@@ -40,7 +39,7 @@
               ? 'top: 82px; left: 64px'
               : 'top: 91px; left: 71px'
           "
-        />
+        /> -->
         <div class="mb-13" v-html="info.description" />
       </div>
     </v-container>
@@ -100,9 +99,16 @@ export default {
   &__card-wrapper {
     position: relative;
   }
-  &__img-loading {
-    position: absolute;
+  &__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
   }
+  // &__img-loading {
+  //   position: absolute;
+  // }
   position: relative;
   min-height: 600px;
   &__container {
