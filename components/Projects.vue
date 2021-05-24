@@ -161,8 +161,6 @@ export default {
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.55);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   a {
     font-size: 19px;
     text-decoration: none;

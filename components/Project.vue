@@ -1,12 +1,6 @@
 <template>
-  <v-row
-    class="projects__row pb-3"
-  >
-    <v-col
-      v-for="(project, i) in arr"
-      :key="i"
-      class="col-12 col-sm-6"
-    >
+  <v-row class="projects__row pb-3">
+    <v-col v-for="(project, i) in arr" :key="i" class="col-12 col-sm-6">
       <v-card
         elevation="10"
         :class="isIos ? 'disable-hover' : 'enable-hover'"
@@ -24,8 +18,22 @@
             </div>
           </article>
         </figure>
-        <div :class="!imgsReady ? 'd-none' : 'd-flex'" class="links align-center mt-auto py-3 px-7">
-          <a v-if="project.live" :href="project.live" target="_blank" class="ml-auto mr-5">Live</a><a v-if="project.code" :href="project.code" target="_blank" class="mx-auto">Code</a><a class="mr-auto mx-5" @click="openDialog(project)">More info</a>
+        <div
+          :class="!imgsReady ? 'd-none' : 'd-flex'"
+          class="links align-center mt-auto py-3 px-7"
+          :style="!isIos ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px' : ''"
+        >
+          <a
+            v-if="project.live"
+            :href="project.live"
+            target="_blank"
+            class="ml-auto mr-5"
+          >Live</a><a
+            v-if="project.code"
+            :href="project.code"
+            target="_blank"
+            class="mx-auto"
+          >Code</a><a class="mr-auto mx-5" @click="openDialog(project)">More info</a>
         </div>
       </v-card>
     </v-col>
@@ -56,7 +64,6 @@ export default {
       this.$emit('add-loaded-img')
     }
   }
-
 }
 </script>
 
