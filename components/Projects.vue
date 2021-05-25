@@ -1,13 +1,8 @@
 <template>
   <div class="projects pb-8">
-    <v-container id="projectAnimate" class="projects__container mb-3">
+    <v-container class="projects__container mb-3">
       <div
         class="title-wrapper"
-        data-aos="fade-right"
-        data-aos-offset="600"
-        data-aos-duration="1100"
-        data-aos-anchor="#projectAnimate"
-        data-aos-anchor-placement="top-center"
       >
         <p class="section-title pt-8">
           My most recent, Vue.js
@@ -16,12 +11,6 @@
         <v-divider class="mt-2 mb-6" />
       </div>
       <div
-        data-aos="fade-up"
-        data-aos-offset="600"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-anchor="#projectAnimate"
-        data-aos-anchor-placement="top-center"
       >
         <Project
           :is-ios="isIos"
@@ -32,12 +21,6 @@
       </div>
       <div
         class="title-wrapper"
-        data-aos="fade-in"
-        data-aos-offset="600"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-anchor="#projectAnimate"
-        data-aos-anchor-placement="top-center"
       >
         <p class="section-subtitle pt-8">
           Older projects, various
@@ -46,12 +29,6 @@
         <v-divider class="mt-2 mb-6" />
       </div>
       <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-offset="600"
-        data-aos-anchor="#projectAnimate"
-        data-aos-anchor-placement="top-center"
       >
         <Project
           class="mb-15"

@@ -3,10 +3,6 @@
     <v-container class="skills__container">
       <div
         class="title-wrapper"
-        data-aos="fade-right"
-        data-aos-duration="1100"
-        data-aos-offset="600"
-        data-aos-anchor="#skills"
       >
         <p class="section-title pt-2 pt-md-5">
           My skills
@@ -15,11 +11,6 @@
       </div>
       <v-row
         class="skills__row mb-8"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-offset="600"
-        data-aos-anchor="#skills"
       >
         <v-col
           v-for="(skill, i) in skills"

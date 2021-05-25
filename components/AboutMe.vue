@@ -3,11 +3,6 @@
     <v-container id="aboutAnimate" class="about__container pb-5">
       <div
         class="title-wrapper"
-        data-aos="fade-right"
-        data-aos-duration="1100"
-        data-aos-offset="400"
-        data-aos-anchor-placement="top-center"
-        data-aos-anchor="#about"
       >
         <p class="section-title pt-8">
           About me
@@ -16,12 +11,6 @@
       </div>
       <div
         class="about__card-wrapper"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-offset="400"
-        data-aos-anchor-placement="top-center"
-        data-aos-anchor="#about"
       >
         <v-card
           class="about__card float-left mt-1 mr-4 mb-2 transition"
