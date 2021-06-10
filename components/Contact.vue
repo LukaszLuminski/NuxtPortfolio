@@ -13,8 +13,23 @@
         class="contact__row mb-2 mb-md-8"
       >
         <v-col class="pr-md-10 col-12 col-md-6">
-          <v-form ref="form" lazy-validation @submit.prevent="validate">
+          <v-form
+            ref="form"
+            name="contact"
+            method="POST"
+            action="/success/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            lazy-validation
+            @submit.prevent="validate"
+          >
             <recaptcha />
+            <input type="hidden" name="form-name" value="contact">
+            <p hidden>
+              <label>
+                Don’t fill this out: <input name="bot-field">
+              </label>
+            </p>
             <v-row>
               <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
                 <v-text-field
@@ -64,7 +79,7 @@
                   rounded
                   :rules="basicRules"
                 />
-                <v-btn dark x-large class="contact__btn" @click="validate">
+                <v-btn dark x-large class="contact__btn" type="submit">
                   Submit
                 </v-btn>
               </v-col>
@@ -133,18 +148,20 @@ export default {
       ],
       subject: null,
       message: null,
-      basicRules: [v => !!v || 'Field is required']
+      basicRules: [v => !!v || 'Field is required'],
+      formData: {}
     }
   },
   methods: {
-    async validate () {
+    async validate (e) {
       if (this.$refs.form.validate()) {
         console.log('form successfully validated!')
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
-            this.message = 'Your form has been successfully submitted!'
-            this.dialog = true
+            this.handleSubmit(e)
+            // this.message = 'Your form has been successfully submitted!'
+            // this.dialog = true
           }
           await this.$recaptcha.reset()
         } catch (error) {
@@ -153,6 +170,26 @@ export default {
           this.dialog = true
         }
       }
+    },
+    encode (data) {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&')
+    },
+    handleSubmit (e) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData
+        })
+      })
+        .then(() => {
+          this.message = 'Your form has been successfully submitted!'
+          this.dialog = true
+        })
+        .catch(error => alert(error))
     },
     closeDialog () {
       if (!this.error) {

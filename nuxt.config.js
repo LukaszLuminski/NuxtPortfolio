@@ -61,7 +61,9 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://lukaszluminski.netlify.app/'
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
