@@ -13,10 +13,9 @@
         class="contact__row mb-2 mb-md-8"
       >
         <v-col class="pr-md-10 col-12 col-md-6">
-          <v-form
+          <form
             ref="form"
             name="contact"
-            method="POST"
             netlify
             data-netlify-honeypot="bot-field"
             lazy-validation
@@ -83,7 +82,7 @@
                 </v-btn>
               </v-col>
             </v-row>
-          </v-form>
+          </form>
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
