@@ -32,7 +32,6 @@
             <v-row>
               <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
                 <v-text-field
-                  v-model="name"
                   name="name"
                   placeholder="Your Name"
                   class="contact__text-field"
@@ -45,7 +44,6 @@
                 />
               </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
                 <v-text-field
-                  v-model="email"
                   name="email"
                   placeholder="Your Email"
                   class="contact__text-field"
@@ -61,7 +59,6 @@
             <v-row>
               <v-col block class="pt-0">
                 <v-text-field
-                  v-model="subject"
                   placeholder="Subject"
                   name="subject"
                   class="contact__text-field"
@@ -73,7 +70,6 @@
                   dense
                 />
                 <v-textarea
-                  v-model="message"
                   name="message"
                   placeholder="Enter Your Message"
                   auto-grow
@@ -158,16 +154,9 @@ export default {
   methods: {
     async validate (e) {
       if (this.$refs.form.validate()) {
-        console.log('form successfully validated!')
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
-            this.formData = {
-              name: this.name,
-              email: this.email,
-              subject: this.subject,
-              message: this.message
-            }
             this.handleSubmit(e)
             // this.message = 'Your form has been successfully submitted!'
             // this.dialog = true
@@ -185,8 +174,8 @@ export default {
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
     },
-    async handleSubmit (e) {
-      await fetch('/', {
+    handleSubmit (e) {
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: this.encode({
