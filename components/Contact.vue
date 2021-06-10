@@ -13,7 +13,7 @@
         class="contact__row mb-2 mb-md-8"
       >
         <v-col class="pr-md-10 col-12 col-md-6">
-          <form
+          <v-form
             ref="form"
             name="contact"
             method="POST"
@@ -83,7 +83,7 @@
                 </v-btn>
               </v-col>
             </v-row>
-          </form>
+          </v-form>
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
@@ -154,6 +154,7 @@ export default {
   methods: {
     async validate (e) {
       if (this.$refs.form.validate()) {
+        console.log('form successfully validated!')
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
@@ -174,8 +175,8 @@ export default {
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
     },
-    handleSubmit (e) {
-      fetch('/', {
+    async handleSubmit (e) {
+      await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: this.encode({
