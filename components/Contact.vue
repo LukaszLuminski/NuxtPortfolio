@@ -17,8 +17,7 @@
             ref="form"
             name="contact"
             method="POST"
-            action="/success/"
-            data-netlify="true"
+            netlify
             data-netlify-honeypot="bot-field"
             lazy-validation
             @submit.prevent="validate"
@@ -34,6 +33,7 @@
               <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
                 <v-text-field
                   v-model="name"
+                  name="name"
                   placeholder="Your Name"
                   class="contact__text-field"
                   :rules="basicRules"
@@ -46,6 +46,7 @@
               </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
                 <v-text-field
                   v-model="email"
+                  name="email"
                   placeholder="Your Email"
                   class="contact__text-field"
                   :rules="emailRules"
@@ -62,6 +63,7 @@
                 <v-text-field
                   v-model="subject"
                   placeholder="Subject"
+                  name="subject"
                   class="contact__text-field"
                   :rules="basicRules"
                   type="text"
@@ -72,6 +74,7 @@
                 />
                 <v-textarea
                   v-model="message"
+                  name="message"
                   placeholder="Enter Your Message"
                   auto-grow
                   class="contact__text-field"
