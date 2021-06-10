@@ -13,7 +13,7 @@
         class="contact__row mb-2 mb-md-8"
       >
         <v-col class="pr-md-10 col-12 col-md-6">
-          <v-form
+          <form
             ref="form"
             name="contact"
             method="POST"
@@ -87,7 +87,7 @@
                 </v-btn>
               </v-col>
             </v-row>
-          </v-form>
+          </form>
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
@@ -162,6 +162,12 @@ export default {
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
+            this.formData = {
+              name: this.name,
+              email: this.email,
+              subject: this.subject,
+              message: this.message
+            }
             this.handleSubmit(e)
             // this.message = 'Your form has been successfully submitted!'
             // this.dialog = true
