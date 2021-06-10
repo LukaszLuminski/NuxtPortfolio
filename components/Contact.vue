@@ -158,16 +158,19 @@ export default {
     }
   },
   methods: {
-    async validate () {
+    async validate (e) {
       if (this.$refs.form.validate()) {
         console.log('form successfully validated!')
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
-            this.$refs.form.$el.submit()
-            // this.handleSubmit(e)
-            // this.message = 'Your form has been successfully submitted!'
-            // this.dialog = true
+            this.formData.name = this.name
+            this.formData.email = this.email
+            this.formData.subject = this.subject
+            this.formData.message = this.message
+            this.handleSubmit(e)
+            this.message = 'Your form has been successfully submitted!'
+            this.dialog = true
           }
           await this.$recaptcha.reset()
         } catch (error) {
@@ -182,24 +185,24 @@ export default {
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
     },
-    // async handleSubmit (e) {
-    //   await fetch('/', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //     body: this.encode({
-    //       'form-name': e.target.getAttribute('name'),
-    //       ...this.formData
-    //     })
-    //   })
-    //     .then(() => {
-    //       this.message = 'Your form has been successfully submitted!'
-    //       this.dialog = true
-    //     })
-    //     .catch((error) => {
-    //       this.message = error
-    //       this.dialog = true
-    //     })
-    // },
+    async handleSubmit (e) {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData
+        })
+      })
+        .then(() => {
+          this.message = 'Your form has been successfully submitted!'
+          this.dialog = true
+        })
+        .catch((error) => {
+          this.message = error
+          this.dialog = true
+        })
+    },
     closeDialog () {
       if (!this.error) {
         this.$refs.form.reset()
