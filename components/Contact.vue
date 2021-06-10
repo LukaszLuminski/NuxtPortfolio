@@ -189,7 +189,10 @@ export default {
           this.message = 'Your form has been successfully submitted!'
           this.dialog = true
         })
-        .catch(error => alert(error))
+        .catch((error) => {
+          this.message = error
+          this.dialog = true
+        })
     },
     closeDialog () {
       if (!this.error) {
