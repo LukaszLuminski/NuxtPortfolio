@@ -16,6 +16,7 @@
           <form
             ref="form"
             name="contact"
+            method="POST"
             netlify
             data-netlify-honeypot="bot-field"
             lazy-validation
@@ -30,7 +31,7 @@
             </p>
             <v-row>
               <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
-                <v-text-field
+                <input
                   name="name"
                   placeholder="Your Name"
                   class="contact__text-field"
@@ -40,9 +41,9 @@
                   filled
                   rounded
                   dense
-                />
+                >
               </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
-                <v-text-field
+                <input
                   name="email"
                   placeholder="Your Email"
                   class="contact__text-field"
@@ -52,12 +53,12 @@
                   filled
                   rounded
                   dense
-                />
+                >
               </v-col>
             </v-row>
             <v-row>
               <v-col block class="pt-0">
-                <v-text-field
+                <input
                   placeholder="Subject"
                   name="subject"
                   class="contact__text-field"
@@ -67,8 +68,8 @@
                   filled
                   rounded
                   dense
-                />
-                <v-textarea
+                >
+                <textarea
                   name="message"
                   placeholder="Enter Your Message"
                   auto-grow
@@ -157,7 +158,8 @@ export default {
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
-            this.handleSubmit(e)
+            this.$refs.form.submit()
+            // this.handleSubmit(e)
             // this.message = 'Your form has been successfully submitted!'
             // this.dialog = true
           }
@@ -174,24 +176,24 @@ export default {
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
     },
-    async handleSubmit (e) {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({
-          'form-name': e.target.getAttribute('name'),
-          ...this.formData
-        })
-      })
-        .then(() => {
-          this.message = 'Your form has been successfully submitted!'
-          this.dialog = true
-        })
-        .catch((error) => {
-          this.message = error
-          this.dialog = true
-        })
-    },
+    // async handleSubmit (e) {
+    //   await fetch('/', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    //     body: this.encode({
+    //       'form-name': e.target.getAttribute('name'),
+    //       ...this.formData
+    //     })
+    //   })
+    //     .then(() => {
+    //       this.message = 'Your form has been successfully submitted!'
+    //       this.dialog = true
+    //     })
+    //     .catch((error) => {
+    //       this.message = error
+    //       this.dialog = true
+    //     })
+    // },
     closeDialog () {
       if (!this.error) {
         this.$refs.form.reset()
