@@ -130,7 +130,7 @@
     </v-container>
     <ErrorDialog
       :dialog="dialog"
-      :message="message"
+      :message="dialogMessage"
       :error="error"
       @close="closeDialog"
     />
@@ -153,6 +153,7 @@ export default {
       ],
       subject: null,
       message: null,
+      dialogMessage: null,
       basicRules: [v => !!v || 'Field is required'],
       formData: {}
     }
@@ -160,7 +161,6 @@ export default {
   methods: {
     async validate (e) {
       if (this.$refs.form.validate()) {
-        console.log('form successfully validated!')
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
@@ -169,13 +169,13 @@ export default {
             this.formData.subject = this.subject
             this.formData.message = this.message
             this.handleSubmit(e)
-            this.message = 'Your form has been successfully submitted!'
+            this.dialogMessage = 'Your form has been successfully submitted!'
             this.dialog = true
           }
           await this.$recaptcha.reset()
         } catch (error) {
           this.error = true
-          this.message = error
+          this.dialogMessage = error
           this.dialog = true
         }
       }
@@ -195,11 +195,11 @@ export default {
         })
       })
         .then(() => {
-          this.message = 'Your form has been successfully submitted!'
+          this.dialogMessage = 'Your form has been successfully submitted!'
           this.dialog = true
         })
         .catch((error) => {
-          this.message = error
+          this.dialogMessage = error
           this.dialog = true
         })
     },
