@@ -13,7 +13,7 @@
         class="contact__row mb-2 mb-md-8"
       >
         <v-col class="pr-md-10 col-12 col-md-6">
-          <form
+          <v-form
             ref="form"
             name="contact"
             method="POST"
@@ -31,8 +31,8 @@
             </p>
             <v-row>
               <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
-                <input
-                  name="name"
+                <v-text-field
+                  v-model="name"
                   placeholder="Your Name"
                   class="contact__text-field"
                   :rules="basicRules"
@@ -41,9 +41,11 @@
                   filled
                   rounded
                   dense
-                >
+                />
+                <input type="text" :value="name" name="name" class="d-none">
               </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
-                <input
+                <v-text-field
+                  v-model="email"
                   name="email"
                   placeholder="Your Email"
                   class="contact__text-field"
@@ -53,12 +55,14 @@
                   filled
                   rounded
                   dense
-                >
+                />
+                <input type="text" :value="email" name="email" class="d-none">
               </v-col>
             </v-row>
             <v-row>
               <v-col block class="pt-0">
-                <input
+                <v-text-field
+                  v-model="subject"
                   placeholder="Subject"
                   name="subject"
                   class="contact__text-field"
@@ -68,9 +72,10 @@
                   filled
                   rounded
                   dense
-                >
-                <textarea
-                  name="message"
+                />
+                <input type="text" :value="subject" name="subject" class="d-none">
+                <v-textarea
+                  v-model="message"
                   placeholder="Enter Your Message"
                   auto-grow
                   class="contact__text-field"
@@ -78,12 +83,13 @@
                   rounded
                   :rules="basicRules"
                 />
+                <textarea name="message" :value="message" class="d-none" />
                 <v-btn dark x-large class="contact__btn" type="submit">
                   Submit
                 </v-btn>
               </v-col>
             </v-row>
-          </form>
+          </v-form>
         </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
@@ -158,8 +164,7 @@ export default {
         try {
           const token = await this.$recaptcha.getResponse()
           if (token) {
-            this.$refs.form.submit()
-            // this.handleSubmit(e)
+            this.handleSubmit(e)
             // this.message = 'Your form has been successfully submitted!'
             // this.dialog = true
           }
@@ -176,24 +181,24 @@ export default {
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
     },
-    // async handleSubmit (e) {
-    //   await fetch('/', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //     body: this.encode({
-    //       'form-name': e.target.getAttribute('name'),
-    //       ...this.formData
-    //     })
-    //   })
-    //     .then(() => {
-    //       this.message = 'Your form has been successfully submitted!'
-    //       this.dialog = true
-    //     })
-    //     .catch((error) => {
-    //       this.message = error
-    //       this.dialog = true
-    //     })
-    // },
+    async handleSubmit (e) {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData
+        })
+      })
+        .then(() => {
+          this.message = 'Your form has been successfully submitted!'
+          this.dialog = true
+        })
+        .catch((error) => {
+          this.message = error
+          this.dialog = true
+        })
+    },
     closeDialog () {
       if (!this.error) {
         this.$refs.form.reset()
