@@ -48,7 +48,7 @@
         data-aos-duration="800"
         data-aos-delay="800"
         data-aos-anchor="#projects"
-        data-aos-offset="200"
+        data-aos-offset="800"
       >
         <Project
           class="mb-15"
