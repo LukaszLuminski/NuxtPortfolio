@@ -1,5 +1,5 @@
 <template>
-  <nav class="theNavMain">
+  <nav class="theNavMain" :class="!homepageReady ? 'hidden' : ''">
     <v-app-bar
       class="theNavMain__bar"
       :height="bg === 'transparent' ? '90px' : '70px'"
@@ -10,14 +10,14 @@
       :color="bg"
     >
       <v-container class="d-flex pr-0">
-        <nuxt-link :class="!homepageReady ? 'hidden' : ''" class="theNavMain__brand d-flex align-center transition" to="/">
+        <div class="theNavMain__brand d-flex align-center" @click="goToTop">
           <p
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
           >
             lukasz<span :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'">Luminski</span>
           </p>
-        </nuxt-link>
+        </div>
         <v-spacer />
         <NavMenuDesktop :bg="bg" :items="navItems" />
         <v-app-bar-nav-icon
@@ -101,6 +101,13 @@ export default {
       } else {
         this.bg = 'transparent'
       }
+    },
+    goToTop () {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
     }
   }
 }
@@ -136,6 +143,9 @@ export default {
   }
   &__brand {
     text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__boatImg {
     animation: swing 2.5s infinite ease-in-out;

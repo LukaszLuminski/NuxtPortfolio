@@ -1,8 +1,12 @@
 <template>
-  <div class="contact pt-7">
+  <div id="contact" class="contact pt-7">
     <v-container class="contact__container">
       <div
         class="title-wrapper"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-anchor="#contact"
+        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-4 white--text">
           Contact
@@ -29,69 +33,90 @@
                 Don’t fill this out: <input name="bot-field">
               </label>
             </p>
-            <v-row>
-              <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
-                <v-text-field
-                  v-model="name"
-                  placeholder="Your Name"
-                  class="contact__text-field"
-                  :rules="basicRules"
-                  type="text"
-                  required
-                  filled
-                  rounded
-                  dense
-                />
-                <input type="text" :value="name" name="name" class="d-none">
-              </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
-                <v-text-field
-                  v-model="email"
-                  name="email"
-                  placeholder="Your Email"
-                  class="contact__text-field"
-                  :rules="emailRules"
-                  type="text"
-                  required
-                  filled
-                  rounded
-                  dense
-                />
-                <input type="text" :value="email" name="email" class="d-none">
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col block class="pt-0">
-                <v-text-field
-                  v-model="subject"
-                  placeholder="Subject"
-                  name="subject"
-                  class="contact__text-field"
-                  :rules="basicRules"
-                  type="text"
-                  required
-                  filled
-                  rounded
-                  dense
-                />
-                <input type="text" :value="subject" name="subject" class="d-none">
-                <v-textarea
-                  v-model="message"
-                  placeholder="Enter Your Message"
-                  auto-grow
-                  class="contact__text-field"
-                  filled
-                  rounded
-                  :rules="basicRules"
-                />
-                <textarea name="message" :value="message" class="d-none" />
-                <v-btn dark x-large class="contact__btn" type="submit">
-                  Submit
-                </v-btn>
-              </v-col>
-            </v-row>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+              data-aos-anchor="#contact"
+              data-aos-anchor-placement="center-bottom"
+            >
+              <v-row>
+                <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
+                  <v-text-field
+                    v-model="name"
+                    placeholder="Your Name"
+                    class="contact__text-field"
+                    :rules="basicRules"
+                    type="text"
+                    required
+                    filled
+                    rounded
+                    dense
+                  />
+                  <input type="text" :value="name" name="name" class="d-none">
+                </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
+                  <v-text-field
+                    v-model="email"
+                    name="email"
+                    placeholder="Your Email"
+                    class="contact__text-field"
+                    :rules="emailRules"
+                    type="text"
+                    required
+                    filled
+                    rounded
+                    dense
+                  />
+                  <input type="text" :value="email" name="email" class="d-none">
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col block class="pt-0">
+                  <v-text-field
+                    v-model="subject"
+                    placeholder="Subject"
+                    name="subject"
+                    class="contact__text-field"
+                    :rules="basicRules"
+                    type="text"
+                    required
+                    filled
+                    rounded
+                    dense
+                  />
+                  <input type="text" :value="subject" name="subject" class="d-none">
+                  <v-textarea
+                    v-model="message"
+                    placeholder="Enter Your Message"
+                    auto-grow
+                    class="contact__text-field"
+                    filled
+                    rounded
+                    :rules="basicRules"
+                  />
+                  <textarea name="message" :value="message" class="d-none" />
+                  <v-btn dark x-large class="contact__btn" type="submit">
+                    Submit
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </div>
           </v-form>
-        </v-col><v-divider vertical class="contact__divider__vertical" /><v-col
+        </v-col><v-divider
+          vertical
+          class="contact__divider__vertical"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+          data-aos-anchor="#contact"
+          data-aos-anchor-placement="center-bottom"
+        /><v-col
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+          data-aos-anchor="#contact"
+          data-aos-anchor-placement="center-bottom"
         >
           <div class="contact__single-logo">
             <a
