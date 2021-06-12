@@ -6,7 +6,7 @@
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-anchor="#skills"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-2 pt-md-5">
           My skills
@@ -19,7 +19,7 @@
         data-aos-duration="800"
         data-aos-delay="200"
         data-aos-anchor="#skills"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <v-col
           v-for="(skill, i) in skills"

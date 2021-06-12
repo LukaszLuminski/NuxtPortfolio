@@ -6,7 +6,7 @@
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-anchor="#about"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-8">
           About me
@@ -19,7 +19,7 @@
         data-aos-duration="800"
         data-aos-delay="200"
         data-aos-anchor="#about"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <v-card
           class="about__card float-left mt-1 mr-4 mb-2 transition"
