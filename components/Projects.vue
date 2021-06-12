@@ -1,8 +1,13 @@
 <template>
-  <div class="projects pb-8">
+  <div id="projects" class="projects pb-8">
     <v-container class="projects__container mb-3">
       <div
+        id="projects-title"
         class="title-wrapper"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-anchor="#projects"
+        data-aos-offset="800"
       >
         <p class="section-title pt-8">
           My most recent, Vue.js
@@ -11,6 +16,11 @@
         <v-divider class="mt-2 mb-6" />
       </div>
       <div
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="200"
+        data-aos-anchor="#projects"
+        data-aos-offset="800"
       >
         <Project
           :is-ios="isIos"
@@ -21,6 +31,11 @@
       </div>
       <div
         class="title-wrapper"
+        data-aos="fade-in"
+        data-aos-delay="500"
+        data-aos-duration="800"
+        data-aos-anchor="#projects"
+        data-aos-offset="800"
       >
         <p class="section-subtitle pt-8">
           Older projects, various
@@ -29,6 +44,11 @@
         <v-divider class="mt-2 mb-6" />
       </div>
       <div
+        data-aos="fade-in"
+        data-aos-duration="800"
+        data-aos-delay="800"
+        data-aos-anchor="#projects"
+        data-aos-offset="200"
       >
         <Project
           class="mb-15"
@@ -117,7 +137,7 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url('/img/shadow-top.png');
+    background-image: url("/img/shadow-top.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

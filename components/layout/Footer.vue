@@ -1,10 +1,23 @@
 <template>
   <v-footer dark class="theFooter text-center">
     <v-container>
-      <v-row :class="$vuetify.breakpoint.xs? 'flex-column-reverse' : ''" class="theFooter__copyright">
-        <v-col :class="$vuetify.breakpoint.xs? 'col-12 justify-center pa-0' : 'col-9'" class="theFooter__column d-flex align-center">
-          <p class="mb-0">
-            &#169; {{ new Date().getFullYear() }}. All rights reserved. <br class="d-block d-sm-none">Made with
+      <v-row
+        :class="$vuetify.breakpoint.xs ? 'flex-column-reverse' : ''"
+        class="theFooter__copyright"
+      >
+        <v-col
+          :class="
+            $vuetify.breakpoint.xs ? 'col-12 justify-center pa-0' : 'col-9'
+          "
+          class="theFooter__column d-flex align-center"
+        >
+          <p
+            :class="
+              $vuetify.breakpoint.xs ? 'mb-4' : 'mb-0'
+            "
+          >
+            &#169; {{ new Date().getFullYear() }}. All rights reserved.
+            <br class="d-block d-sm-none">Made with
             <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
             Luminski<span class="d-none d-md-inline mb-1">
               . Background icons from
@@ -12,9 +25,21 @@
             </span>
           </p>
         </v-col>
-        <v-col :class="$vuetify.breakpoint.xs? 'col-12 justify-center pa-0' : 'col-3 justify-end'" class="d-flex">
+        <v-col
+          :class="
+            $vuetify.breakpoint.xs
+              ? 'col-12 justify-center pa-0'
+              : 'col-3 justify-end'
+          "
+          class="d-flex"
+        >
           <div class="theFooter__back-to-top mb-1">
-            <v-btn class="theFooter__back-to-top__btn mt-1" text x-large @click="goToTop">
+            <v-btn
+              class="theFooter__back-to-top__btn mt-1"
+              text
+              x-large
+              @click="goToTop"
+            >
               <v-icon large class="theFooter__back-to-top__icon mr-1" dark>
                 mdi-arrow-up-bold-circle
               </v-icon>Back to top

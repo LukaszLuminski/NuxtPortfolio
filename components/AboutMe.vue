@@ -1,8 +1,12 @@
 <template>
-  <div class="about pt-9 pb-12">
+  <div id="about" class="about pt-9 pb-12">
     <v-container id="aboutAnimate" class="about__container pb-5">
       <div
         class="title-wrapper"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-anchor="#about"
+        data-aos-offset="800"
       >
         <p class="section-title pt-8">
           About me
@@ -11,6 +15,11 @@
       </div>
       <div
         class="about__card-wrapper"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="200"
+        data-aos-anchor="#about"
+        data-aos-offset="800"
       >
         <v-card
           class="about__card float-left mt-1 mr-4 mb-2 transition"

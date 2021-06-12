@@ -12,9 +12,7 @@
       {{ heading }}
     </h1>
     <p
-      :class="
-        $vuetify.breakpoint.xs ? 'font-size-mobile' : 'font-size-desktop'
-      "
+      :class="$vuetify.breakpoint.xs ? 'font-size-mobile' : 'font-size-desktop'"
       class="mt-2 heroSection__subheading mx-auto pl-1"
     >
       {{ subheading
@@ -23,55 +21,55 @@
         class="cursor"
       ><input type="text" class="rq-form-element"><i /></span>
     </p>
-    <div v-if="animateSocials">
-      <div
+    <div class="heroSection__flip" :class="animateSocials ? 'flip-up' : ''">
+      <!-- <div
         data-aos="flip-up"
+      > -->
+      <v-btn
+        x-large
+        icon
+        color="white"
+        class="mx-8 my-10"
+        href="https://github.com/LukaszLuminski"
+        target="_blank"
       >
-        <v-btn
-          x-large
-          icon
-          color="white"
-          class="mx-8 my-10"
-          href="https://github.com/LukaszLuminski"
-          target="_blank"
-        >
-          <v-icon>mdi-github</v-icon>
-        </v-btn>
-        <v-btn
-          x-large
-          icon
-          color="white"
-          class="mx-8 my-10"
-          href="https://www.linkedin.com/in/lukasz-luminski"
-          target="_blank"
-        >
-          <v-icon>mdi-linkedin</v-icon>
-        </v-btn>
-      </div>
-      <div
+        <v-icon>mdi-github</v-icon>
+      </v-btn>
+      <v-btn
+        x-large
+        icon
+        color="white"
+        class="mx-8 my-10"
+        href="https://www.linkedin.com/in/lukasz-luminski"
+        target="_blank"
+      >
+        <v-icon>mdi-linkedin</v-icon>
+      </v-btn>
+    </div>
+    <div v-if="revealCta" class="heroSection__cta-btns mx-auto animated animatedFadeInUp fadeInUp">
+      <!-- <div
         class="heroSection__cta-btns mx-auto"
         data-aos="fade-up"
         data-aos-delay="800"
+      > -->
+      <v-btn
+        block
+        x-large
+        color="rgba(255, 255, 255, .7)"
+        class="heroSection__cta-btn mt-9 black--text"
+        @click="goTo('projects')"
       >
-        <v-btn
-          block
-          x-large
-          color="rgba(255, 255, 255, .7)"
-          class="heroSection__cta-btn mt-9 black--text"
-          @click="goTo('projects')"
-        >
-          See my projects
-        </v-btn>
-        <v-btn
-          block
-          x-large
-          color="rgba(205, 205, 205, .6)"
-          class="heroSection__cta-btn mt-5 black--text"
-          @click="goTo('about')"
-        >
-          Read more about me
-        </v-btn>
-      </div>
+        See my projects
+      </v-btn>
+      <v-btn
+        block
+        x-large
+        color="rgba(205, 205, 205, .6)"
+        class="heroSection__cta-btn mt-5 black--text"
+        @click="goTo('about')"
+      >
+        Read more about me
+      </v-btn>
     </div>
   </v-container>
 </template>
@@ -96,6 +94,20 @@ export default {
       required: true
     }
   },
+  data () {
+    return {
+      revealCta: false
+    }
+  },
+  watch: {
+    animateSocials (val) {
+      if (val) {
+        setTimeout(() => {
+          this.revealCta = true
+        }, 500)
+      }
+    }
+  },
   methods: {
     goTo (link) {
       const element = document.getElementById(link)
@@ -112,7 +124,8 @@ export default {
   }
   &__container {
     vertical-align: top;
-    min-height: 428px;
+    height: 430px;
+    min-height: 430px;
   }
   &__subheading {
     position: relative;
@@ -124,6 +137,11 @@ export default {
   }
   &__cta-btns {
     max-width: 382px;
+  }
+  &__flip {
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg);
   }
 }
 .cursor {
@@ -154,6 +172,44 @@ export default {
     opacity: 0;
   }
 }
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.animated {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+}
+
+.animatedFadeInUp {
+  opacity: 0;
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
 .rq-form-element {
   width: 1px;
 }
@@ -161,15 +217,18 @@ export default {
   opacity: 0;
 }
 .font-size-desktop {
-  font-size: 25.2px;
+  font-size: 24.8px;
 }
 .font-size-mobile {
-  font-size: 18px;
+  font-size: 17.7px;
 }
 .desktop-width {
   max-width: 400px;
 }
 .mobile-width {
   max-width: 295px;
+}
+.flip-up {
+  transform: rotateX(0);
 }
 </style>

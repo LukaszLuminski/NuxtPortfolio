@@ -4,14 +4,23 @@
       :class="isIos || touchScreen ? 'img-wrapper' : 'jarallax'"
       class="heroSection__first jarallax d-flex align-center justify-center"
     >
-      <img src="/img/hero-bg.jpg" :class="isIos || touchScreen ? 'fixed-img' : 'jarallax-img'">
-      <HeroContent :heading="heading" :subheading="subheading" :cursor="cursor" :animate-socials="animateSocials" />
+      <img
+        src="/img/hero-bg.jpg"
+        :class="isIos || touchScreen ? 'fixed-img' : 'jarallax-img'"
+      >
+      <HeroContent
+        :heading="heading"
+        :subheading="subheading"
+        :cursor="cursor"
+        :animate-socials="animateSocials"
+      />
     </div>
     <div id="projects" class="anchor" />
   </div>
 </template>
 
 <script>
+// import AOS from 'aos'
 import HeroContent from './HeroContent.vue'
 export default {
   components: { HeroContent },
@@ -63,6 +72,10 @@ export default {
           this.cursor = false
           this.animateSocials = true
         }, 500)
+        setTimeout(() => {
+          console.log('refreshing aos')
+          this.$nuxt.$emit('refresh-aos')
+        }, 2100)
       }
       setTimeout(this.typeWriter, 60)
     },
