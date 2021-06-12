@@ -7,7 +7,7 @@
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-anchor="#projects"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-8">
           My most recent, Vue.js
@@ -20,7 +20,7 @@
         data-aos-duration="800"
         data-aos-delay="200"
         data-aos-anchor="#projects"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <Project
           :is-ios="isIos"
@@ -35,7 +35,7 @@
         data-aos-delay="500"
         data-aos-duration="800"
         data-aos-anchor="#projects"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-subtitle pt-8">
           Older projects, various
@@ -48,7 +48,7 @@
         data-aos-duration="800"
         data-aos-delay="800"
         data-aos-anchor="#projects"
-        data-aos-offset="800"
+        data-aos-anchor-placement="center-bottom"
       >
         <Project
           class="mb-15"
