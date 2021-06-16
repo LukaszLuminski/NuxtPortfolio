@@ -67,11 +67,13 @@ export default {
     }
   },
   created () {
-    smoothscroll.polyfill()
     this.$root.$on('open-dialog', (val) => {
       this.project = val
       this.dialog = true
     })
+  },
+  mounted () {
+    smoothscroll.polyfill()
     const checkIfIOS = () => {
       const iosQuirkPresent = () => {
         const audio = new Audio()
@@ -87,8 +89,6 @@ export default {
       return isIOS || (isAppleDevice && (isisIos || iosQuirkPresent()))
     }
     this.isIos = checkIfIOS()
-  },
-  mounted () {
     if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
     this.$nextTick(() => {
       setTimeout(() => {
