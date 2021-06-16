@@ -14,6 +14,11 @@
           My most recent, Vue.js
           <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
         </p>
+        <div v-if="isIos || touchScreen" class="d-flex align-center">
+          <span class="caption">(</span><img src="/img/lightbulb.svg" width="30px" alt="" class="mb-2"> <p class="caption pl-1 mb-0">
+            Tap a thumbnail for a short description)
+          </p>
+        </div>
         <v-divider class="mt-2 mb-6" />
       </div>
       <div
@@ -74,6 +79,10 @@ export default {
   components: { Project },
   props: {
     isIos: {
+      type: Boolean,
+      required: true
+    },
+    touchScreen: {
       type: Boolean,
       required: true
     }

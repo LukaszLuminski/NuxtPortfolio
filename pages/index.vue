@@ -2,7 +2,7 @@
   <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
     <HeroSection :is-ios="isIos" :touch-screen="touchScreen" />
     <div v-if="isLoaded">
-      <Projects :is-ios="isIos" />
+      <Projects :is-ios="isIos" :touch-screen="touchScreen" />
       <Skills :aos-position="getOffset" />
       <AboutMe :aos-position="getOffset" />
       <Contact :aos-position="getOffset" />
@@ -96,6 +96,9 @@ export default {
         this.$nuxt.$emit('homepage-ready')
       }, 800)
     })
+    if (!this.touchScreen && !this.isIos) {
+      this.$nuxt.$emit('hide-icon-credits')
+    }
   }
 }
 </script>

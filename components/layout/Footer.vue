@@ -19,10 +19,10 @@
             &#169; {{ new Date().getFullYear() }}. All rights reserved.
             <br class="d-block d-sm-none">Made with
             <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
-            Luminski<span class="d-none d-md-inline mb-1">
-              . Background icons from
-              <a href="http://getdrawings.com/biography-icon">Biography Icon</a>.
-            </span>
+            Luminski<span class="d-none d-md-inline mb-1">. Background icons from
+              <a href="http://getdrawings.com/biography-icon">Biography Icon</a>
+            </span><span v-if="bulbIconCredits"><span class="d-inline d-md-none">. B</span><span class="d-none d-md-inline">, b</span>ulb icon from
+              <a href="https://www.flaticon.com/">Flaticon</a></span>
           </p>
         </v-col>
         <v-col
@@ -53,6 +53,16 @@
 
 <script>
 export default {
+  data () {
+    return {
+      bulbIconCredits: true
+    }
+  },
+  created () {
+    this.$nuxt.$on('hide-icon-credits', () => {
+      this.bulbIconCredits = false
+    })
+  },
   methods: {
     goToTop () {
       window.scrollTo({
