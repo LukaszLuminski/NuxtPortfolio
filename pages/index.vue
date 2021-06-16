@@ -1,10 +1,13 @@
 <template>
   <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
-    <HeroSection v-if="isLoaded" :is-ios="isIos" :touch-screen="touchScreen" />
-    <Projects :is-ios="isIos" />
-    <Skills />
-    <AboutMe />
-    <Contact />
+    <HeroSection :is-ios="isIos" :touch-screen="touchScreen" />
+    <div v-if="isLoaded">
+      <Projects :is-ios="isIos" />
+      <Skills />
+      <AboutMe />
+      <Contact />
+    </div>
+
     <!-- <div class="px-6 mt-11">
       <v-container>
         <p class="headline">
@@ -29,7 +32,7 @@
 </template>
 
 <script>
-import smoothscroll from 'smoothscroll-polyfill'
+// import smoothscroll from 'smoothscroll-polyfill'
 import FullScreenDialog from '~/components/FullScreenDialog.vue'
 import HeroSection from '~/components/HeroSection.vue'
 import Projects from '~/components/Projects.vue'
@@ -62,7 +65,7 @@ export default {
     }
   },
   created () {
-    smoothscroll.polyfill()
+    // smoothscroll.polyfill()
     this.$root.$on('open-dialog', (val) => {
       this.project = val
       this.dialog = true
@@ -84,12 +87,12 @@ export default {
     this.isIos = checkIfIOS()
   },
   mounted () {
-    if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
+    // if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
     this.$nextTick(() => {
       setTimeout(() => {
         this.isLoaded = true
         this.$nuxt.$emit('homepage-ready')
-      }, 1000)
+      }, 800)
     })
   }
 }

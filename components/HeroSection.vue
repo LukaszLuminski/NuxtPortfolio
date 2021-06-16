@@ -72,10 +72,9 @@ export default {
           this.cursor = false
           this.animateSocials = true
         }, 500)
-        setTimeout(() => {
-          console.log('refreshing aos')
-          this.$nuxt.$emit('refresh-aos')
-        }, 2100)
+        // setTimeout(() => {
+        //   this.$nuxt.$emit('refresh-aos')
+        // }, 2100)
       }
       setTimeout(this.typeWriter, 60)
     },

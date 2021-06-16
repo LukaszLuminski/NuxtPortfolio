@@ -21,7 +21,7 @@
         class="cursor"
       ><input type="text" class="rq-form-element"><i /></span>
     </p>
-    <div class="heroSection__flip" :class="animateSocials ? 'flip-up' : ''">
+    <div class="heroSection__flip" :class="readyToAnimate ? 'flip-up' : ''">
       <!-- <div
         data-aos="flip-up"
       > -->
@@ -96,6 +96,7 @@ export default {
   },
   data () {
     return {
+      readyToAnimate: false,
       revealCta: false
     }
   },
@@ -103,8 +104,11 @@ export default {
     animateSocials (val) {
       if (val) {
         setTimeout(() => {
-          this.revealCta = true
+          this.readyToAnimate = true
         }, 500)
+        setTimeout(() => {
+          this.revealCta = true
+        }, 1000)
       }
     }
   },

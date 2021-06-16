@@ -1,5 +1,5 @@
 <template>
-  <nav class="theNavMain" :class="!homepageReady ? 'hidden' : ''">
+  <nav class="theNavMain">
     <v-app-bar
       class="theNavMain__bar"
       :height="bg === 'transparent' ? '90px' : '70px'"
@@ -10,7 +10,7 @@
       :color="bg"
     >
       <v-container class="d-flex pr-0">
-        <div class="theNavMain__brand d-flex align-center" @click="goToTop">
+        <div :class="!showLogo ? 'hidden' : ''" class="theNavMain__brand d-flex align-center transition" @click="goToTop">
           <p
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
@@ -70,7 +70,8 @@ export default {
       drawerIsOpen: false,
       bg: 'transparent',
       navItems: null,
-      homepageReady: false
+      homepageReady: false,
+      showLogo: false
     }
   },
   computed: {
@@ -80,6 +81,15 @@ export default {
         ? (mobileWidth = true)
         : (mobileWidth = false)
       return mobileWidth
+    }
+  },
+  watch: {
+    homepageReady (val) {
+      if (val) {
+        setTimeout(() => {
+          this.showLogo = true
+        }, 200)
+      }
     }
   },
   created () {
