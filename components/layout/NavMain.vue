@@ -10,12 +10,18 @@
       :color="bg"
     >
       <v-container class="d-flex pr-0">
-        <div :class="!showLogo ? 'hidden' : ''" class="theNavMain__brand d-flex align-center transition" @click="goToTop">
+        <div
+          :class="!showLogo ? 'hidden' : ''"
+          class="theNavMain__brand d-flex align-center transition"
+          @click="goToTop"
+        >
           <p
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
           >
-            lukasz<span :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'">Luminski</span>
+            lukasz<span
+              :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'"
+            >Luminski</span>
           </p>
         </div>
         <v-spacer />
@@ -46,9 +52,7 @@
           class="theNavMainMobile__btn mr-3 mt-2"
           @click="drawerIsOpen = false"
         >
-          <v-icon>
-            mdi-close
-          </v-icon>
+          <v-icon> mdi-close </v-icon>
         </v-btn>
       </div>
       <NavMenuMobile :bg="bg" :items="navItems" @close="drawerIsOpen = false" />
@@ -94,7 +98,9 @@ export default {
   },
   created () {
     this.navItems = this.$store.state.menu.items
-    this.$nuxt.$on('homepage-ready', () => { this.homepageReady = true })
+    this.$nuxt.$on('homepage-ready', () => {
+      this.homepageReady = true
+    })
   },
   mounted () {
     window.onscroll = () => {
@@ -128,16 +134,18 @@ export default {
   z-index: 100;
   .light-grey {
     color: #cccccc;
-  }.dark-grey {
+  }
+  .dark-grey {
     color: grey;
   }
-  .headline, &__bar {
-    transition: .5s;
+  .headline,
+  &__bar {
+    transition: 0.5s;
   }
   &__bar {
     max-width: 100vw;
     .v-toolbar__content {
-      transition: .4s;
+      transition: 0.4s;
       margin-left: auto;
       margin-right: auto;
       max-width: 1185px;
@@ -213,8 +221,10 @@ export default {
   }
 }
 .theme--dark.theNavMain.v-list-item--active:hover::before,
-.theme--dark.v-list-item--active::before {
-  opacity: 0.4;
+.theme--dark.v-list-item--active::before,
+.theme--light.v-list-item--active:hover::before,
+.theme--light.v-list-item--active::before {
+  opacity: 0;
   border-radius: 0;
 }
 </style>

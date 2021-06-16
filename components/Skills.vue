@@ -28,13 +28,15 @@
           :key="i"
           class="col-4 col-sm-2 text-center"
         >
-          <div
-            class="skills__img mx-auto"
-            :style="`background-image: url('${skill.img}')`"
-          />
-          <p class="skills__title mt-3">
-            {{ skill.title }}
-          </p>
+          <div class="skills__single-skill">
+            <div
+              class="skills__img mx-auto"
+              :style="`background-image: url('${skill.img}')`"
+            />
+            <p class="skills__title pt-3">
+              {{ skill.title }}
+            </p>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -104,10 +106,48 @@ export default {
     margin-right: 0;
     margin-left: 0;
   }
+  &__single-skill {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    &:hover {
+      .skills__title::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.skills__img {
+  transform: scale(1.2);
+}
+.skills__title {
+  color: #9f9993;
+}
+.skills__title::before {
+  background-color: #9f9993 !important;
+}
+    }
+  }
+  &__title,
+  &__img {
+    cursor: pointer;
+  }
   &__title {
-    font-size: 17px;
+    transition: .5s;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -7px;
+      left: 0;
+      background-color: #000;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
   }
   &__img {
+    transition: .5s;
     @media (min-width: $breakpoint-sm) {
       height: 50px;
       width: 50px;
