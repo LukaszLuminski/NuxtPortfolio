@@ -32,7 +32,7 @@
 </template>
 
 <script>
-// import smoothscroll from 'smoothscroll-polyfill'
+import smoothscroll from 'smoothscroll-polyfill'
 import FullScreenDialog from '~/components/FullScreenDialog.vue'
 import HeroSection from '~/components/HeroSection.vue'
 import Projects from '~/components/Projects.vue'
@@ -67,7 +67,7 @@ export default {
     }
   },
   created () {
-    // smoothscroll.polyfill()
+    smoothscroll.polyfill()
     this.$root.$on('open-dialog', (val) => {
       this.project = val
       this.dialog = true
@@ -89,7 +89,7 @@ export default {
     this.isIos = checkIfIOS()
   },
   mounted () {
-    // if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
+    if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
     this.$nextTick(() => {
       setTimeout(() => {
         this.isLoaded = true

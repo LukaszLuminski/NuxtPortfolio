@@ -41,7 +41,7 @@ export default {
   data: () => ({
     isLoaded: false
   }),
-  mounted () {
+  created () {
     this.isLoaded = true
   }
 }
