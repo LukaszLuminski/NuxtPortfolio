@@ -3,9 +3,9 @@
     <HeroSection :is-ios="isIos" :touch-screen="touchScreen" />
     <div v-if="isLoaded">
       <Projects :is-ios="isIos" />
-      <Skills />
-      <AboutMe />
-      <Contact />
+      <Skills :aos-position="getOffset" />
+      <AboutMe :aos-position="getOffset" />
+      <Contact :aos-position="getOffset" />
     </div>
 
     <!-- <div class="px-6 mt-11">
@@ -39,8 +39,10 @@ import Projects from '~/components/Projects.vue'
 import Skills from '~/components/Skills.vue'
 import AboutMe from '~/components/AboutMe.vue'
 import Contact from '~/components/Contact.vue'
+import aosMixin from '~/mixins/aosPosition.js'
 export default {
   components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact },
+  mixins: [aosMixin],
   transitions: 'route',
   data () {
     return {

@@ -6,7 +6,7 @@
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-anchor="#skills"
-        :data-aos-offset="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl ? '1200' : ''"
+        :data-aos-offset="aosPosition"
         data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-2 pt-md-5">
@@ -20,7 +20,7 @@
         data-aos-duration="800"
         data-aos-delay="200"
         data-aos-anchor="#skills"
-        :data-aos-offset="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl ? '1200' : ''"
+        :data-aos-offset="aosPosition"
         data-aos-anchor-placement="center-bottom"
       >
         <v-col
@@ -44,6 +44,12 @@
 
 <script>
 export default {
+  props: {
+    aosPosition: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       skills: null
