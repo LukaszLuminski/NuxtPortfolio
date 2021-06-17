@@ -28,7 +28,7 @@
           :key="i"
           class="col-4 col-sm-2 text-center"
         >
-          <div class="skills__single-skill">
+          <div class="skills__single-skill" @click="openDialog(skill)">
             <div
               class="skills__img mx-auto"
               :style="`background-image: url('${skill.img}')`"
@@ -59,6 +59,13 @@ export default {
   },
   created () {
     this.skills = this.$store.state.skills.items
+  },
+  methods: {
+    openDialog (val) {
+      setTimeout(() => {
+        this.$root.$emit('open-skill-dialog', val)
+      }, 300)
+    }
   }
 }
 </script>

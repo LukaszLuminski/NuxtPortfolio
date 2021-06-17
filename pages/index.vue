@@ -21,18 +21,23 @@
         </p>
       </v-container>
     </div> -->
-
+    <SkillDialog
+      :show="skillDialog"
+      :skill="skill"
+      @close="skillDialog = false"
+    />
     <FullScreenDialog
       class="mt-15"
-      :show="dialog"
+      :show="fullScreenDialog"
       :project="project"
-      @close="dialog = false"
+      @close="fullScreenDialog = false"
     />
   </div>
 </template>
 
 <script>
 import smoothscroll from 'smoothscroll-polyfill'
+import SkillDialog from '../components/SkillDialog.vue'
 import FullScreenDialog from '~/components/FullScreenDialog.vue'
 import HeroSection from '~/components/HeroSection.vue'
 import Projects from '~/components/Projects.vue'
@@ -41,13 +46,15 @@ import AboutMe from '~/components/AboutMe.vue'
 import Contact from '~/components/Contact.vue'
 import aosMixin from '~/mixins/aosPosition.js'
 export default {
-  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact },
+  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact, SkillDialog },
   mixins: [aosMixin],
   transitions: 'route',
   data () {
     return {
-      dialog: false,
+      fullScreenDialog: false,
+      skillDialog: false,
       project: null,
+      skill: null,
       isLoaded: false,
       isIos: null,
       projects: false,
@@ -69,7 +76,11 @@ export default {
   created () {
     this.$root.$on('open-dialog', (val) => {
       this.project = val
-      this.dialog = true
+      this.fullScreenDialog = true
+    })
+    this.$root.$on('open-skill-dialog', (val) => {
+      this.skill = val
+      this.skillDialog = true
     })
   },
   mounted () {

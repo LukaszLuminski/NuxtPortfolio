@@ -13,7 +13,7 @@
         >
           <p
             :class="
-              $vuetify.breakpoint.xs ? 'mb-4' : 'mb-0'
+              $vuetify.breakpoint.xs ? 'mb-4 text-center' : 'mb-0 text-left'
             "
           >
             &#169; {{ new Date().getFullYear() }}. All rights reserved.
@@ -21,8 +21,8 @@
             <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
             Luminski<span class="d-none d-md-inline mb-1">. Background icons from
               <a href="http://getdrawings.com/biography-icon">Biography Icon</a>
-            </span><span v-if="bulbIconCredits"><span class="d-inline d-md-none">. B</span><span class="d-none d-md-inline">, b</span>ulb icon from
-              <a href="https://www.flaticon.com/">Flaticon</a></span>
+            </span><span v-if="bulbIconCredits"><span>.<br>B</span>ulb icon downloaded from
+              <a href="https://www.flaticon.com/">Flaticon</a>.</span>
           </p>
         </v-col>
         <v-col

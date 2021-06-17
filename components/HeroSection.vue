@@ -26,11 +26,11 @@ export default {
   components: { HeroContent },
   props: {
     isIos: {
-      type: Boolean,
+      type: undefined,
       required: true
     },
     touchScreen: {
-      type: Boolean,
+      type: undefined,
       required: true
     }
   },

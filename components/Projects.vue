@@ -14,9 +14,18 @@
           My most recent, Vue.js
           <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
         </p>
-        <div v-if="isIos || touchScreen" class="d-flex align-center">
-          <span class="caption">(</span><img src="/img/lightbulb.svg" width="30px" alt="" class="mb-2"> <p class="caption pl-1 mb-0">
-            Tap a thumbnail for a short description)
+        <div
+          v-if="isIos || touchScreen"
+          class="d-flex align-center"
+          data-aos="zoom-in-up"
+          data-aos-duration="800"
+          data-aos-delay="700"
+          data-aos-anchor="#projects"
+          :data-aos-offset="!$vuetify.breakpoint.xs ? '300' : ''"
+          data-aos-anchor-placement="center-bottom"
+        >
+          <img src="/img/lightbulb.svg" width="30px" alt="" class="projects__tip mb-2"> <p class="projects__tip__text caption pl-1 mb-0">
+            Tap on a thumbnail for a short description
           </p>
         </div>
         <v-divider class="mt-2 mb-6" />
@@ -154,6 +163,11 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  &__tip {
+    &__text {
+      color: #514d48;
+    }
   }
   background: $color-light-grey;
   // @media (min-width: 768px) {
