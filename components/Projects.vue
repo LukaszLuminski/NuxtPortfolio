@@ -16,7 +16,7 @@
         </p>
         <v-divider class="mt-2 mb-6" />
         <div
-          v-if="isIos || touchScreen"
+          v-if="hasTouch"
           class="d-flex align-center projects__tip"
           data-aos="zoom-in-up"
           data-aos-duration="800"
@@ -103,7 +103,8 @@ export default {
       allImg: 0,
       allLoadedImg: 0,
       imgsReady: false,
-      visible: false
+      visible: false,
+      hasTouch: null
     }
   },
   watch: {
@@ -117,6 +118,9 @@ export default {
     this.arrOfOtherProjects = this.$store.state.otherProjects.items
     this.arrOfVueProjects = this.$store.state.vueProjects.items
     this.allImg = this.arrOfVueProjects.length + this.arrOfOtherProjects.length
+    if ('ontouchstart' in window) {
+      this.hasTouch = true
+    }
   }
 }
 </script>

@@ -221,10 +221,10 @@ export default {
   opacity: 0;
 }
 .font-size-desktop {
-  font-size: 24.8px;
+  font-size: 24.6px;
 }
 .font-size-mobile {
-  font-size: 17.7px;
+  font-size: 17.5px;
 }
 .desktop-width {
   max-width: 400px;
