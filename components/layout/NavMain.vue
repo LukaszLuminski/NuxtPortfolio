@@ -90,9 +90,7 @@ export default {
   watch: {
     homepageReady (val) {
       if (val) {
-        setTimeout(() => {
-          this.showLogo = true
-        }, 200)
+        this.showLogo = true
       }
     }
   },
