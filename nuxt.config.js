@@ -62,14 +62,14 @@ export default {
   recaptcha: {
     language: 'v2',
     // siteKey: '6LdjLOgaAAAAAHbcG8yiHaSMSsXN-eAYv3WZ8gAx', // Site key for requests
-    siteKey: 'AIzaSyAoLHBhNGX10peOQ26H1EttM8hfRCM87u4',
+    siteKey: process.env.SITE_KEY,
     version: 2, // Version
     size: 'invisible'
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://lukaszluminski.com/'
+    baseURL: process.env.BASE_URL
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
