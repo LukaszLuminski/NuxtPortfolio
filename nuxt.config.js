@@ -51,7 +51,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    ['nuxt-canonical', { baseUrl: 'https://www.lukaszluminski.com/' }],
+    ['nuxt-canonical', { baseUrl: 'https://lukaszluminski.com/' }],
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/robots',
     '@nuxtjs/axios',
