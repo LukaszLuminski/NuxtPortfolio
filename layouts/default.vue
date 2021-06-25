@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app v-if="isLoaded">
     <NavMain />
     <v-main>
       <nuxt />
@@ -37,15 +37,15 @@ import Footer from '../components/layout/Footer.vue'
 import NavMain from '~/components/layout/NavMain.vue'
 export default {
   components: { NavMain, Footer },
-  transitions: 'route'
-  // data: () => ({
-  //   isLoaded: false
-  // }),
-  // mounted () {
-  //   setTimeout(() => {
-  //     this.isLoaded = true
-  //   }, 300)
-  // }
+  transitions: 'route',
+  data: () => ({
+    isLoaded: false
+  }),
+  mounted () {
+    setTimeout(() => {
+      this.isLoaded = true
+    }, 200)
+  }
 }
 </script>
 
