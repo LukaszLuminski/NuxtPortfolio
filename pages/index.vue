@@ -106,8 +106,10 @@ export default {
     this.isIos = checkIfIOS()
     if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
     this.$nextTick(() => {
-      this.isLoaded = true
-      this.$nuxt.$emit('homepage-ready')
+      setTimeout(() => {
+        this.isLoaded = true
+        this.$nuxt.$emit('homepage-ready')
+      }, 200)
     })
     if (!this.touchScreen && !this.isIos) {
       this.$nuxt.$emit('hide-icon-credits')
