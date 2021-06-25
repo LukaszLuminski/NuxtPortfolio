@@ -42,7 +42,9 @@ export default {
     isLoaded: false
   }),
   mounted () {
-    this.isLoaded = true
+    setTimeout(() => {
+      this.isLoaded = true
+    }, 300)
   }
 }
 </script>
