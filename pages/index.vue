@@ -109,7 +109,7 @@ export default {
       setTimeout(() => {
         this.isLoaded = true
         this.$nuxt.$emit('homepage-ready')
-      }, 200)
+      }, 100)
     })
     if (!this.touchScreen && !this.isIos) {
       this.$nuxt.$emit('hide-icon-credits')
