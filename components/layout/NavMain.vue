@@ -92,7 +92,7 @@ export default {
       if (val) {
         setTimeout(() => {
           this.showLogo = true
-        }, 200)
+        }, 100)
       }
     }
   },

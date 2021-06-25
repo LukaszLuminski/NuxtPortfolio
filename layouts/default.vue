@@ -1,12 +1,12 @@
 <template>
-  <v-app v-if="isLoaded">
+  <v-app :class="isLoaded ? '' : 'hidden'">
     <NavMain />
     <v-main>
       <nuxt />
     </v-main>
     <Footer />
   </v-app>
-  <v-app v-else>
+  <!-- <v-app v-else>
     <v-container class="progress-container d-flex justify-center align-center">
       <v-row
         align-content="center"
@@ -29,7 +29,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </v-app>
+  </v-app> -->
 </template>
 
 <script>
