@@ -41,8 +41,10 @@ export default {
   data: () => ({
     isLoaded: false
   }),
-  created () {
-    this.isLoaded = true
+  mounted () {
+    setTimeout(() => {
+      this.isLoaded = true
+    }, 500)
   }
 }
 </script>
