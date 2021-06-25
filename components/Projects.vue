@@ -91,7 +91,7 @@ export default {
       type: Boolean,
       required: true
     },
-    touchScreen: {
+    hasTouch: {
       type: Boolean,
       required: true
     }
@@ -103,8 +103,7 @@ export default {
       allImg: 0,
       allLoadedImg: 0,
       imgsReady: false,
-      visible: false,
-      hasTouch: null
+      visible: false
     }
   },
   watch: {
@@ -118,9 +117,6 @@ export default {
     this.arrOfOtherProjects = this.$store.state.otherProjects.items
     this.arrOfVueProjects = this.$store.state.vueProjects.items
     this.allImg = this.arrOfVueProjects.length + this.arrOfOtherProjects.length
-    if ('ontouchstart' in window) {
-      this.hasTouch = true
-    }
   }
 }
 </script>

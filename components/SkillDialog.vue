@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-if="skill" :key="key" :value="show" @input="closeDialog">
+  <v-dialog v-if="skill" :key="key" :value="show" max-width="500px" @input="closeDialog">
     <v-card>
       <v-toolbar dark color="#7b736b">
         <v-toolbar-title>

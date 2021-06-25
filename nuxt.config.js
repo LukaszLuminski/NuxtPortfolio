@@ -7,14 +7,20 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: 'Lukasz Luminski | Portfolio',
-    title: 'portfolio',
+    title: 'Lukasz Luminski | Portfolio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Vue.js Web and Mobile Developer. Nuxt.js, Vuetify, Quasar Framework.' }
+      { hid: 'description', name: 'description', content: 'Vue.js Web and Mobile Developer. Nuxt.js, Vuetify, Quasar Framework.' },
+      { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: 'Lukasz Luminski | Portfolio' },
+      { hid: 'og:title', name: 'og:title', content: 'Lukasz Luminski | Portfolio' },
+      { hid: 'og:site_name', name: 'og:site_name', content: 'Lukasz Luminski' },
+      { hid: 'og:description', name: 'og:description', content: 'Vue.js Web and Mobile Developer. Nuxt.js, Vuetify, Quasar Framework.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { hid: 'shortcut-icon', rel: 'shortcut-icon', href: '/favicon.png' },
+      { hid: 'apple-touch-icon', rel: 'apple-touch-icon', href: '/favicon.png' },
       {
         rel: 'stylesheet',
         // href: 'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap'

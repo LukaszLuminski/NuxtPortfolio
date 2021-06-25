@@ -1,9 +1,9 @@
 <template>
   <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
-    <HeroSection :is-ios="isIos" :touch-screen="touchScreen" />
+    <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
     <div v-if="isLoaded">
-      <Projects :is-ios="isIos" :touch-screen="touchScreen" />
-      <Skills :aos-position="getOffset" />
+      <Projects :is-ios="isIos" :has-touch="hasTouch" />
+      <Skills :aos-position="getOffset" :has-touch="hasTouch" />
       <AboutMe :aos-position="getOffset" />
       <Contact :aos-position="getOffset" />
     </div>
@@ -21,11 +21,11 @@
         </p>
       </v-container>
     </div> -->
-    <SkillDialog
+    <!-- <SkillDialog
       :show="skillDialog"
       :skill="skill"
       @close="skillDialog = false"
-    />
+    /> -->
     <FullScreenDialog
       class="mt-15"
       :show="fullScreenDialog"
@@ -37,7 +37,7 @@
 
 <script>
 import smoothscroll from 'smoothscroll-polyfill'
-import SkillDialog from '../components/SkillDialog.vue'
+// import SkillDialog from '../components/SkillDialog.vue'
 import FullScreenDialog from '~/components/FullScreenDialog.vue'
 import HeroSection from '~/components/HeroSection.vue'
 import Projects from '~/components/Projects.vue'
@@ -46,7 +46,7 @@ import AboutMe from '~/components/AboutMe.vue'
 import Contact from '~/components/Contact.vue'
 import aosMixin from '~/mixins/aosPosition.js'
 export default {
-  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact, SkillDialog },
+  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact },
   mixins: [aosMixin],
   transitions: 'route',
   data () {
@@ -59,20 +59,21 @@ export default {
       isIos: null,
       projects: false,
       skills: false,
-      about: false
+      about: false,
+      hasTouch: false
     }
   },
-  computed: {
-    touchScreen () {
-      let touchScreen
-      if (process.browser) {
-        navigator.maxTouchPoints > 0
-          ? (touchScreen = true)
-          : (touchScreen = false)
-      }
-      return touchScreen
-    }
-  },
+  // computed: {
+  //   touchScreen () {
+  //     let touchScreen
+  //     if (process.browser) {
+  //       navigator.maxTouchPoints > 0
+  //         ? (touchScreen = true)
+  //         : (touchScreen = false)
+  //     }
+  //     return touchScreen
+  //   }
+  // },
   created () {
     this.$root.$on('open-dialog', (val) => {
       this.project = val
@@ -84,6 +85,9 @@ export default {
     })
   },
   mounted () {
+    if ('ontouchstart' in window) {
+      this.hasTouch = true
+    }
     smoothscroll.polyfill()
     const checkIfIOS = () => {
       const iosQuirkPresent = () => {

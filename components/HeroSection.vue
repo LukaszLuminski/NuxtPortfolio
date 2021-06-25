@@ -1,12 +1,12 @@
 <template>
   <div class="heroSection">
     <div
-      :class="isIos || touchScreen ? 'img-wrapper' : 'jarallax'"
+      :class="hasTouch ? 'img-wrapper' : 'jarallax'"
       class="heroSection__first jarallax d-flex align-center justify-center"
     >
       <img
         src="/img/hero-bg.jpg"
-        :class="isIos || touchScreen ? 'fixed-img' : 'jarallax-img'"
+        :class="hasTouch ? 'fixed-img' : 'jarallax-img'"
       >
       <HeroContent
         :heading="heading"
@@ -25,12 +25,8 @@ import HeroContent from './HeroContent.vue'
 export default {
   components: { HeroContent },
   props: {
-    isIos: {
-      type: undefined,
-      required: true
-    },
-    touchScreen: {
-      type: undefined,
+    hasTouch: {
+      type: Boolean,
       required: true
     }
   },
@@ -72,9 +68,6 @@ export default {
           this.cursor = false
           this.animateSocials = true
         }, 500)
-        // setTimeout(() => {
-        //   this.$nuxt.$emit('refresh-aos')
-        // }, 2100)
       }
       setTimeout(this.typeWriter, 60)
     },

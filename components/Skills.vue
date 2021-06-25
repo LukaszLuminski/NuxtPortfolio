@@ -28,15 +28,45 @@
           :key="i"
           class="col-4 col-sm-2 text-center"
         >
-          <div class="skills__single-skill" @click="openDialog(skill)">
-            <div
-              class="skills__img mx-auto"
-              :style="`background-image: url('${skill.img}')`"
-            />
-            <p class="skills__title pt-3">
-              {{ skill.title }}
-            </p>
-          </div>
+          <v-tooltip right>
+            <template #activator="{ on, attrs }">
+              <div
+                :ref="skill.title"
+                class="skills__single-skill"
+                v-bind="attrs"
+                v-on="on"
+              >
+                <div
+                  class="skills__img mx-auto"
+                  :style="`background-image: url('${skill.img}')`"
+                />
+                <p class="skills__title pt-3">
+                  {{ skill.title }}
+                </p>
+              </div>
+            </template>
+            <v-card class="skills__info" elevation="4">
+              <v-toolbar
+                dark
+                dense
+                flat
+                color="#948c84"
+                class="d-flex align-center"
+              >
+                <p class="title mb-0">
+                  {{ skill.title }}
+                </p>
+              </v-toolbar>
+              <div
+                v-if="skill.description"
+                class="pa-2 skills__description"
+                v-html="skill.description"
+              />
+              <p v-else class="py-2 px-4">
+                Work in progress. Description is coming soon...
+              </p>
+            </v-card>
+          </v-tooltip>
         </v-col>
       </v-row>
     </v-container>
@@ -50,27 +80,62 @@ export default {
     aosPosition: {
       type: String,
       required: true
+    },
+    hasTouch: {
+      type: Boolean,
+      required: true
     }
   },
   data () {
     return {
       skills: null
+      // hovering: false,
+      // currentTitle: ''
     }
   },
   created () {
     this.skills = this.$store.state.skills.items
   },
   methods: {
-    openDialog (val) {
-      setTimeout(() => {
-        this.$root.$emit('open-skill-dialog', val)
-      }, 300)
-    }
+    // waitForDialog (val) {
+    //   this.currentTitle = val.title
+    //   if (this.hasTouch) {
+    //     this.$refs[val.title][0].classList.add('has-touch-open')
+    //     setTimeout(() => {
+    //       if (this.currentTitle === val.title) {
+    //         this.$root.$emit('open-skill-dialog', val)
+    //       }
+    //     }, 300)
+    //   } else {
+    //     this.$refs[val.title][0].classList.add('open')
+    //     setTimeout(() => {
+    //       if (this.currentTitle === val.title) {
+    //         this.$root.$emit('open-skill-dialog', val)
+    //       }
+    //     }, 700)
+    //   }
+    // },
+    // unhover (val) {
+    //   this.currentTitle = ''
+    //   if (this.hasTouch) {
+    //     this.$refs[val][0].classList.remove('has-touch-open')
+    //   } else {
+    //     this.$refs[val][0].classList.remove('open')
+    //   }
+    // }
   }
 }
 </script>
 
 <style lang="scss">
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .skills {
   position: relative;
   z-index: 1;
@@ -117,20 +182,23 @@ export default {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    &:hover {
+    &.open,
+    &.has-touch-open {
+      .skills__title {
+        color: #9f9993;
+      }
+    }
+    &.has-touch-open {
+      .skills__img {
+        transform: scale(1.2);
+      }
       .skills__title::before {
-  visibility: visible;
-  transform: scaleX(1);
-}
-.skills__img {
-  transform: scale(1.2);
-}
-.skills__title {
-  color: #9f9993;
-}
-.skills__title::before {
-  background-color: #9f9993 !important;
-}
+        visibility: visible;
+        transform: scaleX(1);
+      }
+      .skills__title::before {
+        background-color: #9f9993 !important;
+      }
     }
   }
   &__title,
@@ -138,7 +206,7 @@ export default {
     cursor: pointer;
   }
   &__title {
-    transition: .5s;
+    transition: 0.5s;
     position: relative;
     &::before {
       content: "";
@@ -154,7 +222,7 @@ export default {
     }
   }
   &__img {
-    transition: .5s;
+    transition: 0.5s;
     @media (min-width: $breakpoint-sm) {
       height: 50px;
       width: 50px;
@@ -164,5 +232,35 @@ export default {
     background-position: center;
     background-size: contain;
   }
+  &__description {
+    ul {
+      list-style: none !important;
+      li::before {
+        content: "\2022";
+        color: #948c84;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+}
+.v-tooltip__content {
+  background: transparent !important;
+  min-height: 50px !important;
+  transform: none !important;
+  opacity: 0 !important;
+  &.menuable__content__active {
+    opacity: 1 !important;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    // animation-delay: .3s;
+    animation-duration: 0.2s;
+  }
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 240px !important;
 }
 </style>
