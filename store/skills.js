@@ -8,7 +8,7 @@ export const state = () => ({
     {
       img: '/img/css.png',
       title: 'CSS3',
-      description: '<ul><li>I can easily set a layout of elements, using either grid or flexbox.</li><li>I use box shadow, opacity and border-radius to style elements, also RGBA and gradient colors for more visually attractive backgrounds</li></ul>'
+      description: '<ul><li>I can easily set a layout of elements, using either grid or flexbox.</li><li>I use box shadow, opacity and border-radius to style elements.</li><li>I also use RGBA and gradient colors for more visually attractive backgrounds</li></ul>'
     },
     {
       img: '/img/js.png',
