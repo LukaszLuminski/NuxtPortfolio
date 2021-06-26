@@ -89,7 +89,7 @@ export default {
       if (newVal) {
         setTimeout(() => {
           this.loadingFinished = true
-        }, 400)
+        }, 600)
       }
     }
   },
