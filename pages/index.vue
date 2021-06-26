@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <div class="transition" :class="isLoaded ? 'hidden' : ''">
+    <div class="transition" :class="!isLoaded ? 'hidden' : ''">
       <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
       <div v-if="isLoaded">
         <Projects :is-ios="isIos" :has-touch="hasTouch" />
@@ -34,7 +34,7 @@
         @close="fullScreenDialog = false"
       />
     </div>
-    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="!isLoaded ? 'hidden' : ''">
+    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="isLoaded ? 'hidden' : ''">
       <v-progress-circular
         :size="70"
         :width="7"
