@@ -1,14 +1,15 @@
 <template>
-  <div class="homepage transition" :class="!isLoaded ? 'hidden' : ''">
-    <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
-    <div v-if="isLoaded">
-      <Projects :is-ios="isIos" :has-touch="hasTouch" />
-      <Skills :aos-position="getOffset" :has-touch="hasTouch" />
-      <AboutMe :aos-position="getOffset" />
-      <Contact :aos-position="getOffset" />
-    </div>
+  <div class="homepage">
+    <div class="transition" :class="!isLoaded ? 'hidden' : ''">
+      <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
+      <div v-if="isLoaded">
+        <Projects :is-ios="isIos" :has-touch="hasTouch" />
+        <Skills :aos-position="getOffset" :has-touch="hasTouch" />
+        <AboutMe :aos-position="getOffset" />
+        <Contact :aos-position="getOffset" />
+      </div>
 
-    <!-- <div class="px-6 mt-11">
+      <!-- <div class="px-6 mt-11">
       <v-container>
         <p class="headline">
           Work in progress...
@@ -21,23 +22,31 @@
         </p>
       </v-container>
     </div> -->
-    <!-- <SkillDialog
+      <!-- <SkillDialog
       :show="skillDialog"
       :skill="skill"
       @close="skillDialog = false"
     /> -->
-    <FullScreenDialog
-      class="mt-15"
-      :show="fullScreenDialog"
-      :project="project"
-      @close="fullScreenDialog = false"
-    />
+      <FullScreenDialog
+        class="mt-15"
+        :show="fullScreenDialog"
+        :project="project"
+        @close="fullScreenDialog = false"
+      />
+    </div>
+    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="isLoaded ? 'hidden' : ''">
+      <v-progress-circular
+        :size="90"
+        :width="7"
+        color="brown lighten-3"
+        indeterminate
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import smoothscroll from 'smoothscroll-polyfill'
-// import SkillDialog from '../components/SkillDialog.vue'
 import FullScreenDialog from '~/components/FullScreenDialog.vue'
 import HeroSection from '~/components/HeroSection.vue'
 import Projects from '~/components/Projects.vue'
@@ -122,6 +131,15 @@ export default {
 body, html {
   max-width: 100vw;
   overflow-x: hidden;
+}
+.homepage {
+  position: relative;
+}
+.progress-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
 }
 .anchor {
   height: 45px;

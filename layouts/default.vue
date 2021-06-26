@@ -1,5 +1,5 @@
 <template>
-  <v-app v-if="isLoaded">
+  <v-app>
     <NavMain />
     <v-main>
       <nuxt />
@@ -36,21 +36,6 @@
 import Footer from '../components/layout/Footer.vue'
 import NavMain from '~/components/layout/NavMain.vue'
 export default {
-  components: { NavMain, Footer },
-  transitions: 'route',
-  data: () => ({
-    isLoaded: false
-  }),
-  mounted () {
-    setTimeout(() => {
-      this.isLoaded = true
-    }, 200)
-  }
+  components: { NavMain, Footer }
 }
 </script>
-
-<style lang="scss" scoped>
-.progress-container {
-  height: 100vh;
-}
-</style>
