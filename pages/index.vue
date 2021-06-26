@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <div class="transition" :class="!isLoaded ? 'hidden' : ''">
+    <div class="transition" :class="isLoaded ? 'hidden' : ''">
       <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
       <div v-if="isLoaded">
         <Projects :is-ios="isIos" :has-touch="hasTouch" />
@@ -34,9 +34,9 @@
         @close="fullScreenDialog = false"
       />
     </div>
-    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="isLoaded ? 'hidden' : ''">
+    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="!isLoaded ? 'hidden' : ''">
       <v-progress-circular
-        :size="90"
+        :size="70"
         :width="7"
         color="brown lighten-3"
         indeterminate
@@ -140,6 +140,10 @@ body, html {
   height: 100vh;
   width: 100vw;
   top: 0;
+  @media (min-width: $breakpoint-sm) {
+    padding-bottom: 0;
+  }
+  padding-bottom: 70px;
 }
 .anchor {
   height: 45px;
