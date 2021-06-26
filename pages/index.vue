@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <div class="transition" :class="!isLoaded ? 'hidden' : ''">
+    <div class="main transition" :class="!isLoaded ? 'hidden' : ''">
       <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
       <div v-if="isLoaded">
         <Projects :is-ios="isIos" :has-touch="hasTouch" />
@@ -34,7 +34,7 @@
         @close="fullScreenDialog = false"
       />
     </div>
-    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="isLoaded ? 'hidden' : ''">
+    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="isLoaded ? 'hidden' : ''" :style="loadingFinished ? 'z-index: -1;' : ''">
       <v-progress-circular
         :size="70"
         :width="7"
@@ -69,7 +69,8 @@ export default {
       projects: false,
       skills: false,
       about: false,
-      hasTouch: false
+      hasTouch: false,
+      loadingFinished: false
     }
   },
   // computed: {
@@ -83,6 +84,15 @@ export default {
   //     return touchScreen
   //   }
   // },
+  watch: {
+    isLoaded (newVal, oldVal) {
+      if (newVal) {
+        setTimeout(() => {
+          this.loadingFinished = true
+        }, 400)
+      }
+    }
+  },
   created () {
     this.$root.$on('open-dialog', (val) => {
       this.project = val
