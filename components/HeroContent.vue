@@ -125,6 +125,7 @@ export default {
 .heroSection {
   &__first {
     height: 100vh;
+    min-height: 560px;
   }
   &__container {
     vertical-align: top;
