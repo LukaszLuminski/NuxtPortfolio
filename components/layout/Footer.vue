@@ -1,107 +1,50 @@
 <template>
-  <v-footer
-    class="theFooter text-center"
-  >
-    <!-- <v-footer
-    class="theFooter text-center"
-    :style="{ backgroundImage: `url(${backgroundUrl})` }"
-  > -->
-    <v-container fluid>
-      <!-- <v-row>
-        <v-col class="col-6 col-md-3">
-          <h3 class="mb-4">
-            Menu
-          </h3>
-          <ul class="theFooter__list">
-            <nuxt-link v-for="item in mainMenu" :key="item.id" :to="item.url">
-              <li class="theFooter__listItemLink" v-html="item.title" />
-            </nuxt-link>
-          </ul>
-        </v-col>
-        <v-col class="col-6 col-md-3">
-          <h3 class="mb-4">
-            Useful Links
-          </h3>
-          <ul class="theFooter__list">
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink">
-                Admissions Policy
-              </li>
-            </nuxt-link>
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink">
-                Terms & Conditions
-              </li>
-            </nuxt-link>
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink">
-                Privacy & Cookie Policy
-              </li>
-            </nuxt-link>
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink">
-                Terms of Service
-              </li>
-            </nuxt-link>
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink">
-                Job Vacancies
-              </li>
-            </nuxt-link>
-          </ul>
-        </v-col>
-        <v-col class="col-6 col-md-3">
-          <h3 class="mb-4">
-            Contact
-          </h3>
-          <ul class="theFooter__list">
-            <nuxt-link
-              v-for="item in socialLinks"
-              :key="item.id"
-              :to="item.url"
-            >
-              <li class="theFooter__listItemLink">
-                {{ item.name }}
-              </li>
-            </nuxt-link>
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink mt-3 font-weight-bold">
-                enquiries@calypsocove.co.uk
-              </li>
-            </nuxt-link>
-            <nuxt-link to="/admissions-policy">
-              <li class="theFooter__listItemLink font-weight-bold">
-                +44 800 123 890
-              </li>
-            </nuxt-link>
-          </ul>
-        </v-col>
-        <v-col class="col-6 col-md-3 my-auto">
-          <img :src="require('~/assets/img/logo.png')" width="100px">
-          <p class="theFooter__address mt-3">
-            <span class="font-weight-bold">Calypso Cove Waterpark</span>
-            <br>
-            Metrodome Leisure Complex,
-            <br>
-            Queens Ground,
-            <br>
-            Queens Road,
-            <br>
-            Barnsley,
-            <br>
-            S71 1AN
+  <v-footer dark class="theFooter text-center">
+    <v-container>
+      <v-row
+        :class="$vuetify.breakpoint.xs ? 'flex-column-reverse' : ''"
+        class="theFooter__copyright"
+      >
+        <v-col
+          :class="
+            $vuetify.breakpoint.xs ? 'col-12 justify-center pa-0' : 'col-9'
+          "
+          class="theFooter__column d-flex align-center"
+        >
+          <p
+            :class="
+              $vuetify.breakpoint.xs ? 'mb-4 text-center' : 'mb-0 text-left'
+            "
+          >
+            &#169; {{ new Date().getFullYear() }}. All rights reserved.
+            <br class="d-block d-sm-none">Made with
+            <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
+            Luminski<span class="d-none d-md-inline mb-1">. Background icons downloaded from
+              <a href="http://getdrawings.com/biography-icon">Biography Icon</a>.
+            </span><span v-if="bulbIconCredits"><span>.<br>B</span>ulb icon downloaded from
+              <a href="https://www.flaticon.com/">Flaticon</a>.</span>
           </p>
         </v-col>
-      </v-row> -->
-      <v-row class="theFooter__copyright mt-5">
-        <v-col class="pb-0">
-          <!-- <p class="mb-0">
-            {{ copyrightInfo }}
-          </p> -->
-          <!-- <p class="theFooter__madeBy mt-5 mb-0">
-            Made with &#9829; by
-            <a href="https://www.bigfootdigital.co.uk"> Bigfoot Digital </a>
-          </p> -->
+        <v-col
+          :class="
+            $vuetify.breakpoint.xs
+              ? 'col-12 justify-center pa-0'
+              : 'col-3 justify-end'
+          "
+          class="d-flex"
+        >
+          <div class="theFooter__back-to-top mb-1">
+            <v-btn
+              class="theFooter__back-to-top__btn mt-1"
+              text
+              x-large
+              @click="goToTop"
+            >
+              <v-icon large class="theFooter__back-to-top__icon mr-1" dark>
+                mdi-arrow-up-bold-circle
+              </v-icon>Back to top
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -109,56 +52,60 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from 'vuex'
-
 export default {
-  // computed: {
-  //   ...mapGetters({
-  //     socialLinks: 'businessDetails/getSocialLinks',
-  //     copyrightInfo: 'businessDetails/getCopyrightInfo',
-  //     mainMenu: 'menus/getMainMenu'
-  //   }),
-  //   backgroundUrl () {
-  //     return require('~/assets/img/footer-bg.png')
-  //   }
-  // },
-  // async mounted () {
-  //   // Fetch business details - workaround for lack of nuxtServerInit when page refreshes on auth/protected page
-  //   await this.fetchBusinessDetails()
-  // },
-  // methods: {
-  //   ...mapActions({
-  //     fetchBusinessDetails: 'businessDetails/fetchBusinessDetails'
-  //   })
-  // }
+  data () {
+    return {
+      bulbIconCredits: true
+    }
+  },
+  created () {
+    this.$nuxt.$on('hide-icon-credits', () => {
+      this.bulbIconCredits = false
+    })
+  },
+  methods: {
+    goToTop () {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .theFooter {
-  color: $color-white !important;
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  &__list {
-    list-style-type: none;
-    padding-left: 0px;
+  p,
+  button {
+    color: lightgray;
   }
+  a {
+    color: white !important;
+  }
+  margin-top: -3px;
   &__copyright {
-    font-size: 10px;
-  }
-  &__madeBy {
+    font-size: 13px;
     a {
-      color: $color-white;
+      transition: 0.2s;
+      &:hover {
+        color: grey;
+      }
+      text-decoration: none !important;
+    }
+    &__icon {
+      font-size: 14px;
+      color: red;
     }
   }
-  &__listItemLink {
-    margin-bottom: 3px;
-    color: $color-white;
-    font-size: 13px;
+  &__column {
+    position: relative;
   }
-  &__address {
-    font-size: 13px;
+  &__back-to-top {
+    &__btn {
+      text-transform: none !important;
+    }
   }
 }
 </style>

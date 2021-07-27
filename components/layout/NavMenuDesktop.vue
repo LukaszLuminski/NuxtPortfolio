@@ -1,6 +1,6 @@
 <template>
   <ul class="d-none d-md-flex align-center theMainMenuDesktop">
-    <a v-for="(n, i) in items" :key="i" :href="n.slug">
+    <a v-for="(n, i) in items" :key="i" @click="goTo(n.slug)">
       <li :class="bg === 'transparent' ? 'white--text' : 'black--text'">
         {{ n.title }}
       </li>
@@ -18,6 +18,12 @@ export default {
     bg: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    goTo (link) {
+      const element = document.getElementById(link.replace('#', ''))
+      element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 }

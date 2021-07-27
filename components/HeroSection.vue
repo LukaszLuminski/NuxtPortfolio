@@ -1,22 +1,31 @@
 <template>
   <div class="heroSection">
     <div
-      :class="touchScreen ? 'img-wrapper' : 'jarallax'"
+      :class="hasTouch ? 'img-wrapper' : 'jarallax'"
       class="heroSection__first jarallax d-flex align-center justify-center"
     >
-      <img src="/img/hero-bg.jpg" :class="touchScreen ? 'fixed-img' : 'jarallax-img'">
-      <HeroContent :heading="heading" :subheading="subheading" :cursor="cursor" :animate-socials="animateSocials" />
+      <img
+        src="/img/hero-bg.jpg"
+        :class="hasTouch ? 'fixed-img' : 'jarallax-img'"
+      >
+      <HeroContent
+        :heading="heading"
+        :subheading="subheading"
+        :cursor="cursor"
+        :animate-socials="animateSocials"
+      />
     </div>
     <div id="projects" class="anchor" />
   </div>
 </template>
 
 <script>
+// import AOS from 'aos'
 import HeroContent from './HeroContent.vue'
 export default {
   components: { HeroContent },
   props: {
-    touchScreen: {
+    hasTouch: {
       type: Boolean,
       required: true
     }
@@ -33,7 +42,11 @@ export default {
     }
   },
   mounted () {
-    this.typeWriter()
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.typeWriter()
+      }, 1000)
+    })
   },
   methods: {
     typeWriter () {

@@ -8,11 +8,7 @@
     class="project-description"
   >
     <v-card v-if="project" class="project-description__main-card rounded-0">
-      <v-toolbar
-        class="project-description__toolbar"
-        dark
-        color="#948c84"
-      >
+      <v-toolbar class="project-description__toolbar" dark color="#948c84">
         <v-toolbar-title>
           {{ project.title }}
         </v-toolbar-title>
@@ -29,7 +25,10 @@
           class="project-description__content-card px-3 px-sm-6 mb-15"
           elevation="4"
         >
-          <v-row ref="row" class="mt-10 mt-sm-15 d-flex justify-center pt-0 pt-sm-3">
+          <v-row
+            ref="row"
+            class="mt-10 mt-sm-15 d-flex justify-center pt-0 pt-sm-3"
+          >
             <v-card class="d-sm-none image-wrapper" elevation="1">
               <v-img :src="`/img/${project.img}`" @load="imageLoaded = true" />
             </v-card>
@@ -140,6 +139,10 @@ export default {
   border-radius: 0 !important;
 }
 .project-description__toolbar.v-sheet.theme--dark.v-toolbar {
+  position: -webkit-sticky !important;
+  position: -moz-sticky !important;
+  position: -o-sticky !important;
+  position: -ms-sticky !important;
   position: sticky !important;
   z-index: 100;
   top: 0;

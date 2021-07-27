@@ -1,6 +1,6 @@
-body {
-    overflow-x: hidden;
-}
+// body {
+//     overflow-x: hidden;
+// }
 
 html {
     scroll-behavior: smooth;
@@ -8,6 +8,10 @@ html {
 
  .hidden {
      opacity: 0;
+ }
+
+ .transition {
+     transition: .5s;
  }
 
 .shadow {

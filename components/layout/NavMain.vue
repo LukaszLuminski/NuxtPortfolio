@@ -2,7 +2,7 @@
   <nav class="theNavMain">
     <v-app-bar
       class="theNavMain__bar"
-      :height="bg === 'transparent' ? '70px' : '55px'"
+      :height="bg === 'transparent' ? '90px' : '70px'"
       style="transition: 0.5s"
       fixed
       flat
@@ -10,14 +10,20 @@
       :color="bg"
     >
       <v-container class="d-flex pr-0">
-        <nuxt-link class="theNavMain__brand d-flex align-center" to="/">
+        <div
+          :class="!showLogo ? 'hidden' : ''"
+          class="theNavMain__brand d-flex align-center transition"
+          @click="goToTop"
+        >
           <p
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
           >
-            lukasz<span :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'">Luminski</span>
+            lukasz<span
+              :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'"
+            >Luminski</span>
           </p>
-        </nuxt-link>
+        </div>
         <v-spacer />
         <NavMenuDesktop :bg="bg" :items="navItems" />
         <v-app-bar-nav-icon
@@ -46,9 +52,7 @@
           class="theNavMainMobile__btn mr-3 mt-2"
           @click="drawerIsOpen = false"
         >
-          <v-icon>
-            mdi-close
-          </v-icon>
+          <v-icon> mdi-close </v-icon>
         </v-btn>
       </div>
       <NavMenuMobile :bg="bg" :items="navItems" @close="drawerIsOpen = false" />
@@ -69,7 +73,9 @@ export default {
     return {
       drawerIsOpen: false,
       bg: 'transparent',
-      navItems: null
+      navItems: null,
+      homepageReady: false,
+      showLogo: false
     }
   },
   computed: {
@@ -81,8 +87,20 @@ export default {
       return mobileWidth
     }
   },
+  watch: {
+    homepageReady (val) {
+      if (val) {
+        setTimeout(() => {
+          this.showLogo = true
+        }, 150)
+      }
+    }
+  },
   created () {
     this.navItems = this.$store.state.menu.items
+    this.$nuxt.$on('homepage-ready', () => {
+      this.homepageReady = true
+    })
   },
   mounted () {
     window.onscroll = () => {
@@ -99,6 +117,13 @@ export default {
       } else {
         this.bg = 'transparent'
       }
+    },
+    goToTop () {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
     }
   }
 }
@@ -109,15 +134,18 @@ export default {
   z-index: 100;
   .light-grey {
     color: #cccccc;
-  }.dark-grey {
+  }
+  .dark-grey {
     color: grey;
   }
-  .headline, &__bar {
-    transition: .5s;
+  .headline,
+  &__bar {
+    transition: 0.5s;
   }
   &__bar {
+    max-width: 100vw;
     .v-toolbar__content {
-      transition: .4s;
+      transition: 0.4s;
       margin-left: auto;
       margin-right: auto;
       max-width: 1185px;
@@ -133,6 +161,9 @@ export default {
   }
   &__brand {
     text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__boatImg {
     animation: swing 2.5s infinite ease-in-out;
@@ -190,8 +221,10 @@ export default {
   }
 }
 .theme--dark.theNavMain.v-list-item--active:hover::before,
-.theme--dark.v-list-item--active::before {
-  opacity: 0.4;
+.theme--dark.v-list-item--active::before,
+.theme--light.v-list-item--active:hover::before,
+.theme--light.v-list-item--active::before {
+  opacity: 0;
   border-radius: 0;
 }
 </style>
