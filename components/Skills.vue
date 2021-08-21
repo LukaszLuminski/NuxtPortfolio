@@ -3,11 +3,6 @@
     <v-container class="skills__container">
       <div
         class="title-wrapper"
-        data-aos="fade-right"
-        data-aos-duration="800"
-        data-aos-anchor="#skills"
-        :data-aos-offset="aosPosition"
-        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-2 pt-md-5">
           My skills
@@ -16,12 +11,6 @@
       </div>
       <v-row
         class="skills__row mb-8"
-        data-aos="fade-up"
-        data-aos-duration="800"
-        data-aos-delay="200"
-        data-aos-anchor="#skills"
-        :data-aos-offset="aosPosition"
-        data-aos-anchor-placement="center-bottom"
       >
         <v-col
           v-for="(skill, i) in skills"
@@ -77,10 +66,6 @@
 <script>
 export default {
   props: {
-    aosPosition: {
-      type: String,
-      required: true
-    },
     hasTouch: {
       type: Boolean,
       required: true
