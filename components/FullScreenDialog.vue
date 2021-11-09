@@ -9,15 +9,17 @@
   >
     <v-card v-if="project" class="project-description__main-card rounded-0">
       <v-toolbar class="project-description__toolbar" dark color="#948c84">
-        <v-toolbar-title>
-          {{ project.title }}
-        </v-toolbar-title>
-        <v-spacer />
-        <v-toolbar-items>
-          <v-btn icon dark text @click="closeDialog">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-        </v-toolbar-items>
+        <v-container class="d-flex px-0 px-md-3">
+          <v-toolbar-title>
+            {{ project.title }}
+          </v-toolbar-title>
+          <v-spacer />
+          <v-toolbar-items>
+            <v-btn class="project-description__toolbar__btn" icon dark text @click="closeDialog">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-toolbar-items>
+        </v-container>
       </v-toolbar>
       <v-container ref="container">
         <v-card
@@ -150,6 +152,14 @@ export default {
   right: 0;
 }
 .project-description {
+  &__toolbar {
+    &__btn {
+      @media (min-width: $breakpoint-md) {
+        margin-right: -12px;
+      }
+       margin-right: -16px;
+    }
+  }
   &__main-card {
     background: #f2f2f2 !important;
   }
