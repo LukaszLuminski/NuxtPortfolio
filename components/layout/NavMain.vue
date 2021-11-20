@@ -19,7 +19,7 @@
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
           >
-            lukasz<span
+            Lukasz<span
               :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'"
             >Luminski</span>
           </p>
