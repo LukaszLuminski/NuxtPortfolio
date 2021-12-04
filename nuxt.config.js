@@ -11,11 +11,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Hello. My name is Lukasz Luminski, I am a Vue.js Web and Mobile Developer. I work with Nuxt.js, Vuetify & Quasar Framework.' },
+      { hid: 'description', name: 'description', content: 'Hello. My name is Lukasz Luminski, I am a Vue.js Web and Mobile Developer. I work with Nuxt.js, Vuetify & Quasar Framework. Welcome on my Portfolio site!' },
       { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: 'Lukasz Luminski | Portfolio' },
       { hid: 'og:title', name: 'og:title', content: 'Lukasz Luminski | Portfolio' },
       { hid: 'og:site_name', name: 'og:site_name', content: 'Lukasz Luminski' },
-      { hid: 'og:description', name: 'og:description', content: 'Hello. My name is Lukasz Luminski, I am a Vue.js Web and Mobile Developer. I work with Nuxt.js, Vuetify & Quasar Framework.' }
+      { hid: 'og:description', name: 'og:description', content: 'Hello. My name is Lukasz Luminski, I am a Vue.js Web and Mobile Developer. I work with Nuxt.js, Vuetify & Quasar Framework. Welcome on my Portfolio site!' },
+      { hid: 'robots', name: 'robots', content: 'noodp,noydir' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
