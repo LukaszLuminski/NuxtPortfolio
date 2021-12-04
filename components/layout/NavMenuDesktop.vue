@@ -33,4 +33,9 @@ export default {
 a {
   text-decoration: none !important;
 }
+.theMainMenuDesktop {
+  @media (min-width: $breakpoint-lg) {
+    margin-right: -21px;
+  }
+}
 </style>

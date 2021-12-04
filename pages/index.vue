@@ -73,17 +73,6 @@ export default {
       loadingFinished: false
     }
   },
-  // computed: {
-  //   touchScreen () {
-  //     let touchScreen
-  //     if (process.browser) {
-  //       navigator.maxTouchPoints > 0
-  //         ? (touchScreen = true)
-  //         : (touchScreen = false)
-  //     }
-  //     return touchScreen
-  //   }
-  // },
   watch: {
     isLoaded (newVal, oldVal) {
       if (newVal) {
@@ -130,7 +119,7 @@ export default {
         this.$nuxt.$emit('homepage-ready')
       }, 150)
     })
-    if (!this.touchScreen && !this.isIos) {
+    if (!this.hasTouch) {
       this.$nuxt.$emit('hide-icon-credits')
     }
   }

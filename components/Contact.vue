@@ -3,11 +3,6 @@
     <v-container class="contact__container">
       <div
         class="title-wrapper"
-        data-aos="fade-right"
-        data-aos-duration="800"
-        data-aos-anchor="#contact"
-        :data-aos-offset="aosPosition"
-        data-aos-anchor-placement="center-bottom"
       >
         <p class="section-title pt-4 white--text">
           Contact
@@ -34,14 +29,7 @@
                 Don’t fill this out: <input name="bot-field">
               </label>
             </p>
-            <div
-              data-aos="fade-up"
-              data-aos-duration="800"
-              data-aos-delay="200"
-              data-aos-anchor="#contact"
-              :data-aos-offset="aosPosition"
-              data-aos-anchor-placement="center-bottom"
-            >
+            <div>
               <v-row>
                 <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
                   <v-text-field
@@ -107,20 +95,8 @@
         </v-col><v-divider
           vertical
           class="contact__divider__vertical"
-          data-aos="fade-up"
-          data-aos-duration="800"
-          data-aos-delay="200"
-          data-aos-anchor="#contact"
-          :data-aos-offset="aosPosition"
-          data-aos-anchor-placement="center-bottom"
         /><v-col
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
-          data-aos="fade-up"
-          data-aos-duration="800"
-          data-aos-delay="200"
-          data-aos-anchor="#contact"
-          :data-aos-offset="aosPosition"
-          data-aos-anchor-placement="center-bottom"
         >
           <div class="contact__single-logo">
             <a
@@ -170,12 +146,6 @@
 import ErrorDialog from '~/components/ErrorDialog.vue'
 export default {
   components: { ErrorDialog },
-  props: {
-    aosPosition: {
-      type: String,
-      required: true
-    }
-  },
   data () {
     return {
       error: false,

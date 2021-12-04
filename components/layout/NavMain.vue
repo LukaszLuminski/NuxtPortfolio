@@ -9,7 +9,7 @@
       :class="bg === 'transparent' ? '' : 'elevation-4'"
       :color="bg"
     >
-      <v-container class="d-flex pr-0">
+      <v-container class="d-flex pr-0 pl-0 pl-md-2">
         <div
           :class="!showLogo ? 'hidden' : ''"
           class="theNavMain__brand d-flex align-center transition"
@@ -19,7 +19,7 @@
             :class="bg === 'transparent' ? 'white--text' : 'black--text'"
             class="headline mb-0"
           >
-            lukasz<span
+            Lukasz<span
               :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'"
             >Luminski</span>
           </p>
@@ -138,6 +138,11 @@ export default {
   .dark-grey {
     color: grey;
   }
+  .headline {
+    @media (min-width: $breakpoint-lg) {
+        margin-left: -13px;
+      }
+  }
   .headline,
   &__bar {
     transition: 0.5s;
@@ -164,9 +169,6 @@ export default {
     &:hover {
       cursor: pointer;
     }
-  }
-  &__boatImg {
-    animation: swing 2.5s infinite ease-in-out;
   }
   ul {
     .nuxt-link--active {

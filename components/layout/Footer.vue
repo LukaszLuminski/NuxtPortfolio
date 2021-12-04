@@ -19,9 +19,9 @@
             &#169; {{ new Date().getFullYear() }}. All rights reserved.
             <br class="d-block d-sm-none">Made with
             <span class="theFooter__copyright__icon">&#9829;</span> by Lukasz
-            Luminski<span class="d-none d-md-inline mb-1">. Background icons downloaded from
+            Luminski. <span class="d-none d-md-inline mb-1">Background icons downloaded from
               <a href="http://getdrawings.com/biography-icon">Biography Icon</a>.
-            </span><span v-if="bulbIconCredits"><span>.<br>B</span>ulb icon downloaded from
+            </span><span v-if="bulbIconCredits" class="d-block d-md-inline">Bulb icon downloaded from
               <a href="https://www.flaticon.com/">Flaticon</a>.</span>
           </p>
         </v-col>
