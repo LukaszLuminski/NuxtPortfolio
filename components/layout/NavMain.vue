@@ -110,8 +110,8 @@ export default {
   methods: {
     changeColor () {
       if (
-        document.body.scrollTop > 100 ||
-        document.documentElement.scrollTop > 100
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
       ) {
         this.bg = 'white'
       } else {
