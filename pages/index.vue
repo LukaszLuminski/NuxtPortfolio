@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <div class="main transition" :class="!isLoaded ? 'hidden' : ''">
+    <div class="main" :class="!isLoaded ? 'hidden' : ''">
       <HeroSection :is-ios="isIos" :has-touch="hasTouch" />
       <div v-if="isLoaded">
         <Projects :is-ios="isIos" :has-touch="hasTouch" />
@@ -13,18 +13,6 @@
         :show="fullScreenDialog"
         :project="project"
         @close="fullScreenDialog = false"
-      />
-    </div>
-    <div
-      class="progress-container d-flex justify-center align-center mx-auto transition"
-      :class="isLoaded ? 'hidden' : ''"
-      :style="loadingFinished ? 'z-index: -1;' : ''"
-    >
-      <v-progress-circular
-        :size="70"
-        :width="7"
-        color="brown lighten-3"
-        indeterminate
       />
     </div>
   </div>
@@ -65,20 +53,20 @@ export default {
       projects: false,
       skills: false,
       about: false,
-      hasTouch: false,
-      loadingFinished: false
+      hasTouch: false
+      // loadingFinished: false
     }
   },
 
-  watch: {
-    isLoaded (newVal, oldVal) {
-      if (newVal) {
-        setTimeout(() => {
-          this.loadingFinished = true
-        }, 600)
-      }
-    }
-  },
+  // watch: {
+  //   isLoaded (newVal, oldVal) {
+  //     if (newVal) {
+  //       setTimeout(() => {
+  //         this.loadingFinished = true
+  //       }, 600)
+  //     }
+  //   }
+  // },
 
   created () {
     this.$root.$on('open-dialog', (val) => {
@@ -92,6 +80,7 @@ export default {
   },
 
   mounted () {
+    window.scrollTo(0, 0)
     if ('ontouchstart' in window) {
       this.hasTouch = true
     }
@@ -114,12 +103,9 @@ export default {
     if (this.isIos) {
       window.__forceSmoothScrollPolyfill__ = true
     }
-    this.$nextTick(() => {
-      setTimeout(() => {
-        this.isLoaded = true
-        this.$nuxt.$emit('homepage-ready')
-      }, 150)
-    })
+    this.isLoaded = true
+    this.$nuxt.$emit('homepage-ready')
+
     if (!this.hasTouch) {
       this.$nuxt.$emit('hide-icon-credits')
     }

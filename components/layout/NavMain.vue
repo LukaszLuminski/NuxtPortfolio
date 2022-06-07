@@ -11,8 +11,10 @@
     >
       <v-container class="d-flex pr-0 pl-0 pl-md-2">
         <div
-          :class="!showLogo ? 'hidden' : ''"
-          class="theNavMain__brand d-flex align-center transition"
+          :class="{
+            transition: showLogo
+          }"
+          class="theNavMain__brand d-flex align-center"
           @click="goToTop"
         >
           <p
@@ -144,11 +146,13 @@ export default {
       }
   }
   .headline,
-  &__bar {
-    transition: 0.5s;
-  }
+   &__bar {
+     transition: 0.5s;
+   }
+
   &__bar {
     max-width: 100vw;
+    transition: 0.5s;
     .v-toolbar__content {
       transition: 0.4s;
       margin-left: auto;

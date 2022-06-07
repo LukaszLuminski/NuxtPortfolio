@@ -26,9 +26,7 @@ export default {
   },
 
   mounted () {
-    setTimeout(() => {
-      this.isLoaded = true
-    }, 600)
+    this.isLoaded = true
   }
 }
 </script>
