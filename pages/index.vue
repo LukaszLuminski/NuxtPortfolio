@@ -8,25 +8,6 @@
         <AboutMe :aos-position="getOffset" />
         <Contact :aos-position="getOffset" />
       </div>
-
-      <!-- <div class="px-6 mt-11">
-      <v-container>
-        <p class="headline">
-          Work in progress...
-        </p>
-        <p>
-          Check my previous portfolio website at
-          <a
-            href="https://lukaszluminski.github.io/Portfolio/"
-          >https://lukaszluminski.github.io/Portfolio/</a>.
-        </p>
-      </v-container>
-    </div> -->
-      <!-- <SkillDialog
-      :show="skillDialog"
-      :skill="skill"
-      @close="skillDialog = false"
-    /> -->
       <FullScreenDialog
         class="mt-15"
         :show="fullScreenDialog"
@@ -34,7 +15,11 @@
         @close="fullScreenDialog = false"
       />
     </div>
-    <div class="progress-container d-flex justify-center align-center mx-auto transition" :class="isLoaded ? 'hidden' : ''" :style="loadingFinished ? 'z-index: -1;' : ''">
+    <div
+      class="progress-container d-flex justify-center align-center mx-auto transition"
+      :class="isLoaded ? 'hidden' : ''"
+      :style="loadingFinished ? 'z-index: -1;' : ''"
+    >
       <v-progress-circular
         :size="70"
         :width="7"
@@ -54,10 +39,21 @@ import Skills from '~/components/Skills.vue'
 import AboutMe from '~/components/AboutMe.vue'
 import Contact from '~/components/Contact.vue'
 import aosMixin from '~/mixins/aosPosition.js'
+
 export default {
-  components: { HeroSection, Projects, FullScreenDialog, Skills, AboutMe, Contact },
+  components: {
+    HeroSection,
+    Projects,
+    FullScreenDialog,
+    Skills,
+    AboutMe,
+    Contact
+  },
+
   mixins: [aosMixin],
+
   transitions: 'route',
+
   data () {
     return {
       fullScreenDialog: false,
@@ -73,6 +69,7 @@ export default {
       loadingFinished: false
     }
   },
+
   watch: {
     isLoaded (newVal, oldVal) {
       if (newVal) {
@@ -82,6 +79,7 @@ export default {
       }
     }
   },
+
   created () {
     this.$root.$on('open-dialog', (val) => {
       this.project = val
@@ -92,6 +90,7 @@ export default {
       this.skillDialog = true
     })
   },
+
   mounted () {
     if ('ontouchstart' in window) {
       this.hasTouch = true
@@ -112,7 +111,9 @@ export default {
       return isIOS || (isAppleDevice && (isisIos || iosQuirkPresent()))
     }
     this.isIos = checkIfIOS()
-    if (this.isIos) { window.__forceSmoothScrollPolyfill__ = true }
+    if (this.isIos) {
+      window.__forceSmoothScrollPolyfill__ = true
+    }
     this.$nextTick(() => {
       setTimeout(() => {
         this.isLoaded = true
@@ -127,27 +128,33 @@ export default {
 </script>
 
 <style lang="scss">
-body, html {
+body,
+html {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
 .homepage {
   position: relative;
 }
+
 .progress-container {
   position: absolute;
   height: 100vh;
   width: 100vw;
   top: 0;
+  padding-bottom: 70px;
+
   @media (min-width: $breakpoint-sm) {
     padding-bottom: 0;
   }
-  padding-bottom: 70px;
 }
+
 .anchor {
   height: 45px;
   margin-top: -45px;
 }
+
 .container {
   @media (min-width: 960px) {
     max-width: 900px;
@@ -156,6 +163,7 @@ body, html {
     max-width: 1185px;
   }
 }
+
 .rc-anchor.rc-anchor-normal.rc-anchor-light {
   z-index: 1000;
 }

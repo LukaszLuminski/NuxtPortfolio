@@ -144,8 +144,10 @@
 
 <script>
 import ErrorDialog from '~/components/ErrorDialog.vue'
+
 export default {
   components: { ErrorDialog },
+
   data () {
     return {
       error: false,
@@ -163,6 +165,7 @@ export default {
       formData: {}
     }
   },
+
   methods: {
     async validate (e) {
       if (this.$refs.form.validate()) {
@@ -185,11 +188,13 @@ export default {
         }
       }
     },
+
     encode (data) {
       return Object.keys(data)
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
     },
+
     async handleSubmit (e) {
       await fetch('/', {
         method: 'POST',
@@ -208,6 +213,7 @@ export default {
           this.dialog = true
         })
     },
+
     closeDialog () {
       if (!this.error) {
         this.$refs.form.reset()
@@ -220,35 +226,42 @@ export default {
 
 <style lang="scss">
 $animate: all 0.2s ease-in-out;
+
 .contact {
   color: white;
   margin-top: -45px;
   background: linear-gradient(to bottom, lighten(#9c9081, 2.2%), #522c14);
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
+
   a {
     text-decoration: none !important;
     color: white !important;
   }
+
   &__divider {
     &__vertical {
       background-color: rgba(255, 255, 255, 0.4) !important;
     }
     background-color: rgba(255, 255, 255, 0.7) !important;
   }
+
   &__text-field {
     .v-input__slot {
       background-color: white !important;
       border: none !important;
     }
   }
+
   &__btn {
     background-color: #666666 !important;
   }
+
   &__logo {
     font-size: 70px !important;
     height: auto;
   }
+
   &__single-logo {
     display: flex;
     flex-flow: row nowrap;
@@ -297,6 +310,7 @@ $animate: all 0.2s ease-in-out;
       }
     }
   }
+
   &__col-title {
     @media (min-width: $breakpoint-md) {
       white-space: nowrap;
@@ -334,5 +348,9 @@ $animate: all 0.2s ease-in-out;
     bottom: 55px !important;
   }
   bottom: 247px !important;
+}
+
+.v-text-field.v-input--dense:not(.v-text-field--outlined) input {
+  padding: 2px 0 2px !important;
 }
 </style>

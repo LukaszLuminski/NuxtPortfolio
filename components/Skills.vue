@@ -80,34 +80,6 @@ export default {
   },
   created () {
     this.skills = this.$store.state.skills.items
-  },
-  methods: {
-    // waitForDialog (val) {
-    //   this.currentTitle = val.title
-    //   if (this.hasTouch) {
-    //     this.$refs[val.title][0].classList.add('has-touch-open')
-    //     setTimeout(() => {
-    //       if (this.currentTitle === val.title) {
-    //         this.$root.$emit('open-skill-dialog', val)
-    //       }
-    //     }, 300)
-    //   } else {
-    //     this.$refs[val.title][0].classList.add('open')
-    //     setTimeout(() => {
-    //       if (this.currentTitle === val.title) {
-    //         this.$root.$emit('open-skill-dialog', val)
-    //       }
-    //     }, 700)
-    //   }
-    // },
-    // unhover (val) {
-    //   this.currentTitle = ''
-    //   if (this.hasTouch) {
-    //     this.$refs[val][0].classList.remove('has-touch-open')
-    //   } else {
-    //     this.$refs[val][0].classList.remove('open')
-    //   }
-    // }
   }
 }
 </script>
