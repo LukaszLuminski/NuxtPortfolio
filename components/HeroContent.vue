@@ -145,7 +145,6 @@ export default {
   }
   &__flip {
     transition: transform 0.4s;
-    transform-style: preserve-3d;
     transform: rotateX(90deg);
   }
 }

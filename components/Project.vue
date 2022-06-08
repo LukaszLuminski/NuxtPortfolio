@@ -1,39 +1,63 @@
 <template>
   <v-row class="projects__row pb-3">
-    <v-col v-for="(project, i) in arr" :key="i" class="col-12 col-sm-6">
+    <v-col
+      v-for="(project, i) in arr"
+      :key="i"
+      class="col-12 col-sm-6"
+    >
       <v-card
         elevation="10"
         :class="isIos ? 'disable-hover' : 'enable-hover'"
         class="projects__card"
         :style="!imgsReady ? 'opacity: 0' : 'opacity: 1'"
       >
-        <figure class="hover-effect">
-          <img :src="`/img/${project.img}`" @load="incrementLoadedImgs">
+        <figure
+          class="hover-effect"
+        >
+          <img
+            :src="`/img/${project.img}`"
+            @load="incrementLoadedImgs"
+          >
           <article class="d-flex align-center">
-            <div class="card-content mb-12">
+            <component
+              :is="hasTouch ? 'div' : 'button'"
+              class="card-content
+              mb-12"
+              @click="!hasTouch && openDialog(project)"
+            >
               <h3 class="mb-3">
                 {{ project.title }}
               </h3>
               <p>{{ project.description }}</p>
-            </div>
+            </component>
           </article>
         </figure>
         <div
           :class="!imgsReady ? 'd-none' : 'd-flex'"
           class="links align-center mt-auto py-3 px-7"
-          :style="!isIos ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px' : 'border-bottom-left-radius: 0; border-bottom-right-radius: 0'"
+          :style="isIos
+            ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px'
+            : ''"
         >
           <a
             v-if="project.live"
             :href="project.live"
             target="_blank"
-            class="ml-auto mr-5"
-          >Live</a><a
+          >
+            Live
+          </a>
+          <a
             v-if="project.code"
             :href="project.code"
             target="_blank"
-            class="mx-auto"
-          >Code</a><a class="mr-auto mx-5" @click="openDialog(project)">More info</a>
+          >Code
+          </a>
+          <a
+            v-if="hasTouch"
+            @click="openDialog(project)"
+          >
+            More info
+          </a>
         </div>
       </v-card>
     </v-col>
@@ -47,25 +71,31 @@ export default {
       type: Boolean,
       required: true
     },
+
+    hasTouch: {
+      type: Boolean,
+      required: true
+    },
+
     arr: {
       type: Array,
       required: true
     },
+
     imgsReady: {
       type: Boolean,
       required: true
     }
   },
+
   methods: {
     openDialog (val) {
       this.$root.$emit('open-dialog', val)
     },
+
     incrementLoadedImgs () {
       this.$emit('add-loaded-img')
     }
   }
 }
 </script>
-
-<style>
-</style>

@@ -40,6 +40,7 @@
       >
         <Project
           :is-ios="isIos"
+          :has-touch="hasTouch"
           :arr="arrOfVueProjects"
           :imgs-ready="imgsReady"
           @add-loaded-img="allLoadedImg++"
@@ -71,6 +72,7 @@
         <Project
           class="mb-15"
           :is-ios="isIos"
+          :has-touch="hasTouch"
           :arr="arrOfOtherProjects"
           :imgs-ready="imgsReady"
           @add-loaded-img="allLoadedImg++"
@@ -171,10 +173,6 @@ export default {
     }
   }
   background: $color-light-grey;
-  // @media (min-width: 768px) {
-  //   clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
-  // }
-  // clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
   &__card {
     position: relative;
     transition: 0.4s;
@@ -190,6 +188,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
+  justify-content: space-evenly;
   background: rgba(0, 0, 0, 0.55);
   a {
     font-size: 19px;

@@ -54,19 +54,8 @@ export default {
       skills: false,
       about: false,
       hasTouch: false
-      // loadingFinished: false
     }
   },
-
-  // watch: {
-  //   isLoaded (newVal, oldVal) {
-  //     if (newVal) {
-  //       setTimeout(() => {
-  //         this.loadingFinished = true
-  //       }, 600)
-  //     }
-  //   }
-  // },
 
   created () {
     this.$root.$on('open-dialog', (val) => {
