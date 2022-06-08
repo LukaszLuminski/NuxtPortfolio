@@ -6,8 +6,8 @@ export const state = () => ({
       live: null,
       code: 'https://github.com/LukaszLuminski/NuxtPortfolio',
       title: 'Portfolio',
-      description: 'This very website, being built with Nuxt.js and Vuetify.',
-      long_description: '<p>Portfolio website, with design based on its predecessor: <a href="https://lukaszluminski.github.io/Portfolio/" target= \'_blank\'>https://lukaszluminski.github.io/Portfolio/</a></p><p></p>The first version was built just with HTML5, SCSS and Javascript / jQuery. Its code can be found here: <a href="https://github.com/LukaszLuminski/Portfolio/" target= \'_blank\'>https://github.com/LukaszLuminski/Portfolio/</a></p><p>The current portfolio build is still in progress.</p><p>It\'s being developed with Nuxt.js and Vuetify, and deployed to Netlify.</p>',
+      description: 'This very website, built with Nuxt.js and Vuetify.',
+      long_description: '<p>Portfolio website, with design based on its predecessor: <a href="https://lukaszluminski.github.io/Portfolio/" target= \'_blank\'>https://lukaszluminski.github.io/Portfolio/</a></p><p></p>The first version has been built just with HTML5, SCSS and Javascript / jQuery. Its code can be found here: <a href="https://github.com/LukaszLuminski/Portfolio/" target= \'_blank\'>https://github.com/LukaszLuminski/Portfolio/</a></p><p>The current portfolio has been built with Nuxt.js and Vuetify, and deployed to Netlify.</p>',
       front_end: 'Nuxt.js, Vuetify, SCSS',
       back_end: null,
       db: null
