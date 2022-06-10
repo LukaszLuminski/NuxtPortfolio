@@ -25,8 +25,10 @@ export default {
     }
   },
 
-  mounted () {
-    this.isLoaded = true
+  created () {
+    this.$nuxt.$on('homepage-ready', () => {
+      this.isLoaded = true
+    })
   }
 }
 </script>

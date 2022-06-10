@@ -76,7 +76,6 @@ export default {
       drawerIsOpen: false,
       bg: 'transparent',
       navItems: null,
-      homepageReady: false,
       showLogo: false
     }
   },
@@ -89,20 +88,8 @@ export default {
       return mobileWidth
     }
   },
-  watch: {
-    homepageReady (val) {
-      if (val) {
-        setTimeout(() => {
-          this.showLogo = true
-        }, 150)
-      }
-    }
-  },
   created () {
     this.navItems = this.$store.state.menu.items
-    this.$nuxt.$on('homepage-ready', () => {
-      this.homepageReady = true
-    })
   },
   mounted () {
     window.onscroll = () => {
