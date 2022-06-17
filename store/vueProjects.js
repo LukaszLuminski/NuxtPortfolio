@@ -1,6 +1,28 @@
 export const state = () => ({
   items: [
     {
+      img: 'coming-soon.jpg',
+      alt: 'Nuxt.js and BootstrapVue Netlify app',
+      title: 'Coming soon',
+      description: 'Website for a local clinic, build in progress.',
+      long_description: '<p>The website will be deployed with Netlify. It uses its functions, e.g., the integration with Mailchimp and a serverless contact form.</p><p>Will use a CMS at a later stage and possibly a third party booking provider.</p>',
+      front_end: 'Nuxt.js, BootstrapVue, SCSS',
+      back_end: 'Netlify',
+      db: null
+    },
+    {
+      img: 'nuxt-blog.jpg',
+      alt: 'Nuxt.js and BootstrapVue app',
+      live: 'https://ll-blog-task.netlify.app/',
+      code: 'https://github.com/LukaszLuminski/NuxtBlog',
+      title: 'Nuxt Blog',
+      description: 'A simple Nuxt blog, using Vue Router, Vuex, Storybook and Jest, consuming API from mockapi.io.',
+      long_description: '<p>A simple blog, built as a (passed) technical test, with some of its components added to Storybook and tested. It was an interesting exercise, utilising Vue Router, Vuex, Axios and from the visual side – a great library <a href="https://bootstrap-vue.org/" target= \'_blank\'>BootstrapVue</a>. Built in one day.</p>',
+      front_end: 'Nuxt.js, BootstrapVue, Storybook, SCSS',
+      back_end: 'mockapi.io',
+      db: null
+    },
+    {
       img: 'portfolio-new.jpg',
       alt: 'Nuxt.js and Vuetify app',
       live: null,

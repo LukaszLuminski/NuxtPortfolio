@@ -14,10 +14,16 @@
         <figure
           class="hover-effect"
         >
-          <img
-            :src="`/img/${project.img}`"
-            @load="incrementLoadedImgs"
+          <div
+            class="background-img"
+            :style="{ backgroundImage: `url('/img/${ project.img }')` }"
           >
+            <img
+              :src="`/img/${project.img}`"
+              class="hidden-img"
+              @load="incrementLoadedImgs"
+            >
+          </div>
           <article class="d-flex align-center">
             <component
               :is="hasTouch ? 'div' : 'button'"

@@ -188,6 +188,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
+  min-height: 52.5px;
   justify-content: space-evenly;
   background: rgba(0, 0, 0, 0.55);
   a {

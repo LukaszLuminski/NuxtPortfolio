@@ -65,15 +65,24 @@
 }
 
 figure.hover-effect {
-  img {
+  .background-img {
+    padding-bottom: 66%;
     margin-bottom: -12px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: calc(100% + 12px);
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
     -webkit-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0);
-    // -webkit-backface-visibility: hidden;
-    // backface-visibility: hidden;
+    position: relative;
+  }
+
+  .hidden-img {
+    width: 0;
+    height: 0;
+    position: absolute;
   }
 
   article {
@@ -99,7 +108,7 @@ figure.hover-effect {
   &:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
-    img {
+    .background-img {
       opacity: 0.4;
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
