@@ -69,8 +69,7 @@ export default {
 
   recaptcha: {
     language: 'v2',
-    siteKey: '6LdjLOgaAAAAAHbcG8yiHaSMSsXN-eAYv3WZ8gAx', // Site key for requests
-    // siteKey: 'AIzaSyA8sTisx_Kz5vDRRUaUTQb3y7i7rtKGaoM',
+    siteKey: process.env.RECAPTCHA_SITE_KEY, // Site key for requests
     version: 2, // Version
     size: 'invisible'
   },
