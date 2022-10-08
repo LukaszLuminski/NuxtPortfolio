@@ -12,6 +12,7 @@
         :style="!imgsReady ? 'opacity: 0' : 'opacity: 1'"
       >
         <figure
+          :ref="`hover-effect-${ i }`"
           class="hover-effect"
         >
           <div
@@ -30,6 +31,8 @@
               class="card-content
               mb-12"
               @click="!hasTouch && openDialog(project)"
+              @focusin="showContent(i)"
+              @focusout="hideContent(i)"
             >
               <h3 class="mb-3">
                 {{ project.title }}
@@ -101,6 +104,14 @@ export default {
 
     incrementLoadedImgs () {
       this.$emit('add-loaded-img')
+    },
+
+    showContent (i) {
+      this.$refs[`hover-effect-${i}`][0].classList.add('hovered')
+    },
+
+    hideContent (i) {
+      this.$refs[`hover-effect-${i}`][0].classList.remove('hovered')
     }
   }
 }

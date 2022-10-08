@@ -73,6 +73,7 @@ export default {
     if ('ontouchstart' in window) {
       this.hasTouch = true
     }
+
     smoothscroll.polyfill()
     const checkIfIOS = () => {
       const iosQuirkPresent = () => {

@@ -10,7 +10,7 @@
       :color="bg"
     >
       <v-container class="d-flex pr-0 pl-0 pl-md-2">
-        <div
+        <button
           :class="{
             transition: showLogo
           }"
@@ -25,7 +25,7 @@
               :class="bg === 'transparent' ? 'light-grey' : 'dark-grey'"
             >Luminski</span>
           </p>
-        </div>
+        </button>
         <v-spacer />
         <NavMenuDesktop :bg="bg" :items="navItems" />
         <v-app-bar-nav-icon
@@ -46,7 +46,7 @@
       temporary
       right
     >
-      <div class="d-flex justify-end">
+      <div class="d-flex justify-end close-btn-wrapper">
         <v-btn
           icon
           :color="bg === 'transparent' ? 'white' : 'black'"
@@ -186,6 +186,7 @@ export default {
     }
   }
   .theNavMainMobile {
+    width: unset !important;
     padding-top: 2px;
     &__list {
       list-style-type: none;
@@ -219,5 +220,9 @@ export default {
 .theme--light.v-list-item--active::before {
   opacity: 0;
   border-radius: 0;
+}
+
+.close-btn-wrapper {
+  margin-bottom: 8px;
 }
 </style>

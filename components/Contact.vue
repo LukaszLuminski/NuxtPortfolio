@@ -33,6 +33,7 @@
               <v-row>
                 <v-col class="col-12 col-sm-6 pr-sm-5 pb-0">
                   <v-text-field
+                    ref="textFieldName"
                     v-model="name"
                     placeholder="Your Name"
                     class="contact__text-field"
@@ -42,10 +43,13 @@
                     filled
                     rounded
                     dense
+                    @focusin="addBorder('textFieldName')"
+                    @focusout="removeBorder('textFieldName')"
                   />
                   <input type="text" :value="name" name="name" class="d-none">
                 </v-col><v-col class="col-12 col-sm-6 pl-sm-0 pt-0 pt-sm-3 pb-0">
                   <v-text-field
+                    ref="textFieldEmail"
                     v-model="email"
                     name="email"
                     placeholder="Your Email"
@@ -56,6 +60,8 @@
                     filled
                     rounded
                     dense
+                    @focusin="addBorder('textFieldEmail')"
+                    @focusout="removeBorder('textFieldEmail')"
                   />
                   <input type="text" :value="email" name="email" class="d-none">
                 </v-col>
@@ -63,6 +69,7 @@
               <v-row>
                 <v-col block class="pt-0">
                   <v-text-field
+                    ref="textFieldSubject"
                     v-model="subject"
                     placeholder="Subject"
                     name="subject"
@@ -73,9 +80,17 @@
                     filled
                     rounded
                     dense
+                    @focusin="addBorder('textFieldSubject')"
+                    @focusout="removeBorder('textFieldSubject')"
                   />
-                  <input type="text" :value="subject" name="subject" class="d-none">
+                  <input
+                    type="text"
+                    :value="subject"
+                    name="subject"
+                    class="d-none"
+                  >
                   <v-textarea
+                    ref="textArea"
                     v-model="message"
                     placeholder="Enter Your Message"
                     auto-grow
@@ -83,6 +98,8 @@
                     filled
                     rounded
                     :rules="basicRules"
+                    @focusin="addBorder('textArea')"
+                    @focusout="removeBorder('textArea')"
                   />
                   <textarea name="message" :value="message" class="d-none" />
                   <v-btn dark x-large class="contact__btn" type="submit">
@@ -99,36 +116,33 @@
           class="mt-8 mt-md-15 pl-5 pb-0 pl-md-3 pl-md-10 col-12 col-md-5"
         >
           <div class="contact__single-logo">
-            <a
-              class="d-flex align-center"
+            <v-btn
+              class="d-flex align-center icon-btn"
               href="https://linkedin.com/in/lukasz-luminski/"
               target="_blank"
-              @mouseover="$refs.linkedinBtn.isActive = true"
-              @mouseout="$refs.linkedinBtn.isActive = false"
-            ><v-btn
-              ref="linkedinBtn"
-              class="mr-4 contact__logo-linkedin-btn"
-              icon
-              dark
-            ><v-icon dark class="contact__logo">
-              mdi-linkedin
-            </v-icon></v-btn><span
-              class="hover hover-1"
-            >linkedin.com/in/lukasz-luminski/</span></a>
+              plain
+              color="white"
+            >
+              <v-icon dark class="contact__logo">
+                mdi-linkedin
+              </v-icon><span
+                class="hover hover-1"
+              >linkedin.com/in/lukasz-luminski/</span>
+            </v-btn>
           </div>
           <div class="contact__single-logo">
-            <a
-              class="d-flex align-center"
+            <v-btn
+              class="d-flex align-center icon-btn"
               href="https://github.com/LukaszLuminski"
               target="_blank"
-              @mouseover="$refs.githubBtn.isActive = true"
-              @mouseout="$refs.githubBtn.isActive = false"
-            ><v-btn
-              ref="githubBtn"
-              class="mr-4 contact__logo-github-btn"
-              icon
-              dark
-            ><v-icon dark class="contact__logo"> mdi-github </v-icon></v-btn><span class="hover hover-1">github.com/LukaszLuminski</span></a>
+              plain
+              color="white"
+            >
+              <v-icon dark class="contact__logo">
+                mdi-github
+              </v-icon>
+              <span class="hover hover-1">github.com/LukaszLuminski</span>
+            </v-btn>
           </div>
         </v-col>
       </v-row>
@@ -219,6 +233,14 @@ export default {
         this.$refs.form.reset()
       }
       this.dialog = false
+    },
+
+    addBorder (ref) {
+      this.$refs[ref].$el.classList.add('focused')
+    },
+
+    removeBorder (ref) {
+      this.$refs[ref].$el.classList.remove('focused')
     }
   }
 }
@@ -234,9 +256,26 @@ $animate: all 0.2s ease-in-out;
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
 
+  .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
+    opacity: 1;
+
+    .v-icon {
+      opacity: 0.62;
+    }
+  }
+
+  .v-btn:not(.v-btn--round).v-size--default {
+    height: unset;
+    padding: 0;
+  }
+
   a {
     text-decoration: none !important;
     color: white !important;
+  }
+
+  .icon-btn {
+    text-transform: none !important;
   }
 
   &__divider {
@@ -250,6 +289,12 @@ $animate: all 0.2s ease-in-out;
     .v-input__slot {
       background-color: white !important;
       border: none !important;
+    }
+
+    &.focused {
+      .v-input__slot {
+        box-shadow: #d6ab62 0 0 0 3px, rgb(255 255 255) 0 0 0 5px;
+      }
     }
   }
 

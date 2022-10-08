@@ -1,10 +1,10 @@
 <template>
   <ul class="d-none d-md-flex align-center theMainMenuDesktop">
-    <a v-for="(n, i) in items" :key="i" @click="goTo(n.slug)">
-      <li :class="bg === 'transparent' ? 'white--text' : 'black--text'">
+    <li v-for="(n, i) in items" :key="i" @click="goTo(n.slug)">
+      <button :class="bg === 'transparent' ? 'white--text' : 'black--text'">
         {{ n.title }}
-      </li>
-    </a>
+      </button>
+    </li>
   </ul>
 </template>
 
@@ -30,8 +30,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none !important;
+button {
+  outline-offset: 3px;
 }
 .theMainMenuDesktop {
   @media (min-width: $breakpoint-lg) {

@@ -71,6 +71,7 @@ export default {
       }
       setTimeout(this.typeWriter, 60)
     },
+
     changeColor () {
       if (
         document.body.scrollTop > 150 ||

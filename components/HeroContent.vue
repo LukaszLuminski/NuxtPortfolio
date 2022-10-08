@@ -19,27 +19,25 @@
       }}<span
         :class="cursor ? '' : 'hidden'"
         class="cursor"
-      ><input type="text" class="rq-form-element"><i /></span>
+      ><input type="text" class="rq-form-element" disabled><i /></span>
     </p>
     <div class="heroSection__flip" :class="readyToAnimate ? 'flip-up' : ''">
       <!-- <div
         data-aos="flip-up"
       > -->
       <v-btn
-        x-large
-        icon
+        plain
         color="white"
-        class="mx-8 my-10"
+        class="mx-5 mx-lg-8 my-10"
         href="https://github.com/LukaszLuminski"
         target="_blank"
       >
         <v-icon>mdi-github</v-icon>
       </v-btn>
       <v-btn
-        x-large
-        icon
+        plain
         color="white"
-        class="mx-8 my-10"
+        class="mx-5 mx-lg-8 my-10"
         href="https://www.linkedin.com/in/lukasz-luminski"
         target="_blank"
       >
@@ -123,6 +121,11 @@ export default {
 
 <style lang="scss">
 .heroSection {
+  .v-btn:not(.v-btn--round).v-size--default {
+    height: unset;
+    padding: 0;
+  }
+
   &__first {
     height: 100vh;
     min-height: 560px;
@@ -136,9 +139,8 @@ export default {
     position: relative;
     min-height: 32px;
   }
-  .v-btn--icon.v-size--x-large .v-icon,
-  .v-btn--fab.v-size--x-large .v-icon {
-    font-size: 70px;
+  .v-icon {
+    font-size: 80px;
   }
   &__cta-btns {
     max-width: 382px;
@@ -234,5 +236,11 @@ export default {
 }
 .flip-up {
   transform: rotateX(0);
+}
+
+a {
+  &:focus-visible {
+    box-shadow: rgba(255, 255, 255, 50%) 0 0 0 10px;
+  }
 }
 </style>

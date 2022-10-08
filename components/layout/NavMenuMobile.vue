@@ -1,24 +1,23 @@
 <template>
-  <v-list nav class="theNavMainMobile__list">
-    <v-list-item-group>
-      <v-divider :class="bg === 'transparent' ? 'blue-grey darken-2' : 'grey'" />
-      <a
-        v-for="(n, i) in items"
-        :key="i"
-        class="theNavMainMobile__listItem"
-        @click="goTo(n.slug)"
-      >
-        <v-list-item class="theNavMainMobile__listItemLink">
-          <v-list-item-title>
-            <li :class="bg === 'transparent' ? 'white--text' : 'black--text'" class="pb-3">
-              {{ n.title }}
-            </li>
-          </v-list-item-title>
-        </v-list-item>
-        <v-divider :class="bg === 'transparent' ? 'blue-grey darken-2' : 'grey'" />
-      </a>
-    </v-list-item-group>
-  </v-list>
+  <div>
+    <ul nav class="theNavMainMobile__list">
+      <li>
+        <v-btn
+          v-for="(n, i) in items"
+          :key="i"
+          class="theNavMainMobile__listItem "
+          :class="bg === 'transparent' ? 'white--text' : 'black--text'"
+          elevation="0"
+          block
+          x-large
+          tile
+          @click="goTo(n.slug)"
+        >
+          {{ n.title }}
+        </v-btn>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -47,7 +46,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-}
+  .v-btn {
+    display: block;
+    min-width: 100%;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #455a64;
+    background-color: transparent !important;
+    padding-right: 80px !important;
+
+    &:first-of-type {
+      border-top: 1px solid #455a64;
+    }
+  }
+
+  ::v-deep .v-btn__content {
+    justify-content: flex-start !important;
+  }
 </style>

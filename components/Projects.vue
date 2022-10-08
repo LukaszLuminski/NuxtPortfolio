@@ -181,7 +181,8 @@ export default {
   }
 }
 .card-content {
-  height: fit-content;
+  width: 100%;
+  padding: 1rem;
 }
 .links {
   position: absolute;

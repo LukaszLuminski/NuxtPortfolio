@@ -19,9 +19,9 @@
         >
           <v-tooltip right>
             <template #activator="{ on, attrs }">
-              <div
+              <button
                 :ref="skill.title"
-                class="skills__single-skill"
+                class="skills__single-skill pa-2"
                 v-bind="attrs"
                 v-on="on"
               >
@@ -29,10 +29,10 @@
                   class="skills__img mx-auto"
                   :style="`background-image: url('${skill.img}')`"
                 />
-                <p class="skills__title pt-3">
+                <p class="skills__title pt-3 mb-0">
                   {{ skill.title }}
                 </p>
-              </div>
+              </button>
             </template>
             <v-card class="skills__info" elevation="4">
               <v-toolbar
@@ -134,6 +134,7 @@ export default {
     }
     margin-right: 0;
     margin-left: 0;
+    margin-top: -28px;
   }
   &__single-skill {
     width: fit-content;

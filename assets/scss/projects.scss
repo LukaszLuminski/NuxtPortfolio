@@ -1,8 +1,12 @@
 .projects__row {
   padding: 0.7em 0 4em;
-  .v-card, figure, article {
+
+  .v-card,
+  figure,
+  article {
     border-radius: 5px;
   }
+
   figure {
     transition: 0.5s;
     position: relative;
@@ -14,15 +18,18 @@
       @media (min-width: 768px) {
         font-size: 16px;
       }
+
       font-size: 14px;
       letter-spacing: 1px;
     }
 
     h3 {
       font-weight: 400;
+
       @media (min-width: 768px) {
         font-size: 23px;
       }
+
       font-size: 16px;
     }
 
@@ -31,14 +38,14 @@
       margin: 0;
     }
 
-    article > a {
+    article>a {
       z-index: 100;
       font-size: 0;
       opacity: 0;
     }
 
     article,
-    article > a {
+    article>a {
       position: absolute;
       top: 0;
       left: 0;
@@ -105,9 +112,11 @@ figure.hover-effect {
 
 .projects__card.enable-hover,
 figure.hover-effect {
-  &:hover {
+  &:hover,
+  &.hovered {
     -webkit-box-shadow: none;
     box-shadow: none;
+
     .background-img {
       opacity: 0.4;
       -webkit-transform: translate3d(0, 0, 0);
