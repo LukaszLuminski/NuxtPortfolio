@@ -7,6 +7,7 @@
       <img
         src="/img/hero-bg.jpg"
         :class="hasTouch ? 'fixed-img' : 'jarallax-img'"
+        alt=""
       >
       <HeroContent
         :heading="heading"

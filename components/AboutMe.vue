@@ -4,9 +4,9 @@
       <div
         class="title-wrapper"
       >
-        <p class="section-title pt-8">
+        <h2 class="section-title pt-8">
           About me
-        </p>
+        </h2>
         <v-divider class="mt-2 mb-8" />
       </div>
       <div

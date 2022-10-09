@@ -10,10 +10,10 @@
         :data-aos-offset="!$vuetify.breakpoint.xs ? '300' : ''"
         data-aos-anchor-placement="center-bottom"
       >
-        <p class="section-title pt-8">
+        <h2 class="section-title pt-8">
           My most recent, Vue.js
           <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">projects
-        </p>
+        </h2>
         <v-divider class="mt-2 mb-6" />
         <div
           v-if="hasTouch"
@@ -55,10 +55,10 @@
         :data-aos-offset="!$vuetify.breakpoint.xs ? '300' : ''"
         data-aos-anchor-placement="center-bottom"
       >
-        <p class="section-subtitle pt-8">
+        <h2 class="section-subtitle pt-8">
           Older projects, various
           <br :class="$vuetify.breakpoint.xs ? '' : 'd-none'">tech stack
-        </p>
+        </h2>
         <v-divider class="mt-2 mb-6" />
       </div>
       <div

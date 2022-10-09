@@ -22,6 +22,7 @@
             <img
               :src="`/img/${project.img}`"
               class="hidden-img"
+              alt=""
               @load="incrementLoadedImgs"
             >
           </div>

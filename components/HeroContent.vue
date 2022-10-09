@@ -5,22 +5,25 @@
     "
     class="text-center heroSection__container white--text"
   >
-    <h1
-      ref="heroSection__heading"
-      :class="$vuetify.breakpoint.xs ? 'display-1' : 'display-2'"
-    >
-      {{ heading }}
+    <h1>
+      <span
+        ref="heroSection__heading"
+        :class="$vuetify.breakpoint.xs ? 'display-1' : 'display-2'"
+      >
+        {{ heading }}
+      </span>
+      <br>
+      <span
+        :class="$vuetify.breakpoint.xs ? 'font-size-mobile' : 'font-size-desktop'"
+        class="mt-2 heroSection__subheading mx-auto pl-1"
+      >
+        {{ subheading
+        }}<span
+          :class="cursor ? '' : 'hidden'"
+          class="cursor"
+        ><input type="text" class="rq-form-element" disabled><i /></span>
+      </span>
     </h1>
-    <p
-      :class="$vuetify.breakpoint.xs ? 'font-size-mobile' : 'font-size-desktop'"
-      class="mt-2 heroSection__subheading mx-auto pl-1"
-    >
-      {{ subheading
-      }}<span
-        :class="cursor ? '' : 'hidden'"
-        class="cursor"
-      ><input type="text" class="rq-form-element" disabled><i /></span>
-    </p>
     <div class="heroSection__flip" :class="readyToAnimate ? 'flip-up' : ''">
       <!-- <div
         data-aos="flip-up"
@@ -30,6 +33,7 @@
         color="white"
         class="mx-5 mx-lg-8 my-10"
         href="https://github.com/LukaszLuminski"
+        aria-label="Github link"
         target="_blank"
       >
         <v-icon>mdi-github</v-icon>
@@ -39,6 +43,7 @@
         color="white"
         class="mx-5 mx-lg-8 my-10"
         href="https://www.linkedin.com/in/lukasz-luminski"
+        aria-label="Linkedin link"
         target="_blank"
       >
         <v-icon>mdi-linkedin</v-icon>
@@ -126,6 +131,14 @@ export default {
     padding: 0;
   }
 
+  h1 {
+    line-height: 1;
+
+    @media (min-width: 600px) {
+      line-height: 1.5;
+    }
+  }
+
   &__first {
     height: 100vh;
     min-height: 560px;
@@ -138,6 +151,7 @@ export default {
   &__subheading {
     position: relative;
     min-height: 32px;
+    font-weight: 400;
   }
   .v-icon {
     font-size: 80px;

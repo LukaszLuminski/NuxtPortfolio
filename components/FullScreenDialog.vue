@@ -32,12 +32,13 @@
             class="mt-10 mt-sm-15 d-flex justify-center pt-0 pt-sm-3"
           >
             <v-card class="d-sm-none image-wrapper" elevation="1">
-              <v-img :src="`/img/${project.img}`" @load="imageLoaded = true" />
+              <v-img :src="`/img/${project.img}`" alt="" @load="imageLoaded = true" />
             </v-card>
             <v-col class="col-6 d-none d-sm-block pb-0 pb-lg-3">
               <v-card elevation="3">
                 <v-img
                   :src="`/img/${project.img}`"
+                  alt=""
                   @load="imageLoaded = true"
                 />
               </v-card>

@@ -32,6 +32,7 @@
           :color="bg === 'transparent' ? 'white' : 'black'"
           x-large
           class="d-md-none"
+          aria-label="Navigation toggle button"
           :class="drawerIsOpen ? 'd-none' : ''"
           @click="drawerIsOpen = true"
         />

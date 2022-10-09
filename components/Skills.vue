@@ -4,9 +4,9 @@
       <div
         class="title-wrapper"
       >
-        <p class="section-title pt-2 pt-md-5">
+        <h2 class="section-title pt-2 pt-md-5">
           My skills
-        </p>
+        </h2>
         <v-divider class="mb-12" />
       </div>
       <v-row

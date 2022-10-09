@@ -4,9 +4,9 @@
       <div
         class="title-wrapper"
       >
-        <p class="section-title pt-4 white--text">
+        <h2 class="section-title pt-4 white--text">
           Contact
-        </p>
+        </h2>
         <v-divider class="mb-15 contact__divider" />
       </div>
       <v-row
