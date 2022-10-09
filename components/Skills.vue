@@ -17,7 +17,7 @@
           :key="i"
           class="col-4 col-sm-2 text-center"
         >
-          <v-tooltip right>
+          <v-tooltip top>
             <template #activator="{ on, attrs }">
               <button
                 :ref="skill.title"
