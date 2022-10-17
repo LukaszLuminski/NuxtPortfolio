@@ -49,25 +49,30 @@
             ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px'
             : ''"
         >
-          <a
+          <v-btn
             v-if="project.live"
+            text
             :href="project.live"
             target="_blank"
           >
             Live
-          </a>
-          <a
+          </v-btn>
+          <v-btn
             v-if="project.code"
+            text
             :href="project.code"
             target="_blank"
-          >Code
-          </a>
-          <a
+          >
+            Code
+          </v-btn>
+          <v-btn
             v-if="hasTouch"
+            text
+            class="link-style-focus"
             @click="openDialog(project)"
           >
             More info
-          </a>
+          </v-btn>
         </div>
       </v-card>
     </v-col>
@@ -117,3 +122,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .link-style-focus {
+    color: #ffffff;
+
+    &::before {
+      background: #ffffff;
+    }
+
+    &:focus-visible {
+      box-shadow: rgb(255 255 255 / 50%) 0 0 0 10px;
+
+      .link-style-focus::before {
+        opacity: 0.24;
+      }
+    }
+  }
+</style>
