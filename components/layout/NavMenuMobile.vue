@@ -27,17 +27,20 @@ export default {
       type: Array,
       required: true
     },
+
     bg: {
       type: String,
       required: true
     }
   },
+
   methods: {
     goTo (link) {
       this.closeDrawer()
       const element = document.getElementById(link.replace('#', ''))
       element.scrollIntoView({ behavior: 'smooth' })
     },
+
     closeDrawer () {
       this.$emit('close')
     }
