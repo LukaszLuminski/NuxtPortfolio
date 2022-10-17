@@ -1,18 +1,19 @@
 export const state = () => ({
   items: [
     {
-      img: 'coming-soon.jpg',
-      alt: 'Nuxt.js and BootstrapVue Netlify app',
-      title: 'Coming soon',
-      description: 'Website for a local clinic, build in progress.',
-      long_description: '<p>The website will be deployed with Netlify. It uses its functions, e.g., the integration with Mailchimp and a serverless contact form.</p><p>Will use a CMS at a later stage and possibly a third party booking provider.</p>',
+      img: 'bodyandsoultherapy.jpg',
+      alt: 'Body & Soul Therapy website',
+      live: 'https://bodyandsoultherapypeterborough.com',
+      title: 'Body & Soul Therapy website',
+      description: 'Website for a local clinic, built with Nuxt.js and BootstrapVue, using Netlify functions.',
+      long_description: '<p>The website has been deployed with Netlify. It uses its functions, e.g., the integration with Mailchimp and a serverless contact form.</p><p>Will use a CMS at a later stage and possibly a third party booking provider.</p>',
       front_end: 'Nuxt.js, BootstrapVue, SCSS',
       back_end: 'Netlify',
       db: null
     },
     {
       img: 'nuxt-blog.jpg',
-      alt: 'Nuxt.js and BootstrapVue app',
+      alt: 'Nuxt Blog',
       live: 'https://ll-blog-task.netlify.app/',
       code: 'https://github.com/LukaszLuminski/NuxtBlog',
       title: 'Nuxt Blog',
@@ -24,7 +25,7 @@ export const state = () => ({
     },
     {
       img: 'portfolio-new.jpg',
-      alt: 'Nuxt.js and Vuetify app',
+      alt: 'Portfolio',
       live: null,
       code: 'https://github.com/LukaszLuminski/NuxtPortfolio',
       title: 'Portfolio',
@@ -36,7 +37,7 @@ export const state = () => ({
     },
     {
       img: 'converter.jpg',
-      alt: 'Vue.js, Vuex and Vue Router app',
+      alt: 'Vue Currency Converter',
       live: 'https://l-luminski-vue-currency-converter.netlify.app/',
       code: 'https://github.com/LukaszLuminski/Vue-Currency-Converter/',
       title: 'Vue Currency Converter',
