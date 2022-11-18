@@ -6,7 +6,7 @@ export const state = () => ({
       live: 'https://bodyandsoultherapypeterborough.com',
       title: 'Body & Soul Therapy website',
       description: 'Website for a local clinic, built with Nuxt.js and BootstrapVue, using Netlify functions.',
-      long_description: '<p>The website has been deployed with Netlify. It uses its functions, e.g., the integration with Mailchimp and a serverless contact form.</p><p>Will use a CMS at a later stage and possibly a third party booking provider.</p>',
+      long_description: '<p>The website has been deployed with Netlify. It uses its functions, e.g., the integration with Mailchimp and a serverless contact form.</p><p>Will use a CMS at a later stage.</p>',
       front_end: 'Nuxt.js, BootstrapVue, SCSS',
       back_end: 'Netlify',
       db: null
@@ -30,7 +30,7 @@ export const state = () => ({
       code: 'https://github.com/LukaszLuminski/NuxtPortfolio',
       title: 'Portfolio',
       description: 'This very website, built with Nuxt.js and Vuetify.',
-      long_description: '<p>Portfolio website, with design based on its predecessor: <a href="https://lukaszluminski.github.io/Portfolio/" target= \'_blank\'>https://lukaszluminski.github.io/Portfolio/</a></p><p></p>The first version has been built just with HTML5, SCSS and Javascript / jQuery. Its code can be found here: <a href="https://github.com/LukaszLuminski/Portfolio/" target= \'_blank\'>https://github.com/LukaszLuminski/Portfolio/</a></p><p>The current portfolio has been built with Nuxt.js and Vuetify, and deployed to Netlify.</p>',
+      long_description: '<p>Portfolio website, built in 2020 with Nuxt.js and Vuetify. Deployed to Netlify, using its serverless contact form.</p>',
       front_end: 'Nuxt.js, Vuetify, SCSS',
       back_end: null,
       db: null
