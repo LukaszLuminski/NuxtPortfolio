@@ -1,30 +1,6 @@
 export const state = () => ({
   items: [
     {
-      img: 'tastytreats.jpg',
-      alt: 'Data validation and user authorisation app',
-      live: 'https://tastytreats.herokuapp.com/',
-      code: 'https://github.com/LukaszLuminski/TastyTreats/',
-      title: 'Tasty Treats',
-      description: 'A Node.js and Express app with data validation, user authentication and database. Full info and instructions can be found in GitHub README.',
-      long_description: '<p>An app I\'ve built in April 2020 to learn more about Node.js and saving validated data in a database, accessible only for authenticated users.</p><p>I\'ve created a fictional bakery\'s contact page with a contact form that uses Google reCAPTCHA v3 for spam prevention. Before submission, a form is validated from both the client and the server side, with the list of possible errors ready to be displayed.</p><p>Submitted forms are saved in a MongoDB database. To view and edit them, user needs to navigate to <i>/admin</i> route and log in with the following credentials: <i>admin</i> as the login, <i>admin</i> as the password and <i>treats</i> in the bottom field.</p><p>If logged in successfully, user will be redirected to the last available route, <i>forms</i>. From there all the submitted forms can be viewed, temporarily hidden or permanently removed from the database.</p>',
-      front_end: 'HTML5, JavaScript ES6+, jQuery, SCSS',
-      back_end: 'Node.js, Express.js',
-      db: 'MongoDB'
-    },
-    {
-      img: 'weather.jpg',
-      alt: 'Node.js Weather application',
-      live: 'https://weather-app-ll.herokuapp.com/',
-      code: 'https://github.com/LukaszLuminski/WeatherApp/',
-      title: 'Weather App',
-      description: 'A simple Node.js, Express and Handlebars app consuming API from OpenWeatherMap, handling route and data errors.',
-      long_description: '<p>My first app consuming APIs, two different ones in this case. These are the OpenWeatherMap (<a href="https://openweathermap.org/" target="_blank">https://openweathermap.org/</a>) and Google Autocomplete, for places\' names.</p><p>Any possible errors are displayed to user, data is validated prior to an API call. This project taught me more about APIs and using Google Developers Console.</p>',
-      front_end: 'HTML5, JavaScript ES6+, jQuery, SCSS',
-      back_end: 'Node.js, Express.js',
-      db: null
-    },
-    {
       img: 'burger.jpg',
       alt: 'Fictional burger restaurant website',
       live: 'https://lukaszluminski.github.io/BurgerRestaurant/',
