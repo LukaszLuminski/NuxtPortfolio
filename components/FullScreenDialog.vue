@@ -24,7 +24,7 @@
       <v-container ref="container">
         <v-card
           :style="imageLoaded ? 'opacity: 1;' : 'opacity: 0;'"
-          class="project-description__content-card px-3 px-sm-6 mb-15"
+          class="project-description__content-card px-3 px-sm-6 mb-10"
           elevation="4"
         >
           <v-row
@@ -73,7 +73,7 @@
           </v-row>
           <v-divider class="mt-0 mb-5" />
           <v-row class="pb-2">
-            <v-col class="pb-0">
+            <v-col class="pb-0 col-sm-3 col-12">
               <v-btn
                 class="white--text"
                 color="#aea79e"
@@ -86,7 +86,7 @@
                 Live version
               </v-btn>
             </v-col>
-            <v-col>
+            <v-col class="pb-0 col-sm-3 col-12">
               <v-btn
                 class="white--text"
                 color="#948c84"
@@ -97,6 +97,18 @@
                 target="_blank"
               >
                 Github Code
+              </v-btn>
+            </v-col>
+            <v-col class="d-none d-sm-block" />
+            <v-col>
+              <v-btn
+                class="white--text mt-sm-0 mt-3"
+                color="#aea79e"
+                block
+                large
+                @click="$emit('close')"
+              >
+                Go back
               </v-btn>
             </v-col>
           </v-row>
