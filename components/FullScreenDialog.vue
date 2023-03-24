@@ -106,7 +106,7 @@
                 color="#aea79e"
                 block
                 large
-                @click="$emit('close')"
+                @click="closeDialog"
               >
                 Go back
               </v-btn>
