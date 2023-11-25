@@ -1,5 +1,13 @@
 <template>
-  <div class="heroSection">
+  <div
+    v-intersect="{
+      handler: onIntersect,
+      options: {
+        threshold: [0.2]
+      }
+    }"
+    class="heroSection"
+  >
     <div
       :class="hasTouch ? 'img-wrapper' : 'jarallax'"
       class="heroSection__first jarallax d-flex align-center justify-center"
@@ -23,14 +31,20 @@
 <script>
 // import AOS from 'aos'
 import HeroContent from './HeroContent.vue'
+import IntersectionObserverMixin from '~/mixins/intersectionObserver.js'
+
 export default {
   components: { HeroContent },
+
+  mixins: [IntersectionObserverMixin],
+
   props: {
     hasTouch: {
       type: Boolean,
       required: true
     }
   },
+
   data () {
     return {
       heading: '',
@@ -39,9 +53,11 @@ export default {
       animateSocials: false,
       textColor: null,
       i: 0,
-      j: 0
+      j: 0,
+      sectionName: ' '
     }
   },
+
   mounted () {
     this.$nextTick(() => {
       setTimeout(() => {
@@ -49,6 +65,7 @@ export default {
       }, 1000)
     })
   },
+
   methods: {
     typeWriter () {
       const heading = "Hello, I'm Lukasz"

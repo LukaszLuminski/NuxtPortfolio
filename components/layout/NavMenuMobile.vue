@@ -6,7 +6,10 @@
           v-for="(n, i) in items"
           :key="i"
           class="theNavMainMobile__listItem "
-          :class="bg === 'transparent' ? 'white--text' : 'black--text'"
+          :class="{
+            'white--text': bg === 'transparent',
+            'black--text': bg !== 'transparent'
+          }"
           elevation="0"
           block
           x-large
@@ -59,6 +62,10 @@ export default {
 
     &:first-of-type {
       border-top: 1px solid #455a64;
+    }
+
+    &.active {
+      background-color: #c7c1bd !important;
     }
   }
 

@@ -1,5 +1,14 @@
 <template>
-  <div id="skills" class="skills">
+  <div
+    id="skills"
+    v-intersect="{
+      handler: onIntersect,
+      options: {
+        threshold: [1]
+      }
+    }"
+    class="skills"
+  >
     <v-container class="skills__container">
       <div
         class="title-wrapper"
@@ -64,20 +73,27 @@
 </template>
 
 <script>
+import IntersectionObserverMixin from '~/mixins/intersectionObserver.js'
+
 export default {
+  mixins: [IntersectionObserverMixin],
+
   props: {
     hasTouch: {
       type: Boolean,
       required: true
     }
   },
+
   data () {
     return {
-      skills: null
+      skills: null,
+      sectionName: 'Skills'
       // hovering: false,
       // currentTitle: ''
     }
   },
+
   created () {
     this.skills = this.$store.state.skills.items
   }

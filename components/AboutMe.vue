@@ -1,5 +1,14 @@
 <template>
-  <div id="about" class="about pt-9 pb-12">
+  <div
+    id="about"
+    v-intersect="{
+      handler: onIntersect,
+      options: {
+        threshold: [0.7]
+      }
+    }"
+    class="about pt-9 pb-12"
+  >
     <v-container id="aboutAnimate" class="about__container pb-5">
       <div
         class="title-wrapper"
@@ -31,19 +40,19 @@
 </template>
 
 <script>
+import IntersectionObserverMixin from '~/mixins/intersectionObserver.js'
+
 export default {
-  // props: {
-  //   aosPosition: {
-  //     type: String,
-  //     required: true
-  //   }
-  // },
+  mixins: [IntersectionObserverMixin],
+
   data () {
     return {
       info: null,
-      imgLoaded: false
+      imgLoaded: false,
+      sectionName: 'About me'
     }
   },
+
   created () {
     this.info = this.$store.state.aboutMe.data
   }

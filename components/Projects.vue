@@ -1,5 +1,14 @@
 <template>
-  <div id="projects" class="projects pb-8">
+  <div
+    id="projects"
+    v-intersect="{
+      handler: onIntersect,
+      options: {
+        threshold: [0.4]
+      }
+    }"
+    class="projects pb-8"
+  >
     <v-container class="projects__container mb-3">
       <div
         id="projects-title"
@@ -86,8 +95,13 @@
 
 <script>
 import Project from './Project.vue'
+import IntersectionObserverMixin from '~/mixins/intersectionObserver.js'
+
 export default {
   components: { Project },
+
+  mixins: [IntersectionObserverMixin],
+
   props: {
     isIos: {
       type: Boolean,
@@ -98,6 +112,7 @@ export default {
       required: true
     }
   },
+
   data () {
     return {
       arrOfOtherProjects: null,
@@ -105,9 +120,11 @@ export default {
       allImg: 0,
       allLoadedImg: 0,
       imgsReady: false,
-      visible: false
+      visible: false,
+      sectionName: 'Projects'
     }
   },
+
   watch: {
     allLoadedImg (val) {
       if (val === this.allImg) {
@@ -115,6 +132,7 @@ export default {
       }
     }
   },
+
   created () {
     this.arrOfOtherProjects = this.$store.state.otherProjects.items
     this.arrOfVueProjects = this.$store.state.vueProjects.items

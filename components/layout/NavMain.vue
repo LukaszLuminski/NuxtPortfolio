@@ -208,7 +208,7 @@ export default {
       text-transform: uppercase;
       // font-weight: 600;
       display: inline;
-      margin-right: 20px;
+      // margin-right: 20px;
       -webkit-transition: color 200ms ease-out;
       -moz-transition: color 200ms ease-out;
       -o-transition: color 200ms ease-out;

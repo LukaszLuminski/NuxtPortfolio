@@ -1,5 +1,14 @@
 <template>
-  <div id="contact" class="contact pt-7">
+  <div
+    id="contact"
+    v-intersect="{
+      handler: onIntersect,
+      options: {
+        threshold: [1],
+      }
+    }"
+    class="contact pt-7"
+  >
     <v-container class="contact__container">
       <div
         class="title-wrapper"
@@ -158,9 +167,12 @@
 
 <script>
 import ErrorDialog from '~/components/ErrorDialog.vue'
+import IntersectionObserverMixin from '~/mixins/intersectionObserver.js'
 
 export default {
   components: { ErrorDialog },
+
+  mixins: [IntersectionObserverMixin],
 
   data () {
     return {
@@ -176,7 +188,8 @@ export default {
       message: null,
       dialogMessage: null,
       basicRules: [v => !!v || 'Field is required'],
-      formData: {}
+      formData: {},
+      sectionName: 'Contact'
     }
   },
 

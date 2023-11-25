@@ -53,7 +53,8 @@ export default {
       projects: false,
       skills: false,
       about: false,
-      hasTouch: false
+      hasTouch: false,
+      isIntersecting: false
     }
   },
 
@@ -72,6 +73,10 @@ export default {
     window.scrollTo(0, 0)
     if ('ontouchstart' in window) {
       this.hasTouch = true
+    }
+
+    if (this.hasTouch) {
+      this.$nuxt.$emit('is-touch-device')
     }
 
     smoothscroll.polyfill()
