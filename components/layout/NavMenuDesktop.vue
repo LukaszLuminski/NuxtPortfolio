@@ -140,8 +140,21 @@ ul {
         width: calc(100% - 46px);
       }
 
+      &.white--text:hover {
+        color: #000 !important;
+
+        &:before {
+          background: rgba(255, 255, 255, 0.7);
+        }
+      }
+
+      &.black--text:hover:before {
+        background: #666666;
+      }
+
       &:hover {
         opacity: 1;
+        transition: 0.4s;
         filter: blur(0);
         text-decoration: none;
         color: #fff !important;
@@ -150,7 +163,6 @@ ul {
           transition: transform 0.3s;
           transform-origin: left;
           transform: scaleX(1);
-          background: #666666;
         }
 
         &:after {
